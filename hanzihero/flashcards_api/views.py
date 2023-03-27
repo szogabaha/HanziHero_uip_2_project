@@ -45,7 +45,7 @@ class DecksApi(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class DeckApi(APIView):
+class DeckDetailApi(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request, deck_id, *args, **kwargs):
@@ -55,6 +55,26 @@ class DeckApi(APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
         serializer = DeckInfoSerializer(deck)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def patch(self, request, deck_id, *args, **kwargs):
+        try:
+           deck = Deck.objects.get(pk=deck_id)
+        except Deck.DoesNotExist:
+           return Response(status=status.HTTP_404_NOT_FOUND)
+        serializer = FullDeckSerializer(deck, data = request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def delete(self, request, deck_id, *args, **kwargs):
+        try:
+            deck = Deck.objects.get(pk=deck_id)
+        except Deck.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        
+        deck.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
     
     
 class CardsApi(APIView):
@@ -84,7 +104,7 @@ class CardsApi(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-class CardApi(APIView):
+class CardDetailApi(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request, deck_id, card_id, *args, **kwargs):
@@ -115,3 +135,16 @@ class CardApi(APIView):
         card.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
     
+class RevisionApi(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        card_status = request.GET.get("status")
+        if card_status not in [c[0] for c in Status.choices]:
+            return Response(f"given status is not available, possible statuses: {[c[0] for c in Status.choices]}", status=status.HTTP_400_BAD_REQUEST)
+        try:
+            cards = Card.objects.filter(status = card_status, deck__user = request.user.id)
+        except Card.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        serializer = CardSerializer(cards, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)

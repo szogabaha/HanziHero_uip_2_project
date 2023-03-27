@@ -3,15 +3,17 @@ from django.conf.urls import url
 from django.urls import path, include
 from .views import (
     DecksApi,
-    DeckApi,
+    DeckDetailApi,
     CardsApi,
-    CardApi
+    CardDetailApi,
+    RevisionApi
     
 )
 
 urlpatterns = [
-    path('decks/', DecksApi.as_view()),
-    path('decks/<int:deck_id>/', DeckApi.as_view()),
-    path('decks/<int:deck_id>/cards/', CardsApi.as_view()),
-    path('decks/<int:deck_id>/cards/<int:card_id>/', CardApi.as_view())
+    path('', DecksApi.as_view()),
+    path('<int:deck_id>/', DeckDetailApi.as_view()),
+    path('<int:deck_id>/cards/', CardsApi.as_view()),
+    path('<int:deck_id>/cards/<int:card_id>/', CardDetailApi.as_view()),
+    path('revision/', RevisionApi.as_view())
 ]

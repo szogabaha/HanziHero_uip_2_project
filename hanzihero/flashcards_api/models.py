@@ -15,8 +15,8 @@ class Deck(models.Model):
 
 class Status(models.TextChoices):
         LEARNT = "learnt"
-        REVISE = "needs revise"
-        NOT_KNOWN = "not known"
+        REVISE = "needs_revise"
+        NOT_KNOWN = "not_known"
 
 class Card(models.Model):
 
