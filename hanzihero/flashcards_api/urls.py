@@ -1,14 +1,6 @@
-# todo/todo_api/urls.py : API urls.py
-from django.conf.urls import url
-from django.urls import path, include
-from .views import (
-    DecksApi,
-    DeckDetailApi,
-    CardsApi,
-    CardDetailApi,
-    RevisionApi
-    
-)
+from django.urls import path
+from .views.deckviews import (DecksApi, DeckDetailApi)
+from .views.cardviews import (CardsApi, CardDetailApi,RevisionApi)
 
 urlpatterns = [
     path('', DecksApi.as_view()),

@@ -26,9 +26,9 @@ class DeckInfoSerializer(serializers.ModelSerializer):
     def get_revising_cnt(self, deck):
         return deck.cards.filter(status = Status.REVISE).count()
 
-    learnt_cnt = serializers.SerializerMethodField("get_learnt_cnt")
-    revise_cnt = serializers.SerializerMethodField("get_revising_cnt")
-    not_known = serializers.SerializerMethodField("get_not_known_cnt")
+    learnt_cnt : int = serializers.SerializerMethodField("get_learnt_cnt")
+    revise_cnt : int = serializers.SerializerMethodField("get_revising_cnt")
+    not_known  : int = serializers.SerializerMethodField("get_not_known_cnt")
 
     class Meta:
         model = Deck
