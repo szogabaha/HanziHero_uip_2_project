@@ -43,4 +43,4 @@ class Card(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    language = models.TextField(choices=CardLanguage.choices, null=False)
+    language = models.TextField(choices=CardLanguage.choices, null=False, default=CardLanguage.CHINESE)

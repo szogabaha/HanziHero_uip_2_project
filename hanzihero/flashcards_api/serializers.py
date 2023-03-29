@@ -1,7 +1,8 @@
 from rest_framework import serializers
-from .models import Card, Deck, Status
+from .models import Card, Deck, Status, UserProfile, CardLanguage
 from rest_auth.serializers import UserDetailsSerializer
-
+from rest_auth.registration.serializers import RegisterSerializer
+from django.db import transaction, IntegrityError
 
 class CardSerializer(serializers.ModelSerializer):
 
@@ -35,7 +36,7 @@ class DeckInfoSerializer(serializers.ModelSerializer):
         model = Deck
         fields = "__all__"
 
-class UserSerializer(UserDetailsSerializer):
+class FlashcardUserSerializer(UserDetailsSerializer):
 
     language = serializers.CharField(source="userprofile.language")
 
@@ -46,7 +47,7 @@ class UserSerializer(UserDetailsSerializer):
         profile_data = validated_data.pop('userprofile', {})
         language = profile_data.get('language')
 
-        instance = super(UserSerializer, self).update(instance, validated_data)
+        instance = super(FlashcardUserSerializer, self).update(instance, validated_data)
 
         # get and update user profile
         profile = instance.userprofile
@@ -54,3 +55,17 @@ class UserSerializer(UserDetailsSerializer):
             profile.language = language
             profile.save()
         return instance
+
+class FlashcardUserRegisterSerializer(RegisterSerializer):
+
+    def save(self, request):
+        try:
+            with transaction.atomic():
+                user = super().save(request)
+                language = request.data.get("language")
+                if not language or language not in [c[0] for c in CardLanguage.choices]:
+                    raise serializers.ValidationError("Invalid language input.")
+                UserProfile.objects.create(language = language, user=user)
+            return user
+        except IntegrityError as e:
+            raise serializers.ValidationError(e)

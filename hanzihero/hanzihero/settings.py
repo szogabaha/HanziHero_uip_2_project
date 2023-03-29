@@ -25,14 +25,17 @@ SECRET_KEY = 'django-insecure-5#^$^1n_3c9f9enp@30+=qt801!nb(kqxe0iy*mvvi0d@w^00@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
     'drf_yasg', #https://www.jasonmars.org/2020/04/22/add-swagger-to-django-rest-api-quickly-4-mins-without-hiccups/
@@ -47,38 +50,42 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 REST_AUTH_SERIALIZERS = {
-    'USER_DETAILS_SERIALIZER': 'flashcards_api.serializers.UserSerializer'
+    'USER_DETAILS_SERIALIZER': 'flashcards_api.serializers.FlashcardUserSerializer'
 }
+
+REST_AUTH_REGISTER_SERIALIZERS = {
+        "REGISTER_SERIALIZER":"flashcards_api.serializers.FlashcardUserRegisterSerializer"
+    }
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'hanzihero.urls'
 
-SITE_ID = 1
 TEMPLATES = [
-]
-"""
- {
-    'BACKEND': 'django.template.backends.django.DjangoTemplates',
-    'DIRS': [],
-    'APP_DIRS': True,
-    'OPTIONS': {
-        'context_processors': [
-            'django.template.context_processors.debug',
-            'django.template.context_processors.request',
-            'django.contrib.auth.context_processors.auth',
-            'django.contrib.messages.context_processors.messages',
-        ],
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
     },
-},
-"""
+]
 
 WSGI_APPLICATION = 'hanzihero.wsgi.application'
 
