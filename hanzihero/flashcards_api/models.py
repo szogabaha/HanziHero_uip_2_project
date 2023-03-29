@@ -1,7 +1,6 @@
 from django.db import models
 from django.core.validators import RegexValidator
 from django.contrib.auth.models import User
-from account.models import FlashcardsUser
 
 class Status(models.TextChoices):
     LEARNT = "learnt"
@@ -17,7 +16,7 @@ class Deck(models.Model):
     
     name = models.TextField(max_length=200, default="New deck", blank=True, null=False) #TODO move constants
     description = models.TextField(max_length=3000, blank=True, null=False) #TODO move constant
-    user = models.ForeignKey(FlashcardsUser, on_delete= models.CASCADE, blank=True, null=True)
+    user = models.ForeignKey(User, on_delete= models.CASCADE, blank=True, null=True)
     language = models.TextField(choices=CardLanguage.choices, null=False) #TODO change default to user level language
     created_at = models.DateTimeField(auto_now_add=True)
     last_revised = models.DateTimeField(null=True)
@@ -40,3 +39,8 @@ class Card(models.Model):
 
     def __str__(self):
         return f"{self.deck}: {self.meaning}, ({self.status})"
+    
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    language = models.TextField(choices=CardLanguage.choices, null=False)

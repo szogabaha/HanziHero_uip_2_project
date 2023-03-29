@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Card, Deck, Status
+from rest_auth.serializers import UserDetailsSerializer
 
 
 class CardSerializer(serializers.ModelSerializer):
@@ -33,3 +34,23 @@ class DeckInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Deck
         fields = "__all__"
+
+class UserSerializer(UserDetailsSerializer):
+
+    language = serializers.CharField(source="userprofile.language")
+
+    class Meta(UserDetailsSerializer.Meta):
+        fields = UserDetailsSerializer.Meta.fields + ('language',)
+
+    def update(self, instance, validated_data):
+        profile_data = validated_data.pop('userprofile', {})
+        language = profile_data.get('language')
+
+        instance = super(UserSerializer, self).update(instance, validated_data)
+
+        # get and update user profile
+        profile = instance.userprofile
+        if profile_data and language:
+            profile.language = language
+            profile.save()
+        return instance
