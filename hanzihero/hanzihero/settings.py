@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_yasg', #https://www.jasonmars.org/2020/04/22/add-swagger-to-django-rest-api-quickly-4-mins-without-hiccups/
     'rest_registration', #https://pypi.org/project/django-rest-registration/
-    'flashcards_api'
+    'flashcards_api',
+    'account'
 ]
 
 REST_REGISTRATION = {
@@ -85,18 +86,13 @@ WSGI_APPLICATION = 'hanzihero.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'uid2-flashcards',
-        'ENFORCE_SCHEMA': False,
-        'CLIENT': {
-            "host": "mongodb://localhost",
-            "port": 27017,
-            "username":"uid2_user",
-            "password": "uid2_user"
-
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'uid2_flashcards', 
+            'USER': 'uid2_user',
+            'PASSWORD': 'uid2_user',
+            'HOST': 'localhost', 
+            'PORT': '5432',
         }
-
-    }
 }
 
 
