@@ -1,0 +1,62 @@
+a{
+    color: #068489;
+}
+input[type=text], input[type=password]{
+    width: 600px;
+    border-radius: 5px;
+    height: 40px;
+    border: solid 1px;
+}
+
+label{
+    text-align: left;
+    float: left;
+    margin-top: 10px;
+}
+
+.logo{
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 10px;
+}
+
+#welcome-message{
+    font-size: 30px;
+}
+
+#main-wrap{
+    width: fit-content;
+    margin: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.section{
+    background-color: #e5e5e5;
+    border: solid 2px #505050;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+}
+
+#forgot-password{
+    margin-top: 10px;
+    float: right;
+    margin-left: 15px;
+}
+
+#login{
+    width: auto;
+    height: fit-content;
+    margin-top: 20px;
+    padding: 5px;
+    background-color: #068489;
+    border-radius: 10px;
+    color: white;
+}
+#form-wrap{
+    margin: auto;
+    width: fit-content;
+}
