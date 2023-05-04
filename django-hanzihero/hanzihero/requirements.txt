@@ -1,0 +1,4 @@
+django-rest-framework==0.1.0
+drf_yasg
+django-rest-auth[with_social]
+psycopg2 
