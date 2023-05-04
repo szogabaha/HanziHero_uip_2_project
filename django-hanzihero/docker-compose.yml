@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: uid2_flashcards
+      POSTGRES_USER: uid2_user
+      POSTGRES_PASSWORD: uid2_user
+    ports:
+     - '5432:5432'
+
+  app:
+    build:
+      context: .
+    ports:
+     - '8000:8000'
+    depends_on:
+      - db
+    command: python manage.py runserver 0.0.0.0:8000
+    env_file:
+      - ./.env.dev

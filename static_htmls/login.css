@@ -2,7 +2,7 @@ a{
     color: #068489;
 }
 input[type=text], input[type=password]{
-    width: 600px;
+    width: 100%;
     border-radius: 5px;
     height: 40px;
     border: solid 1px;
@@ -25,7 +25,9 @@ label{
 }
 
 #main-wrap{
-    width: fit-content;
+    width: 60%;
+    max-width: 650px;
+    min-width: 260px;
     margin: auto;
     padding-left: 30px;
     padding-right: 30px;
@@ -41,10 +43,13 @@ label{
     font-size: 30px;
 }
 
-#forgot-password{
-    margin-top: 10px;
-    float: right;
-    margin-left: 15px;
+#password-labels-flex{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: flex-end;
 }
 
 #login{
@@ -58,5 +63,6 @@ label{
 }
 #form-wrap{
     margin: auto;
-    width: fit-content;
+    padding: 0 30px 20px 30px;
+    width: auto;
 }
