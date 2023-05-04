@@ -1,4 +1,4 @@
-=====
+
 Hanzihero
 =====
 
@@ -8,7 +8,7 @@ The application also provides a Swagger documentation under the /docs api.
 
 Quick start
 -----------
-(for all the followingg commands the "-d" flag detaches the terminal from the execution)
+(for all the following commands the "-d" flag detaches the terminal from the execution)
 - "docker-compose build" - build containers (pull db and build app by local Dockerfile)
 - "docker-compose run app sh -c "python manage.py makemigrations" - create sql scripts for db
 - "docker-compose run app sh -c "python manage.py migrate" - migrate changes from generated scripts to db
