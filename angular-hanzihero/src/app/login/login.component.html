@@ -1,0 +1,27 @@
+<div id="main-wrap">
+    <div class="logo">
+        <div>
+            <img src="assets/logo.png" alt="Logo">
+        </div>
+        <div id="welcome-message">Sign in to name</div>
+    </div>
+    <div class="section">
+        <div id="form-wrap">
+            <form [formGroup]="form">
+                <label for="username">Username</label><br>
+                <input class="input" type="text" id="username" name="username" formControlName="username"><br>
+                <div id="password-labels-flex">
+                    <div><label for="password">Password</label></div>
+                    <div id="forgot-password"><a>Forgot password?</a></div>
+                </div>
+                <br>
+                <input type="password" id="password" name="password" formControlName="password">
+                <br>
+            </form>
+            <div id="login" (click)="login()">Login</div>
+        </div>
+    </div>
+
+    <div class="section">No account yet? <a>Sign up here.</a></div>
+</div>
+
