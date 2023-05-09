@@ -20,6 +20,10 @@
     margin-bottom: 1%;
 }
 
+.homescreen_chart{
+    color: black;
+}
+
 #bar_chart{
     padding: 5%;
 }
@@ -45,6 +49,28 @@
     padding: 2%;
     background-color: #e5e5e5;
     border: solid 2px #505050;
+}
+
+.menu_flashcard:hover{
+    background-color: #505050;
+    border: solid 2px #282828;
+}
+
+.menu_flashcard.selected:hover{
+    background-color: #505050;
+    border: solid 2px #282828;
+}
+
+.menu_flashcard.selected:active{
+    background-color: #068489;
+    border: solid 2px #045154;
+    color: #ffff;
+}
+
+.menu_flashcard.selected{
+    background-color: #068489;
+    border: solid 2px #045154;
+    color: #ffff;
 }
 
 .deck_overview{
