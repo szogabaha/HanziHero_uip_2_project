@@ -1,0 +1,32 @@
+<div id="main-wrap">
+  <div class="logo">
+      <div>
+          <img src="assets/logo.png" alt="Logo">
+      </div>
+      <div id="welcome-message">Sign in to name</div>
+  </div>
+  <div class="section">
+      <div id="form-wrap">
+          <form [formGroup]="form">
+              <label for="username">Username</label><br>
+              <input class="input" type="text" id="username" name="username" formControlName="username"><br>
+
+              <label for="username">Email</label><br>
+              <input class="input" type="text" id="email" name="email" formControlName="email"><br>
+
+              <label for="password1">Password</label><br>
+              <input type="password" id="password1" name="password1" formControlName="password1"><br>
+
+              <label for="password2">Repeat password</label><br>
+              <input type="password" id="password2" name="password2" formControlName="password2"><br>
+
+
+            </form>
+          <div id="login" (click)="register()">Create Account</div>
+          <div *ngIf="loginFailed" class="error-message">Incorrect username or password</div>
+      </div>
+  </div>
+
+  <div class="section" routerLink="/register">Already have an account? <a routerLink="/login">Log in here.</a></div>
+</div>
+

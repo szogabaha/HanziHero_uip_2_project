@@ -1,29 +1,31 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class LoginComponent {
+export class RegisterComponent {
   form : FormGroup;
   loginFailed = false;
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.form = this.fb.group({
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      email: ['', Validators.required],
+      password1: ['', Validators.required],
+      password2: ['', Validators.required],
     });
 
   }
 
-  login(): void {
+  register(): void {
     const val = this.form.value;
 
-    if (val.username && val.password) {
-      this.authService.login(val.username, val.password).subscribe(
+    if (val.username && val.email && val.password1 && val.password2 && val.password1 === val.password2) { //Todo more sophisticated pw1 pw2 match
+      this.authService.register(val.username, val.password1, val.email).subscribe(
         user => {
           if (user) {
             console.log("User logged in");
