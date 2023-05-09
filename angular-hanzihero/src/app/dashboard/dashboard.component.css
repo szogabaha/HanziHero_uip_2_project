@@ -1,0 +1,129 @@
+#homescreen_element_wrapper{
+    width: fit-content;
+    margin: auto;
+    margin-top:5%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    /*border: solid 2px #505050;*/
+}
+
+#homescreen_overview{
+    display: flex;
+    width: auto;
+    border-radius: 20px;
+    padding: 5%;
+    background-color: #e5e5e5;
+    border: solid 2px #505050;
+    margin-bottom: 1%;
+}
+
+#bar_chart{
+    padding: 5%;
+}
+
+#pie_chart {
+    padding: 5%;
+}
+
+#card_wrapper{
+    display: flex;
+    border-radius: 20px;
+    padding: 2%;
+    background-color: #e5e5e5;
+    border: solid 2px #505050;
+}
+
+.menu_flashcard{
+    border-radius: 20px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin: 1%;
+    padding: 2%;
+    background-color: #e5e5e5;
+    border: solid 2px #505050;
+}
+
+.deck_overview{
+    display: block;
+    height: max-content;
+    border-radius: 20px;
+    margin-top: 5%;
+    padding: 5%;
+    background-color: #e5e5e5;
+    border: solid 2px #505050;
+}
+
+.deck_description{
+    word-break: break-word;
+}
+
+.ov_span{
+    float: left;
+    clear: left;
+}
+
+.deck_overview_button_wrapper{
+    display: inline-flex;
+    margin-top: 5%;
+
+}
+
+.show_cards{
+    display:inherit;
+    float: left;
+    margin-right: 5%;
+    border-radius: 20px;
+    padding: 10%;
+    background-color: #505050;
+    color: #ffff;
+}
+
+.start_deck{
+    display: inherit;
+    margin-left: 5%;
+    float: right;
+    border-radius: 20px;
+    padding: 10%;
+    background-color: #068489;
+    color: #ffff;
+}
+
+.deck_name{
+    font-weight: bold;
+    font-size: large;
+}
+
+.card_overview{
+    height: max-content;
+    border-radius: 20px;
+    margin-top: 5%;
+    padding: 5%;
+    background-color: #e5e5e5;
+    border: solid 2px #505050;
+}
+
+.card_info_header{
+
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    border-bottom: 2px solid #505050;
+}
+
+.source_word{
+    float:left;
+    display: inherit;
+}
+
+.target_pinyin{
+    display: inherit;
+}
+
+.target_word{
+    float:right;
+    display: inherit;
+}
