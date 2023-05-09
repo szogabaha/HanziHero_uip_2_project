@@ -24,6 +24,10 @@ label{
   padding: 10px;
 }
 
+#register_han{
+  width: 25%;
+}
+
 #welcome-message{
   font-size: 30px;
 }
