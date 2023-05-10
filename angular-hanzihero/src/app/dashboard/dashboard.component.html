@@ -28,18 +28,19 @@
     </div>
 
 
-
-    <div class="card_overview" *ngIf="onShowCards">
-        <div class="card_information" id="deck_1_card_1">
-            <div class="card_info_header">
-                <div class="source_word" id="deck_1_card_1_source"> Panda </div>
-                <div class="target_pinyin" id="deck_1_card_1_pinyin"> xióngmāo </div>
-                <div class="target_word" id="deck_1_card_1_target"> 熊貓 </div>
+    <div *ngIf="showCards">
+        <div class="card_overview" >
+            <div class="card_information" id="deck_1_card_1">
+                <div class="card_info_header">
+                    <div class="source_word" id="deck_1_card_1_source"> Panda </div>
+                    <div class="target_pinyin" id="deck_1_card_1_pinyin"> xióngmāo </div>
+                    <div class="target_word" id="deck_1_card_1_target"> 熊貓 </div>
+                </div>
+                <div class="target_sentence" id="deck_1_card_1_t_sentence"> Nàlĭ yŏu yī zhī xióngmāo zuò zài nàbiān de shù shàng. </div>
+                <div class="source_sentence" id="deck_1_card_1_s_sentence"> There's a Panda sitting in that tree over there. </div>
             </div>
-            <div class="target_sentence" id="deck_1_card_1_t_sentence"> Nàlĭ yŏu yī zhī xióngmāo zuò zài nàbiān de shù shàng. </div>
-            <div class="source_sentence" id="deck_1_card_1_s_sentence"> There's a Panda sitting in that tree over there. </div>
-        </div>
 
+        </div>
     </div>
 
 

@@ -51,6 +51,14 @@
     border: solid 2px #505050;
 }
 
+.show_cards:hover{
+    background-color: #282828;
+}
+
+.start_deck:hover{
+    background-color: #045154;
+}
+
 .menu_flashcard:hover{
     background-color: #505050;
     border: solid 2px #282828;
