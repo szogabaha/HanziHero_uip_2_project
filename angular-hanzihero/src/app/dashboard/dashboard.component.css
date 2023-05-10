@@ -51,6 +51,10 @@
     border: solid 2px #505050;
 }
 
+.return:hover{
+    background-color: #282828;
+}
+
 .show_cards:hover{
     background-color: #282828;
 }
@@ -81,7 +85,7 @@
     color: #ffff;
 }
 
-.deck_overview{
+.static_deck_overview{
     display: block;
     height: max-content;
     border-radius: 20px;
@@ -91,6 +95,18 @@
     border: solid 2px #505050;
 }
 
+.editable_deck_overview{
+    display: block;
+    height: max-content;
+    border-radius: 20px;
+    margin-top: 5%;
+    padding: 5%;
+    background-color: #e5e5e5;
+    border: solid 2px #505050;
+}
+
+
+
 .deck_description{
     word-break: break-word;
 }
@@ -98,12 +114,29 @@
 .ov_span{
     float: left;
     clear: left;
+    padding-top: 2%;
+}
+
+#editor_header{
+    font-weight: bold;
+    font-size: larger;
 }
 
 .deck_overview_button_wrapper{
     display: inline-flex;
     margin-top: 5%;
 
+}
+
+
+.return{
+    display:inherit;
+    float: left;
+    margin-right: 5%;
+    border-radius: 20px;
+    padding: 10%;
+    background-color: #505050;
+    color: #ffff;
 }
 
 .show_cards{
@@ -118,8 +151,8 @@
 
 .start_deck{
     display: inherit;
-    margin-left: 5%;
-    float: right;
+    margin-right: 5%;
+    float: left;
     border-radius: 20px;
     padding: 10%;
     background-color: #068489;

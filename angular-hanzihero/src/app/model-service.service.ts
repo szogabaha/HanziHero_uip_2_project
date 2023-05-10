@@ -19,7 +19,13 @@ export class ModelServiceService {
   }
 
   getCardsFromDeck(deck: Deck): Card[]{
-    return CARDS;
+    let filteredCards: Card[] = [];
+    for (let card of CARDS){
+      if(card.deckOrigin == deck){
+        filteredCards.push(card);
+      }
+    }
+    return filteredCards;
   }
 
   getUsers(): User[]{

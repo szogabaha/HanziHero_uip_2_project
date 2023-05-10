@@ -18,20 +18,38 @@ export class DashboardComponent {
 
   selectedDeck?: Deck;
   showCards?: Boolean = false;
-
-  onSelect(deck: Deck): void {
-    this.selectedDeck = deck;
-  }
-
-  onShowCards(): void {
-    this.showCards = !this.showCards;
-  }
+  showEditor?: Boolean = false;
+  showStaticDeckView?: Boolean = false;
 
   ngOnInit(): void{
     this.getDecks();
   }
 
+  onSelect(deck: Deck): void {
+    this.selectedDeck = deck;
+    this.showCards = false;
+  }
+
+  onShowCards(deck: Deck): void {
+    this.getMatchingCards(deck);
+    this.showCards = !this.showCards;
+  }
+
+  toggleEditor(): void {
+    this.showEditor = !this.showEditor;
+  }
+
+  hideEditor(): void{
+    this.showEditor = false;
+  }
+
+
+
   getDecks(): void {
     this.decks = this.modelService.getDecks();
+  }
+
+  getMatchingCards(deck: Deck): void {
+    this.cards = this.modelService.getCardsFromDeck(deck);
   }
 }
