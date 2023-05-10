@@ -1,5 +1,6 @@
 #homescreen_element_wrapper{
-    width: fit-content;
+    min-width: 25%;
+    max-width: fit-content;
     margin: auto;
     margin-top:5%;
     justify-content: center;
@@ -56,6 +57,10 @@
 }
 
 .show_cards:hover{
+    background-color: #282828;
+}
+
+.hide_cards:hover{
     background-color: #282828;
 }
 
@@ -140,6 +145,16 @@
 }
 
 .show_cards{
+    display:inherit;
+    float: left;
+    margin-right: 5%;
+    border-radius: 20px;
+    padding: 10%;
+    background-color: #505050;
+    color: #ffff;
+}
+
+.hide_cards{
     display:inherit;
     float: left;
     margin-right: 5%;

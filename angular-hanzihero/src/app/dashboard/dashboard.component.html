@@ -13,30 +13,35 @@
         <div class="menu_flashcard" id="add_menu_flashcard"><i class='bi bi-plus' Alt="Add card icon"></i></div>
         <div class="menu_flashcard" *ngFor="let deck of decks" (click)="onSelect(deck)"  [class.selected]="deck === selectedDeck">{{deck.deckName}}</div>
     </div>
+
+
     <div *ngIf="selectedDeck">
-        <div class="static_deck_overview" *ngIf="!showEditor">
-            <span class="deck_name ov_span" (click)="toggleEditor()">{{selectedDeck.deckName}}</span>
-            <span class="deck_description ov_span" (click)="toggleEditor()">{{selectedDeck.deckDescription}}</span>
+
+        <div class="static_deck_overview" *ngIf="!showDeckEditor">
+            <span class="deck_name ov_span" (click)="toggleDeckEditor()">{{selectedDeck.deckName}}</span>
+            <span class="deck_description ov_span" (click)="toggleDeckEditor()">{{selectedDeck.deckDescription}}</span>
             <span class="deck_created ov_span"> Created on: {{selectedDeck.createdAt | date: 'dd/MM/yyyy'}} </span>
             <span class="deck_edited ov_span"> Last edited on: {{selectedDeck.lastRevised | date: 'dd/MM/yyyy'}}</span>
-            <div class="button_divider ov_span"></div>
+            <br>
+            <span class="button_divider ov_span"></span>
             <div class="deck_overview_button_wrapper">
-                <div class="show_cards" (click)="onShowCards(selectedDeck)">Show cards</div>
+                <div class="show_cards" *ngIf="!showCards"(click)="onShowCards(selectedDeck)">Show cards</div>
+                <div class="hide_cards" *ngIf="showCards" (click)="onShowCards(selectedDeck)">Hide cards</div>
                 <div class="start_deck">Start session</div>
             </div>
         </div>
 
-
-        <div class="editable_deck_overview" *ngIf="showEditor">
+        <div class="editable_deck_overview" *ngIf="showDeckEditor">
             <span class="ov_span" id="editor_header">Deck editor</span>
             <span class="deck_name ov_span"><input id="new_deck_name" [(ngModel)]="selectedDeck.deckName" placeholder="name"></span>
             <span class="deck_description ov_span"><input id="new_deck_description" [(ngModel)]="selectedDeck.deckDescription" placeholder="description"></span>
             <span class="deck_created ov_span"> Created on: {{selectedDeck.createdAt | date: 'dd/MM/yyyy'}} </span>
             <span class="deck_edited ov_span"> Last edited on: {{selectedDeck.lastRevised | date: 'dd/MM/yyyy'}}</span>
-            <div class="button_divider ov_span"></div>
+            <span class="button_divider ov_span"></span>
             <div class="deck_overview_button_wrapper">
-                <div class="return" (click)="toggleEditor()">Hide Editor</div>
-                <div class="show_cards" (click)="onShowCards(selectedDeck)">Show cards</div>
+                <div class="return" (click)="toggleDeckEditor()">Hide Editor</div>
+                <div class="show_cards" *ngIf="!showCards" (click)="onShowCards(selectedDeck)">Show cards</div>
+                <div class="hide_cards"  *ngIf="showCards" (click)="onShowCards(selectedDeck)">Hide cards</div>
                 <div class="start_deck">Start session</div>
             </div>
         </div>
@@ -44,18 +49,35 @@
 
 
     <div *ngIf="showCards">
-        <div class="card_overview" *ngFor="let card of cards">
-            <div class="card_information" id="deck_1_card_1">
-                <div class="card_info_header">
-                    <div class="source_word" id="deck_1_card_1_source"> {{card.meaning}} </div>
-                    <div class="target_pinyin" id="deck_1_card_1_pinyin"> {{card.pronunciation}} </div>
-                    <div class="target_word" id="deck_1_card_1_target"> {{card.characters}} </div>
+        <div *ngFor="let card of cards">
+            <div class="card_overview" *ngIf="!showCardEditor">
+                <div class="card_information" id="deck_1_card_1">
+                    <div class="card_info_header">
+                        <div class="source_word" id="deck_1_card_1_source"> {{card.meaning}} </div>
+                        <div class="target_pinyin" id="deck_1_card_1_pinyin"> {{card.pronunciation}} </div>
+                        <div class="target_word" id="deck_1_card_1_target"> {{card.characters}} </div>
+                    </div>
+                    <div class="target_sentence" id="deck_1_card_1_t_sentence"> {{card.targetSentence}} </div>
+                    <div class="source_sentence" id="deck_1_card_1_s_sentence"> {{card.sourceSentence}} </div>
                 </div>
-                <div class="target_sentence" id="deck_1_card_1_t_sentence"> {{card.targetSentence}} </div>
-                <div class="source_sentence" id="deck_1_card_1_s_sentence"> {{card.sourceSentence}} </div>
             </div>
 
+            <div class="card_overview" *ngIf="showCardEditor">
+                <div class="card_information" id="deck_1_card_1">
+                    <div class="card_info_header">
+                        <div class="source_word" id="deck_1_card_1_source"> {{card.meaning}} </div>
+                        <div class="target_pinyin" id="deck_1_card_1_pinyin"> {{card.pronunciation}} </div>
+                        <div class="target_word" id="deck_1_card_1_target"> {{card.characters}} </div>
+                    </div>
+                    <div class="target_sentence" id="deck_1_card_1_t_sentence"> {{card.targetSentence}} </div>
+                    <div class="source_sentence" id="deck_1_card_1_s_sentence"> {{card.sourceSentence}} </div>
+                </div>
+            </div>
         </div>
+
+
+
+
     </div>
 
 

@@ -18,8 +18,8 @@ export class DashboardComponent {
 
   selectedDeck?: Deck;
   showCards?: Boolean = false;
-  showEditor?: Boolean = false;
-  showStaticDeckView?: Boolean = false;
+  showDeckEditor?: Boolean = false;
+  showCardEditor?: Boolean = false;
 
   ngOnInit(): void{
     this.getDecks();
@@ -35,12 +35,20 @@ export class DashboardComponent {
     this.showCards = !this.showCards;
   }
 
-  toggleEditor(): void {
-    this.showEditor = !this.showEditor;
+  toggleDeckEditor(): void {
+    this.showDeckEditor = !this.showDeckEditor;
   }
 
-  hideEditor(): void{
-    this.showEditor = false;
+  hideDeckEditor(): void{
+    this.showDeckEditor = false;
+  }
+
+  toggleCardEditor(): void {
+    this.showCardEditor = !this.showCardEditor;
+  }
+
+  hideCardEditor(): void{
+    this.showCardEditor = false;
   }
 
 
