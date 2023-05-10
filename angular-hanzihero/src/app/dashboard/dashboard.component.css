@@ -179,7 +179,16 @@
     font-size: large;
 }
 
-.card_overview{
+.static_card_overview{
+    height: max-content;
+    border-radius: 20px;
+    margin-top: 5%;
+    padding: 5%;
+    background-color: #e5e5e5;
+    border: solid 2px #505050;
+}
+
+.editable_card_overview{
     height: max-content;
     border-radius: 20px;
     margin-top: 5%;

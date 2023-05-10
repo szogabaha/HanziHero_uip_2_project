@@ -17,6 +17,7 @@ export class DashboardComponent {
   }
 
   selectedDeck?: Deck;
+  selectedCard?: Card;
   showCards?: Boolean = false;
   showDeckEditor?: Boolean = false;
   showCardEditor?: Boolean = false;
@@ -25,10 +26,16 @@ export class DashboardComponent {
     this.getDecks();
   }
 
-  onSelect(deck: Deck): void {
+  onSelectDeck(deck: Deck): void {
     this.selectedDeck = deck;
     this.showCards = false;
   }
+
+  onSelectCard(card: Card): void {
+    this.selectedCard = card;
+  }
+
+
 
   onShowCards(deck: Deck): void {
     this.getMatchingCards(deck);

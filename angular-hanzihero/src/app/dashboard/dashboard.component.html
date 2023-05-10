@@ -11,7 +11,7 @@
 
     <div id="card_wrapper">
         <div class="menu_flashcard" id="add_menu_flashcard"><i class='bi bi-plus' Alt="Add card icon"></i></div>
-        <div class="menu_flashcard" *ngFor="let deck of decks" (click)="onSelect(deck)"  [class.selected]="deck === selectedDeck">{{deck.deckName}}</div>
+        <div class="menu_flashcard" *ngFor="let deck of decks" (click)="onSelectDeck(deck)"  [class.selected]="deck === selectedDeck">{{deck.deckName}}</div>
     </div>
 
 
@@ -26,8 +26,12 @@
             <span class="button_divider ov_span"></span>
             <div class="deck_overview_button_wrapper">
                 <div class="show_cards" *ngIf="!showCards"(click)="onShowCards(selectedDeck)">Show cards</div>
-                <div class="hide_cards" *ngIf="showCards" (click)="onShowCards(selectedDeck)">Hide cards</div>
-                <div class="start_deck">Start session</div>
+                <div class="hide_cards" *ngIf="showCards" (click)="onShowCards(selectedDeck); hideCardEditor()">Hide cards</div>
+                <nav>
+                    <a routerLink="/session">
+                        <div class="start_deck">Start session</div>
+                    </a>
+                </nav>
             </div>
         </div>
 
@@ -41,7 +45,7 @@
             <div class="deck_overview_button_wrapper">
                 <div class="return" (click)="toggleDeckEditor()">Hide Editor</div>
                 <div class="show_cards" *ngIf="!showCards" (click)="onShowCards(selectedDeck)">Show cards</div>
-                <div class="hide_cards"  *ngIf="showCards" (click)="onShowCards(selectedDeck)">Hide cards</div>
+                <div class="hide_cards"  *ngIf="showCards" (click)="onShowCards(selectedDeck); hideCardEditor()">Hide cards</div>
                 <div class="start_deck">Start session</div>
             </div>
         </div>
@@ -49,9 +53,9 @@
 
 
     <div *ngIf="showCards">
-        <div *ngFor="let card of cards">
-            <div class="card_overview" *ngIf="!showCardEditor">
-                <div class="card_information" id="deck_1_card_1">
+        <div *ngFor="let card of cards" (click)="onSelectCard(card)" [class.selected]="card === selectedCard">
+            <div class="static_card_overview" *ngIf="!showCardEditor">
+                <div class="card_information" (click)="toggleCardEditor()">
                     <div class="card_info_header">
                         <div class="source_word" id="deck_1_card_1_source"> {{card.meaning}} </div>
                         <div class="target_pinyin" id="deck_1_card_1_pinyin"> {{card.pronunciation}} </div>
@@ -62,10 +66,10 @@
                 </div>
             </div>
 
-            <div class="card_overview" *ngIf="showCardEditor">
-                <div class="card_information" id="deck_1_card_1">
+            <div class="editable_card_overview" *ngIf="showCardEditor">
+                <div class="card_information">
                     <div class="card_info_header">
-                        <div class="source_word" id="deck_1_card_1_source"> {{card.meaning}} </div>
+                        <div class="source_word" id="deck_1_card_1_source"> </div>
                         <div class="target_pinyin" id="deck_1_card_1_pinyin"> {{card.pronunciation}} </div>
                         <div class="target_word" id="deck_1_card_1_target"> {{card.characters}} </div>
                     </div>
@@ -74,9 +78,6 @@
                 </div>
             </div>
         </div>
-
-
-
 
     </div>
 
