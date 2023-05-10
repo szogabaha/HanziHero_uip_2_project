@@ -1,4 +1,34 @@
+.reduced_headerbar {
+    background-color: #e5e5e5;
+    border-bottom: solid 2px #505050;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: inline;
+}
+
+#header_logo{
+    float: left;
+    padding-top: 1%;
+    padding-left: 2%;
+    padding-bottom: 1%;
+}
+
+.header_progressbar{
+    float:left;
+    width: 50%;
+    align-items: center;
+    padding-left: 2%;
+    padding-top: 1.5%;
+}
+
 .session_panel{
+    padding-top: 2%;
     width: 100%;
 }
 
@@ -7,6 +37,19 @@
     margin-top: 10%;
 }
 
+.background_button_wrapper{
+    position: relative;
+    margin-top: 10%;
+}
+
+.sentence_button_wrapper{
+    position: relative;
+    margin-top: 10%;
+}
+
+.b_icon{
+    font-size: 600%;
+}
 
 .get_help_icon{
     padding-right: 2%;
@@ -31,7 +74,6 @@
 .card_foreground{
     justify-content: center;
     align-items: center;
-    min-height: 50%;
     min-width: 50%;
     max-width: fit-content;
     max-height: max-content;
@@ -41,8 +83,9 @@
     background-color: #e5e5e5;
     border: solid 2px #505050;
     border-radius: 20px;
-    padding: 2%;
     margin-top: 5%;
+    padding-top: 8%;
+    padding-bottom: 8%;
 }
 
 .card_background{
@@ -58,7 +101,8 @@
     background-color: #e5e5e5;
     border: solid 2px #505050;
     border-radius: 20px;
-    padding: 2%;
+    padding-top: 10%;
+    padding-bottom: 10%;
     margin-top: 5%;
 }
 
@@ -75,20 +119,31 @@
     background-color: #e5e5e5;
     border: solid 2px #505050;
     border-radius: 20px;
-    padding: 2%;
+    padding-top: 8%;
+    padding-bottom: 8%;
     margin-top: 5%;
 }
 
 .session_target_word{
-    font-size: xxx-large;
+    font-size: 1000%;
     font-weight: bolder;
 }
 
 .session_source_word{
-    font-size: x-large;
+    font-size: 500%;
     font-weight: bolder;
+}
+
+.ex_sentence_target{
+    font-size: 200%;
+}
+
+.ex_sentence_source{
+    font-size: 200%;
 }
 
 .ex_sentence_divider{
     border-bottom: solid 2px #505050;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }

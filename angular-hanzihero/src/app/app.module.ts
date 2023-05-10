@@ -13,6 +13,7 @@ import { SafeHtmlPipe } from './safe-html.pipe';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderbarComponent } from './headerbar/headerbar.component';
 import { SessionComponent } from './session/session.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { SessionComponent } from './session/session.component';
     SafeHtmlPipe,
     DashboardComponent,
     HeaderbarComponent,
-    SessionComponent
+    SessionComponent,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,

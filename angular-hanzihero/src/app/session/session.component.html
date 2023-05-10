@@ -1,26 +1,35 @@
+<div class="reduced_headerbar">
+    <div id="header_logo"><img src="assets/han_icon.png" alt="Logo" width="50" height="50" (click)="increaseProgress()"></div>
+    <div class="header_progressbar">
+        <app-progress-bar [value] = "progress"></app-progress-bar>
+    </div>
+</div>
+
+
+
 <div class="session_panel">
-    <div class="card_foreground">
+    <div class="card_foreground" *ngIf="showForeground" (click)="toggleBackgroundB(); toggleForegroundB()">
         <div class="session_target_word"> 熊貓 </div>
     </div>
-    <div class="card_background">
+    <div class="card_background" *ngIf="showBackground">
         <div class="session_source_word"> Panda </div>
     </div>
-    <div class="card_example_sentence">
+    <div class="card_example_sentence" *ngIf="showSentence">
         <div class="ex_sentence_target"> Nàlĭ yŏu yī zhī xióngmāo zuò zài nàbiān de shù shàng. </div>
         <div class="ex_sentence_divider"></div>
         <div class="ex_sentence_source"> There's a Panda sitting in that tree over there. </div>
     </div>
-    <div class="foreground_button_wrapper">
-        <div class="listen_icon"><i class='fa fa-volume-up fa-5x' style='color:#000000'></i></div>
-        <div class="get_help_icon"><i class='fa fa-question fa-5x' style='color:#000000'></i></div>
+    <div class="foreground_button_wrapper" *ngIf="showForeground">
+        <div class="listen_icon b_icon"><i class="bi bi-volume-up" (click)="toggleBackgroundB()"></i></div>
+        <div class="get_help_icon b_icon"><i class="bi bi-question-lg"></i></div>
     </div>
-    <div class="background_button_wrapper">
-        <div class="sentence_icon"><i class='fa fa-commenting-o fa-5x' style='color:#000000'></i></div>
-        <div class="get_help_icon"><i class='fa fa-question fa-5x' style='color:#000000'></i></div>
+    <div class="background_button_wrapper" *ngIf="showBackground">
+        <div class="sentence_icon b_icon" (click)="toggleBackgroundB(); toggleSentenceB()"><i class="bi bi-chat-left-text"></i></div>
+        <div class="get_help_icon b_icon"><i class="bi bi-question-lg"></i></div>
     </div>
-    <div class="sentence_button_wrapper">
-        <div class="return_from_sentence_icon"><i class='fa fa-mail-reply fa-5x' style='color:#000000'></i></div>
-        <div class="get_help_icon"><i class='fa fa-question fa-5x' style='color:#000000'></i></div>
+    <div class="sentence_button_wrapper" *ngIf="showSentence">
+        <div class="return_from_sentence_icon b_icon" (click)="toggleBackgroundB(); toggleSentenceB()"><i class="bi bi-reply"></i></div>
+        <div class="get_help_icon b_icon"><i class="bi bi-question-lg"></i></div>
     </div>
 
 </div>
