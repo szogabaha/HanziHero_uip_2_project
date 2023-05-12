@@ -10,10 +10,18 @@
     </div>
 
     <div id="card_wrapper">
-        <div class="menu_flashcard" id="add_menu_flashcard"><i class='bi bi-plus' Alt="Add card icon"></i></div>
+        <div class="menu_flashcard" id="add_menu_flashcard" (click)="toggleNewDeckCreator()"><i class='bi bi-plus' Alt="Add deck icon"></i> Add deck</div>
         <div class="menu_flashcard" *ngFor="let deck of decks" (click)="onSelectDeck(deck)"  [class.selected]="deck === selectedDeck">{{deck.deckName}}</div>
     </div>
 
+    <div *ngIf="showNewDeckCreator">
+        <div class="editable_deck_overview">
+            <span class="ov_span" id="creator_header">Add new deck</span>
+            <span class="deck_name ov_span"><input id="new_deck_name" #deckName/></span>
+            <span class="deck_description ov_span"><input id="new_deck_description" #deckDescription /></span>
+            <button class="add_deck" (click)="addDeck(deckName.value, deckDescription.value); deckName.value=''; deckDescription.value=''; toggleNewDeckCreator()">Add deck</button>
+        </div>
+    </div>
 
     <div *ngIf="selectedDeck">
 
@@ -53,6 +61,8 @@
 
 
     <div *ngIf="showCards">
+        <div class=" static_deck_overview add_card" (click)="toggleNewCardCreator()"><i class='bi bi-plus' Alt="Add card icon"></i>Add card</div>
+        
         <div *ngFor="let card of cards" (click)="onSelectCard(card)" [class.selected]="card === selectedCard">
             <div class="static_card_overview" *ngIf="!showCardEditor">
                 <div class="card_information" (click)="toggleCardEditor()">
@@ -66,15 +76,28 @@
                 </div>
             </div>
 
-            <div class="editable_card_overview" *ngIf="showCardEditor">
-                <div class="card_information">
-                    <div class="card_info_header">
-                        <div class="source_word" id="deck_1_card_1_source"> </div>
-                        <div class="target_pinyin" id="deck_1_card_1_pinyin"> {{card.pronunciation}} </div>
-                        <div class="target_word" id="deck_1_card_1_target"> {{card.characters}} </div>
+            <div class="editable_card_overview" *ngIf="showCardEditor && selectedCard">
+                <div *ngIf="card === selectedCard">
+                    <div class="card_information">
+                        <div class="card_info_header">
+                            <div class="source_word" id="deck_1_card_1_source"> <input id="new_card_meaning" [(ngModel)]="selectedCard.meaning" placeholder="meaning"></div>
+                            <div class="target_pinyin" id="deck_1_card_1_pinyin"> <input id="new_card_pronunciation" [(ngModel)]="selectedCard.pronunciation" placeholder="pronunciation"> </div>
+                            <div class="target_word" id="deck_1_card_1_target"> <input id="new_card_characters" [(ngModel)]="selectedCard.characters" placeholder="characters"></div>
+                        </div>
+                        <div class="target_sentence" id="deck_1_card_1_t_sentence"> <input id="new_card_target_sentence" [(ngModel)]="selectedCard.targetSentence" placeholder="targetSentence"> </div>
+                        <div class="source_sentence" id="deck_1_card_1_s_sentence"> <input id="new_card_target_sentence" [(ngModel)]="selectedCard.sourceSentence" placeholder="sourceSentence"> </div>
                     </div>
-                    <div class="target_sentence" id="deck_1_card_1_t_sentence"> {{card.targetSentence}} </div>
-                    <div class="source_sentence" id="deck_1_card_1_s_sentence"> {{card.sourceSentence}} </div>
+                </div>
+                <div *ngIf="card !== selectedCard">
+                    <div class="card_information">
+                        <div class="card_info_header">
+                            <div class="source_word" id="deck_1_card_1_source"> {{card.meaning}} </div>
+                            <div class="target_pinyin" id="deck_1_card_1_pinyin"> {{card.pronunciation}} </div>
+                            <div class="target_word" id="deck_1_card_1_target"> {{card.characters}} </div>
+                        </div>
+                        <div class="target_sentence" id="deck_1_card_1_t_sentence"> {{card.targetSentence}} </div>
+                        <div class="source_sentence" id="deck_1_card_1_s_sentence"> {{card.sourceSentence}} </div>
+                    </div>
                 </div>
             </div>
         </div>

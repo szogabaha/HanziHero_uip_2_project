@@ -35,4 +35,24 @@ export class ModelServiceService {
     const users = of(USERS);
     return users;
   }
+
+  putUser(user: User): void {
+    USERS.push(user);
+  }
+
+  putCard(card: Card): void {
+    CARDS.push(card);
+  }
+
+  putDeck(deck: Deck): void {
+    DECKS.push(deck);
+  }
+
+  genCardId(card: Card[]): number {
+    return CARDS.length > 0 ? Math.max(...CARDS.map(card => card.cardId)) + 1 : 1;
+  }
+
+  genDeckId(deck: Deck[]): number {
+    return DECKS.length > 0 ? Math.max(...DECKS.map(deck => deck.deckId)) + 1 : 1;
+  }
 }
