@@ -96,6 +96,7 @@
     border-radius: 20px;
     margin-top: 5%;
     padding: 5%;
+    padding-bottom: 45%;
     background-color: #e5e5e5;
     border: solid 2px #505050;
 }
@@ -105,11 +106,49 @@
     height: max-content;
     border-radius: 20px;
     margin-top: 5%;
-    padding: 5%;
+    padding-top: 3%;
+    padding-bottom: 60%;
+    padding-left: 5%;
+    padding-right: 5%;
     background-color: #e5e5e5;
     border: solid 2px #505050;
 }
 
+.create_deck_overview{
+    display: block;
+    height: max-content;
+    border-radius: 20px;
+    margin-top: 5%;
+    padding-top: 3%;
+    padding-bottom: 35%;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: #e5e5e5;
+    border: solid 2px #505050;
+    
+}
+
+
+
+.add_deck{
+    border-radius: 20px;
+    margin-top: 2%;
+    padding: 2%;
+    text-align: center;
+    align-items: center;
+    align-self: center;
+    background-color: #068489;
+    color: #ffff;
+}
+
+.add_deck:hover{
+    background-color: #045154;
+}
+
+#creator_header{
+    font-weight: bold;
+    font-size: larger;
+}
 
 
 .deck_description{
@@ -166,10 +205,9 @@
 
 .start_deck{
     display: inherit;
-    margin-right: 5%;
     float: left;
     border-radius: 20px;
-    padding: 10%;
+    padding: 25%;
     background-color: #068489;
     color: #ffff;
 }
@@ -189,6 +227,51 @@
 }
 
 .editable_card_overview{
+    height: max-content;
+    border-radius: 20px;
+    margin-top: 5%;
+    padding: 5%;
+    background-color: #e5e5e5;
+    border: solid 2px #505050;
+}
+
+.create_card_overview{
+    height: max-content;
+    border-radius: 20px;
+    margin-top: 5%;
+    padding: 5%;
+    padding-bottom: 12%;
+    background-color: #e5e5e5;
+    border: solid 2px #505050;
+}
+
+.create_input{
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+#card_creator_header{
+    font-size: larger;
+    font-weight: bold;
+    margin-bottom: 2%;
+}
+
+.create_card{
+    border-radius: 20px;
+    margin-top: 2%;
+    padding: 2%;
+    text-align: center;
+    align-items: center;
+    align-self: center;
+    background-color: #068489;
+    color: #ffff;
+}
+
+.create_card:hover{
+    background-color: #045154;
+}
+
+.add_card{
     height: max-content;
     border-radius: 20px;
     margin-top: 5%;
@@ -217,4 +300,18 @@
 .target_word{
     float:right;
     display: inherit;
+}
+
+.header_span{
+    width: auto;
+}
+
+.edit_span{
+    width: fit-content;
+}
+
+#edit_start{
+    align-self: center;
+    text-align: center;
+    padding: 10%;
 }

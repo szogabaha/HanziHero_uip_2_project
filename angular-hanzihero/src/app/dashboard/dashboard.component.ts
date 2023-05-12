@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { ModelServiceService } from '../model-service.service';
-import {Deck, Card} from '../model/content'
+import {Deck, Card, LearningStatus} from '../model/content'
 import {User} from '../model/user';
-import { DECKS, CARDS, USERS } from '../model/mock_database';
 
 @Component({
   selector: 'app-dashboard',
@@ -51,6 +50,14 @@ export class DashboardComponent {
     this.showDeckEditor = !this.showDeckEditor;
   }
 
+  hideDecks(): void {
+    this.selectedDeck = undefined;
+  }
+
+  hideCards(): void {
+    this.showCards = false;
+  }
+
   hideDeckEditor(): void{
     this.showDeckEditor = false;
   }
@@ -67,8 +74,16 @@ export class DashboardComponent {
     this.showNewDeckCreator = !this.showNewDeckCreator;
   }
 
+  hideNewDeckCreator(): void {
+    this.showNewDeckCreator = false;
+  }
+
   toggleNewCardCreator(): void {
     this.showNewCardCreator = !this.showNewCardCreator;
+  }
+
+  hideNewCardCreator(): void {
+    this.showNewCardCreator = false;
   }
 
   getDecks(): void{
@@ -119,7 +134,21 @@ export class DashboardComponent {
       } as Deck);
   }
 
-  addCard(card: Card): void{
-    this.modelService.putCard(card);
+  addCard(deckOrigin: Deck, meaning: string, characters: string, 
+    pronunciation: string, sourceSentence: string, targetSentence: string): void{
+    
+    let cardId = this.modelService.genCardId(this.cards);
+    let status = LearningStatus.Unknown;
+
+    this.modelService.putCard(
+      {cardId,
+       deckOrigin,
+       status,
+       meaning,
+       characters,
+       pronunciation,
+       sourceSentence,
+       targetSentence
+      } as Card);
   }
 }
