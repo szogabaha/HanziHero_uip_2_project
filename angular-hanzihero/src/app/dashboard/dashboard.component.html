@@ -10,7 +10,7 @@
     </div>
 
     <div id="card_wrapper">
-        <div class="menu_flashcard" id="add_menu_flashcard" (click)="toggleNewDeckCreator(); hideDecks(); hideCards()"><i class='bi bi-plus' Alt="Add deck icon"></i> Add deck</div>
+        <div class="menu_flashcard" id="add_menu_flashcard" (click)="toggleNewDeckCreator(); hideDecks(); hideCards(); hideNewCardCreator()"><i class='bi bi-plus' Alt="Add deck icon"></i> Add deck</div>
         <div class="menu_flashcard" *ngFor="let deck of decks" (click)="onSelectDeck(deck); hideNewDeckCreator()"  [class.selected]="deck === selectedDeck">{{deck.deckName}}</div>
     </div>
 
@@ -32,8 +32,8 @@
             <span class="deck_edited ov_span"> Last edited on: {{selectedDeck.lastRevised | date: 'dd/MM/yyyy'}}</span>
             <span class="ov_span">
                 <div class="deck_overview_button_wrapper">
-                    <div class="show_cards" *ngIf="!showCards"(click)="onShowCards(selectedDeck)">Show cards</div>
-                    <div class="hide_cards" *ngIf="showCards" (click)="onShowCards(selectedDeck); hideCardEditor()">Hide cards</div>
+                    <div class="show_cards" *ngIf="!showCards"(click)="onShowCards(selectedDeck); hideNewCardCreator()">Show cards</div>
+                    <div class="hide_cards" *ngIf="showCards" (click)="onShowCards(selectedDeck); hideCardEditor(); ; hideNewCardCreator()">Hide cards</div>
                     <nav>
                         <a routerLink="/session">
                             <div class="start_deck">Start session</div>
@@ -53,8 +53,8 @@
             <span class="button_divider ov_span"></span>
             <span class="ov_span">
                 <div class="deck_overview_button_wrapper">
-                    <div class="return" id="edit_return" (click)="toggleDeckEditor()">Hide Editor</div>
-                    <div class="show_cards" id="edit_show" *ngIf="!showCards" (click)="onShowCards(selectedDeck)">Show cards</div>
+                    <div class="return" id="edit_return" (click)="toggleDeckEditor(); hideNewCardCreator()">Hide Editor</div>
+                    <div class="show_cards" id="edit_show" *ngIf="!showCards" (click)="onShowCards(selectedDeck); hideNewCardCreator()">Show cards</div>
                     <div class="hide_cards" id="edit_hide" *ngIf="showCards" (click)="onShowCards(selectedDeck); hideCardEditor()">Hide cards</div>
                     <div class="start_deck" id="edit_start">Start session</div>
                 </div>
