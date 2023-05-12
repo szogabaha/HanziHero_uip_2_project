@@ -136,6 +136,17 @@ export class DashboardComponent {
 
   addCard(deckOrigin: Deck, meaning: string, characters: string, 
     pronunciation: string, sourceSentence: string, targetSentence: string): void{
+
+    meaning = meaning.trim();
+    characters = characters.trim();
+    pronunciation = pronunciation.trim();
+    sourceSentence = sourceSentence.trim();
+    targetSentence = targetSentence.trim();
+
+    if(!meaning || !characters || !pronunciation){
+      return; 
+    }
+
     
     let cardId = this.modelService.genCardId(this.cards);
     let status = LearningStatus.Unknown;
