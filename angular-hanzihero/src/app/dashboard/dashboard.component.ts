@@ -60,11 +60,22 @@ export class DashboardComponent {
 
 
 
-  getDecks(): void {
+/*   getDecks(): void {
     this.decks = this.modelService.getDecks();
+  } */
+  getDecks(): void{
+    this.modelService.getDecks()
+      .subscribe(decks => this.decks = decks);
   }
 
+  getAllCards(): void{
+    this.modelService.getAllCards()
+      .subscribe(cards => this.cards = cards);
+  }
+
+
   getMatchingCards(deck: Deck): void {
-    this.cards = this.modelService.getCardsFromDeck(deck);
+    this.modelService.getCardsFromDeck(deck)
+      .subscribe(cards => this.cards = cards);
   }
 }
