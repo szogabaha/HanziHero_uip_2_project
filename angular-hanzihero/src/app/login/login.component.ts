@@ -27,7 +27,7 @@ export class LoginComponent {
         user => {
           if (user) {
             console.log("User logged in");
-            this.router.navigateByUrl('/');
+            this.router.navigateByUrl('/dashboard');
           } else {
             this.loginFailed = true;
             console.log("Invalid User credentials")

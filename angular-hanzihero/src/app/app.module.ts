@@ -14,6 +14,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderbarComponent } from './headerbar/headerbar.component';
 import { SessionComponent } from './session/session.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DragDropModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

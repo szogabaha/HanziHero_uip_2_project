@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 import { ModelServiceService } from '../model-service.service';
 import {Deck, Card, LearningStatus} from '../model/content'
 import {User} from '../model/user';
@@ -12,11 +13,15 @@ export class DashboardComponent {
   decks: Deck[] = [];
   cards: Card[] = [];
   users: User[] = [];
+  draggedCard: any;
 
-  constructor(private modelService: ModelServiceService){
+  private readonly CURRENT_USER_STORAGE_KEY = 'currentUser';
+
+  constructor(private modelService: ModelServiceService,
+              private authService: AuthService){
 
   }
-
+  currentUser?: User;
   selectedDeck?: Deck;
   selectedCard?: Card;
   showCards?: Boolean = false;
@@ -28,6 +33,7 @@ export class DashboardComponent {
   ngOnInit(): void{
     this.getDecks();
     this.getUsers();
+    this.getCurrentUser();
   }
 
   onSelectDeck(deck: Deck): void {
@@ -96,6 +102,15 @@ export class DashboardComponent {
       .subscribe(users => this.users = users);
   }
 
+  getCurrentUser(): User | null{
+    const userString = sessionStorage.getItem(this.CURRENT_USER_STORAGE_KEY);
+    if(userString) {
+      return JSON.parse(userString)
+    } else {
+      return null;
+    }
+  }
+
   getAllCards(): void{
     this.modelService.getAllCards()
       .subscribe(cards => this.cards = cards);
@@ -106,6 +121,7 @@ export class DashboardComponent {
     this.modelService.getCardsFromDeck(deck)
       .subscribe(cards => this.cards = cards);
   }
+
 
   addDeck(deckName: string, deckDescription: string): void{
 

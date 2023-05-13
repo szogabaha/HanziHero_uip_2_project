@@ -3,7 +3,8 @@
 
 
 <div class="homescreen_content" id="homescreen_element_wrapper">
-    <h1> Welcome back, user</h1>
+    <h1 *ngIf="currentUser"> Welcome back, {{currentUser.userName}}!</h1>
+    <h1 *ngIf="!currentUser"> Welcome back!</h1>
     <div id="homescreen_overview">
         <div class="homescreen_chart" id="bar_chart"><i class="bi bi-bar-chart" Alt="Bar chart"></i></div>
         <div class="homescreen_chart" id="pie_chart"><i class="bi bi-pie-chart" Alt="Pie chart"></i></div>

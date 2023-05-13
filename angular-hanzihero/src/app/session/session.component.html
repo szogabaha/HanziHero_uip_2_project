@@ -1,18 +1,30 @@
 <div class="reduced_headerbar">
-    <div id="header_logo"><img src="assets/han_icon.png" alt="Logo" width="50" height="50" (click)="increaseProgress()"></div>
+    <div id="header_logo"><img src="assets/han_icon.png" alt="Logo" width="50" height="50" (click)="toggleReminder(); hideForegroundB(); hideBackgroundB(); hideSentenceB()"></div>
     <div class="header_progressbar">
         <app-progress-bar [value] = "progress"></app-progress-bar>
     </div>
 </div>
 
-
+<!-- If someone tries to navigate to dashboard again-->
+<div *ngIf="showReminder">
+    <div class="stop_session_question" *ngIf="showReminder">
+        Are you sure you want to return to the dashboard? All your progress will be lost.
+        <div class="session_control_buttons">
+            <div class="cancel_button" (click)="restoreSessionView()"> Cancel </div>
+            <div class="confirm_button" (click)=redirectToDashboard()> Confirm</div>
+        </div>
+    </div>
+</div>
 
 <div class="session_panel">
     <div class="card_foreground" *ngIf="showForeground" (click)="toggleBackgroundB(); toggleForegroundB()">
         <div class="session_target_word"> 熊貓 </div>
     </div>
-    <div class="card_background" *ngIf="showBackground">
-        <div class="session_source_word"> Panda </div>
+    <div class="draggable_wrapper" cdkDropList [cdkDropListConnectedTo]="[yes,no]">
+        <div class="card_background" *ngIf="showBackground" 
+             cdkDrag (cdkDragStarted)="onDragStart()" (cdkDragReleased)="onDragStop()">
+            <div class="session_source_word"> Panda </div>
+        </div>
     </div>
     <div class="card_example_sentence" *ngIf="showSentence">
         <div class="ex_sentence_target"> Nàlĭ yŏu yī zhī xióngmāo zuò zài nàbiān de shù shàng. </div>
@@ -23,7 +35,7 @@
         <div class="listen_icon b_icon"><i class="bi bi-volume-up" (click)="toggleBackgroundB()"></i></div>
         <div class="get_help_icon b_icon"><i class="bi bi-question-lg"></i></div>
     </div>
-    <div class="background_button_wrapper" *ngIf="showBackground">
+    <div class="background_button_wrapper" *ngIf="showBackground && showBackgroundIcons">
         <div class="sentence_icon b_icon" (click)="toggleBackgroundB(); toggleSentenceB()"><i class="bi bi-chat-left-text"></i></div>
         <div class="get_help_icon b_icon"><i class="bi bi-question-lg"></i></div>
     </div>
@@ -31,5 +43,34 @@
         <div class="return_from_sentence_icon b_icon" (click)="toggleBackgroundB(); toggleSentenceB()"><i class="bi bi-reply"></i></div>
         <div class="get_help_icon b_icon"><i class="bi bi-question-lg"></i></div>
     </div>
+
+    <!-- This actually makes the drag and dop work. 
+         These are the drop zones. Apparently, drop zones cannot be wrapped in an if. 
+         So these are permanent but transparent and layered on top of everything else. -->
+    <div cdkDropList #no="cdkDropList" (cdkDropListDropped)="dropHandler('no')" id="left"></div>
+    <div cdkDropList #yes="cdkDropList" (cdkDropListDropped)="dropHandler('yes')" id="right"></div>
+    
+    
+    <div *ngIf="showSides">
+        <div class="incorrect_side">
+            <div cdkDropList>
+                <i class="bi bi-x-circle-fill check_icon"></i>
+            </div>
+        </div>
+
+        <div class="correct_side">
+            <i class="bi bi-check-circle-fill check_icon"></i>
+        </div>
+    </div>
+
+    <!-- Show some kind of message of encouragement, then load next card -->
+    <div class="feedback" *ngIf="showIncorrectNote || showCorrectNote">
+        <div *ngIf="showIncorrectNote" class="was_incorrect feedback_opt">Keep going!</div>
+        <div *ngIf="showCorrectNote" class="was_correct feedback_opt"> Very good!</div>
+        <div class="session_control_button">
+            <div class="continue_button" (click)="redirectToDashboard()"> Continue </div>
+        </div>
+    </div>
+
 
 </div>
