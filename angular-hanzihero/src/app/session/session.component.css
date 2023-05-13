@@ -43,7 +43,7 @@
 #left{
     position: absolute;
     width: 30%;
-    top: 0;
+    top: 10%;
     bottom: 16%;
     left: 0;
     background-color: green;
@@ -54,7 +54,7 @@
 #right{
     position: absolute;
     width: 30%;
-    top: 0;
+    top: 10%;
     bottom: 16%;
     right: 0;
     background-color: green;
