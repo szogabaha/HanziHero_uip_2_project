@@ -17,14 +17,17 @@
 </div>
 
 <div class="session_panel">
-    <div class="card_foreground" *ngIf="showForeground" (click)="toggleBackgroundB(); toggleForegroundB()">
+    <!-- " -->
+    <div class="card_foreground" id="foreground" *ngIf="showForeground" (click)="animateFlip()">
         <div class="session_target_word"> 熊貓 </div>
     </div>
+    <div id="background">
     <div class="draggable_wrapper" cdkDropList [cdkDropListConnectedTo]="[yes,no]">
         <div class="card_background" *ngIf="showBackground" 
              cdkDrag (cdkDragStarted)="onDragStart()" (cdkDragReleased)="onDragStop()">
             <div class="session_source_word"> Panda </div>
         </div>
+    </div>
     </div>
     <div class="card_example_sentence" *ngIf="showSentence">
         <div class="ex_sentence_target"> Nàlĭ yŏu yī zhī xióngmāo zuò zài nàbiān de shù shàng. </div>

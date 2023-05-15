@@ -43,6 +43,12 @@ export class SessionComponent {
     this.showForeground = !this.showForeground;
   }
 
+  slowForegroundB(): void{
+    setTimeout(()=>{
+      this.showForeground = !this.showForeground;
+    },1000);
+  }
+
   showForegroundB(): void {
     this.showForeground = true;
   }
@@ -53,6 +59,17 @@ export class SessionComponent {
 
   toggleBackgroundB(): void {
     this.showBackground = !this.showBackground;
+
+  }
+
+  slowBackgroundB(): void{
+    setTimeout(()=>{
+      this.showBackground = !this.showBackground;
+      const background_card = document.getElementById('background');
+      if(background_card){
+        background_card.setAttribute("style", "rotate: unset");
+      }
+    },1000);
   }
 
   hideBackgroundB(): void {
@@ -81,6 +98,19 @@ export class SessionComponent {
 
   toggleCorrectNote(): void{
     this.showCorrectNote = !this.showCorrectNote;
+  }
+
+  animateFlip(): void{
+    const foreground_card = document.getElementById('foreground');
+    if(foreground_card){
+      foreground_card.setAttribute("style", "rotate: y -90deg;");
+
+
+      this.slowForegroundB();
+      this.slowBackgroundB();
+    }
+
+
   }
 
   increaseProgress(): void {

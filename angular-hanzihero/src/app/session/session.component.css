@@ -38,6 +38,11 @@
     padding: 3%;
     background-color: #505050;
     color: #ffff;
+    transition: all 0.5s ease-out;
+}
+
+.cancel_button:hover{
+    background-color: #282828;
 }
 
 #left{
@@ -71,6 +76,11 @@
     padding: 3%;
     background-color: #068489;
     color: #ffff;
+    transition: all 0.5s ease-out;
+}
+
+.confirm_button:hover{
+    background-color: #045154;
 }
 
 .stop_session_question{
@@ -149,6 +159,13 @@
     margin-top: 5%;
     padding-top: 8%;
     padding-bottom: 8%;
+    transition: rotate 1s;
+    cursor: context-menu;
+}
+
+#background{
+    rotate: y 90deg;
+    transition: rotate 1s;
 }
 
 .card_background{
@@ -167,6 +184,7 @@
     padding-top: 10%;
     padding-bottom: 10%;
     margin-top: 5%;
+    cursor: context-menu;
 }
 
 .card_example_sentence{
@@ -185,6 +203,7 @@
     padding-top: 8%;
     padding-bottom: 8%;
     margin-top: 5%;
+    cursor: context-menu;
 }
 
 .session_target_word{
@@ -266,4 +285,9 @@
     padding: 3%;
     background-color: #068489;
     color: #ffff;
+    transition: all 0.5s ease-out;
+}
+
+.continue_button:hover{
+    background-color: #045154;
 }

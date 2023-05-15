@@ -50,6 +50,7 @@
     padding: 2%;
     background-color: #e5e5e5;
     border: solid 2px #505050;
+    transition: all 0.5s ease-out;
 }
 
 .return:hover{
@@ -139,6 +140,7 @@
     align-self: center;
     background-color: #068489;
     color: #ffff;
+    transition: all 0.5s ease-out;
 }
 
 .add_deck:hover{
@@ -181,6 +183,7 @@
     padding: 10%;
     background-color: #505050;
     color: #ffff;
+    transition: all 0.5s ease-out;
 }
 
 .show_cards{
@@ -191,6 +194,7 @@
     padding: 10%;
     background-color: #505050;
     color: #ffff;
+    transition: all 0.5s ease-out;
 }
 
 .hide_cards{
@@ -201,6 +205,7 @@
     padding: 10%;
     background-color: #505050;
     color: #ffff;
+    transition: all 0.5s ease-out;
 }
 
 .start_deck{
@@ -210,6 +215,7 @@
     padding: 25%;
     background-color: #068489;
     color: #ffff;
+    transition: all 0.5s ease-out;
 }
 
 .deck_name{
@@ -265,6 +271,7 @@
     align-self: center;
     background-color: #068489;
     color: #ffff;
+    transition: all 0.5s ease-out;
 }
 
 .create_card:hover{
