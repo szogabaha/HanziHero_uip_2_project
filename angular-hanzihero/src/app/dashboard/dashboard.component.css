@@ -27,10 +27,13 @@
 
 #bar_chart{
     padding: 5%;
+    font-size: 600%;
 }
 
 #pie_chart {
     padding: 5%;
+    margin-left: 30%;
+    font-size: 600%;
 }
 
 #card_wrapper{

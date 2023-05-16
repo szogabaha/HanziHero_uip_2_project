@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class HeaderbarComponent {
 
+  UnfoldMenu?: Boolean = false;
+
+  onClickMenu(): void {
+    this.UnfoldMenu = !this.UnfoldMenu;
+  }
+
 }

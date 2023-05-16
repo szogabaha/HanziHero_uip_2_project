@@ -6,5 +6,16 @@
     </nav>
     
     <div id="header_textcontent">Hello</div>
-    <div id="header_menu"><i class="fa fa-bars" alt="Menu"></i></div>
+    <div id="header_menu"><i class="bi bi-list" Alt="Menu" (click)="onClickMenu()"></i></div>
+</div>
+
+<div id="menu_selector" *ngIf="UnfoldMenu">
+    <nav>
+        <div class="settings_nav"> Settings </div>
+        <div class="divider"></div>
+        <a routerLink="/login">
+            <div class="logout_nav">Log out</div>
+        </a>
+    </nav>
+
 </div>
