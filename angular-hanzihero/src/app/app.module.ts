@@ -15,6 +15,7 @@ import { HeaderbarComponent } from './headerbar/headerbar.component';
 import { SessionComponent } from './session/session.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { AudioplayerComponent } from './audioplayer/audioplayer.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     DashboardComponent,
     HeaderbarComponent,
     SessionComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    AudioplayerComponent
   ],
   imports: [
     BrowserModule,
