@@ -39,12 +39,14 @@
 }
 
 #menu_selector{
-    float: right;
+    position: fixed;
+    right: 10px;
     width: 10%; 
     justify-content: center;
     align-items: center;
     text-align: center;
     margin-top: 1%;
+    margin-right: 0;
     padding-left: 5%;
     padding-right: 5%;
     padding-top: 2%;

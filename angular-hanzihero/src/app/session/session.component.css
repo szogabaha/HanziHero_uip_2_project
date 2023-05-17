@@ -106,16 +106,24 @@
 }
 
 .foreground_button_wrapper{
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
     position: relative;
     margin-top: 10%;
 }
 
 .background_button_wrapper{
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
     position: relative;
     margin-top: 10%;
 }
 
 .sentence_button_wrapper{
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
     position: relative;
     margin-top: 10%;
 }
@@ -290,4 +298,24 @@
 
 .continue_button:hover{
     background-color: #045154;
+}
+
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+
+@keyframes fadeOutAnimation {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+     }
 }
