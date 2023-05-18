@@ -1,5 +1,11 @@
 <div class="reduced_headerbar">
-    <div id="header_logo"><img src="assets/han_icon.png" alt="Logo" width="50" height="50" (click)="toggleReminder(); hideForegroundB(); hideBackgroundB(); hideSentenceB()"></div>
+    <div id="header_logo"><img src="assets/han_icon.png" alt="Logo" width="50" height="50" (click)="toggleReminder(); 
+                                                                                                    hideForegroundB(); 
+                                                                                                    hideBackgroundB(); 
+                                                                                                    hideSentenceB(); 
+                                                                                                    hideForegroundHelper(); 
+                                                                                                    hideBackgroundHelper();
+                                                                                                    hideSentenceHelper()"></div>
     <div class="header_progressbar">
         <app-progress-bar [value] = "progress"></app-progress-bar>
     </div>
@@ -17,8 +23,12 @@
 </div>
 
 <div class="session_panel">
-    <!-- " -->
-    <div class="card_foreground" id="foreground" *ngIf="showForeground" (click)="animateFlip()">
+    <!-- 
+        The actual content of the cards is contained here. 
+        Symbols on foreground, meaning on the background,
+        and example sentences on a third "side" 
+    -->
+    <div class="card_foreground" id="foreground" *ngIf="showForeground" (click)="animateFlip(); hideForegroundHelper()">
         <div class="session_target_word"> 熊貓 </div>
     </div>
     <div id="background">
@@ -34,17 +44,24 @@
         <div class="ex_sentence_divider"></div>
         <div class="ex_sentence_source"> There's a Panda sitting in that tree over there. </div>
     </div>
+
+    <!-- 
+        All the buttons are different depending on the state.
+        Foreground: listen to pronunciation & get help
+        Background: flip to sentence side & get help
+        Sentence: flip back to background & get help
+    -->
     <div class="foreground_button_wrapper" id="foreground_button_wrapper" *ngIf="showForeground">
         <div class="listen_icon b_icon"><i class="bi bi-volume-up" Alt="Listen to pronunciation"></i></div>
-        <div class="get_help_icon b_icon"><i class="bi bi-question-lg" Alt="Get usage help"></i></div>
+        <div class="get_help_icon b_icon" (click)="toggleForegroundHelper()"><i class="bi bi-question-lg" Alt="Get usage help"></i></div>
     </div>
     <div class="background_button_wrapper" id="background_button_wrapper" *ngIf="showBackground && showBackgroundIcons">
-        <div class="sentence_icon b_icon" (click)="toggleBackgroundB(); toggleSentenceB()"><i class="bi bi-chat-left-text"></i></div>
-        <div class="get_help_icon b_icon"><i class="bi bi-question-lg"></i></div>
+        <div class="sentence_icon b_icon" (click)="toggleBackgroundB(); toggleSentenceB(); hideBackgroundHelper()"><i class="bi bi-chat-left-text"></i></div>
+        <div class="get_help_icon b_icon" (click)="toggleBackgroundHelper()"><i class="bi bi-question-lg"></i></div>
     </div>
     <div class="sentence_button_wrapper" *ngIf="showSentence">
-        <div class="return_from_sentence_icon b_icon" (click)="toggleBackgroundB(); toggleSentenceB()"><i class="bi bi-reply"></i></div>
-        <div class="get_help_icon b_icon"><i class="bi bi-question-lg"></i></div>
+        <div class="return_from_sentence_icon b_icon" (click)="toggleBackgroundB(); toggleSentenceB(); hideSentenceHelper()"><i class="bi bi-reply"></i></div>
+        <div class="get_help_icon b_icon" (click)="toggleSentenceHelper()"><i class="bi bi-question-lg"></i></div>
     </div>
 
     <!-- This actually makes the drag and dop work. 
@@ -53,7 +70,7 @@
     <div cdkDropList #no="cdkDropList" (cdkDropListDropped)="dropHandler('no')" id="left"></div>
     <div cdkDropList #yes="cdkDropList" (cdkDropListDropped)="dropHandler('yes')" id="right"></div>
     
-    
+    <!-- The pretty, but non-functional drop panels for marking a card as correct or incorrect -->
     <div *ngIf="showSides">
         <div class="incorrect_side">
             <div cdkDropList>
@@ -73,6 +90,53 @@
         <div class="session_control_button">
             <div class="continue_button" (click)="redirectToDashboard()"> Continue </div>
         </div>
+    </div>
+
+    <!-- Interactive help which shows you where you can click -->
+    <div *ngIf="showForegroundHelper">
+        <div class="helper_parent">    
+            <div class="helper" id="foreground_helper">
+                <div class="helpmessage_panel" id="foreground_help_panel">
+                    <div class="helpmessage_text" id="f_h_m">
+                        Click on the card to reveal the hanzi's meaning.
+                    </div>
+                    <div class="next_help_button" (click)="nextFHelpMessages()">Continue</div>
+                </div>
+               
+            </div>
+        </div>
+        <i class="bi bi-hand-index hand" id="f_hand" Alt="Hand"></i>
+    </div>
+
+
+    <div *ngIf="showBackgroundHelper">
+        <div class="helper_parent"> 
+            <div class="helper" id="background_helper">
+                <div class="helpmessage_panel" id="background_help_panel">
+                    <div class="helpmessage_text" id="b_h_m">
+                        Drag the card to the sides to mark it as correct or incorrect. 
+                    </div>
+                    <div class="next_help_button" (click)="nextBHelpMessages()">Continue</div>
+                </div>
+                
+            </div>
+        </div>
+        <i class="bi bi-hand-index hand" id="b_hand" Alt="Hand"></i>
+    </div>
+
+    <div *ngIf="showSentenceHelper">
+        <div class="helper_parent"> 
+            <div class="helper" id="sentence_helper">
+                <div class="helpmessage_panel" id="sentence_help_panel">
+                    <div class="helpmessage_text" id="s_h_m">
+                        The card displays example sentences both as pinyin and in English.
+                    </div>
+                    <div class="next_help_button" (click)="nextSHelpMessages()">Continue</div>
+                </div>
+                
+            </div>
+        </div>
+        <i class="bi bi-hand-index hand" id="s_hand" Alt="Hand"></i>
     </div>
 
 
