@@ -187,6 +187,7 @@ export class SessionComponent {
       this.FHelpReset();
       
     } else{
+      this.ForegroundHand();
       this.displayForegroundHelpMessage();
       this.curFHelperMessage = this.curFHelperMessage + 1;
     }
@@ -207,6 +208,12 @@ export class SessionComponent {
       this.BHelpReset();
       
     } else{
+      // show the side panels as an explanation
+      if(this.curBHelperMessage == 0){
+      } else if (this.curBHelperMessage == 2){
+        this.showSides = false;
+      }
+      this.BackgroundHand();
       this.displayBackgroundHelpMessage();
       this.curBHelperMessage = this.curBHelperMessage + 1;
     }
@@ -227,6 +234,7 @@ export class SessionComponent {
       this.SHelpReset();
       
     } else{
+      this.SentenceHand();
       this.displaySentenceHelpMessage();
       this.curSHelperMessage = this.curSHelperMessage + 1;
     }
@@ -307,6 +315,49 @@ export class SessionComponent {
   onDragStop(): void {
     this.showSides = false;
     this.showBackgroundIcons = true;
+  }
+
+  // Animated hand icon which points to the UI elements you can interact with in foreground view
+  ForegroundHand(): void{
+    const FHand = document.getElementById('f_hand');
+    if(FHand){
+      if(this.curFHelperMessage == 0){
+        //
+      } else if(this.curFHelperMessage == 1){
+        FHand.setAttribute("style", "transform: translate(-800%, 270%) rotate(-110deg);");
+      } else if(this.curFHelperMessage == 2){
+        FHand.setAttribute("style", "transform: translate(0%, -360%) rotate(0deg);");
+      } else if(this.curFHelperMessage == 3){
+        FHand.setAttribute("style", "transform: translate(-840%, -370%) rotate(-30deg);");
+      }
+    }
+  }
+
+
+  // Animated hand icon which points to the UI elements you can interact with in background view
+  BackgroundHand(): void{
+    const BHand = document.getElementById('b_hand');
+    if(BHand){
+      if(this.curBHelperMessage == 0){
+        BHand.setAttribute("style", "transform: translate(-800%, 0%);");
+      } else if(this.curBHelperMessage == 1){
+        BHand.setAttribute("style", "transform: translate(800%, 0%);");
+      } else if(this.curBHelperMessage == 2){
+        BHand.setAttribute("style", "transform: translate(-790%, 270%) rotate(-110deg);");
+      }
+    }
+  }
+
+  // Animated hand icon which points to the UI elements you can interact with in sentence view
+  SentenceHand(): void{
+    const SHand = document.getElementById('s_hand');
+    if(SHand){
+      if(this.curSHelperMessage == 0){
+        SHand.setAttribute("style", "transform: translate(-800%, 270%) rotate(-110deg);");
+      } else if(this.curSHelperMessage == 1){
+        SHand.setAttribute("style", "display: none");
+      } 
+    }
   }
 
 }

@@ -57,7 +57,7 @@
     </div>
     <div class="background_button_wrapper" id="background_button_wrapper" *ngIf="showBackground && showBackgroundIcons">
         <div class="sentence_icon b_icon" (click)="toggleBackgroundB(); toggleSentenceB(); hideBackgroundHelper()"><i class="bi bi-chat-left-text"></i></div>
-        <div class="get_help_icon b_icon" (click)="toggleBackgroundHelper()"><i class="bi bi-question-lg"></i></div>
+        <div class="get_help_icon b_icon" (click)="toggleShowSides(); toggleBackgroundHelper()"><i class="bi bi-question-lg"></i></div>
     </div>
     <div class="sentence_button_wrapper" *ngIf="showSentence">
         <div class="return_from_sentence_icon b_icon" (click)="toggleBackgroundB(); toggleSentenceB(); hideSentenceHelper()"><i class="bi bi-reply"></i></div>
@@ -72,13 +72,13 @@
     
     <!-- The pretty, but non-functional drop panels for marking a card as correct or incorrect -->
     <div *ngIf="showSides">
-        <div class="incorrect_side">
+        <div class="incorrect_side" id="fancy_wrong_side">
             <div cdkDropList>
                 <i class="bi bi-x-circle-fill check_icon"></i>
             </div>
         </div>
 
-        <div class="correct_side">
+        <div class="correct_side" id="fancy_right_side">
             <i class="bi bi-check-circle-fill check_icon"></i>
         </div>
     </div>
@@ -92,6 +92,8 @@
         </div>
     </div>
 
+    
+
     <!-- Interactive help which shows you where you can click -->
     <div *ngIf="showForegroundHelper">
         <div class="helper_parent">    
@@ -100,7 +102,7 @@
                     <div class="helpmessage_text" id="f_h_m">
                         Click on the card to reveal the hanzi's meaning.
                     </div>
-                    <div class="next_help_button" (click)="nextFHelpMessages()">Continue</div>
+                    <div class="next_help_button" (click)="nextFHelpMessages(); ForegroundHand()">Continue</div>
                 </div>
                
             </div>
