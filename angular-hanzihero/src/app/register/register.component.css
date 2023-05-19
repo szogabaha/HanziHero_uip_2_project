@@ -10,6 +10,7 @@ input[type=text], input[type=password]{
   border-radius: 5px;
   height: 40px;
   border: solid 1px;
+  font-size: x-large;
 }
 
 label{
