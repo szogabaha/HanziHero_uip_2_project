@@ -1,0 +1,28 @@
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: -1;
+}
+
+.fade-in-out {
+  animation: fade-in-out-animation 4s infinite;
+  position: absolute;
+  opacity: 0;
+  height: 150px;
+}
+
+@keyframes fade-in-out-animation {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.switched_off {
+  opacity: 0;
+  position: absolute;
+}

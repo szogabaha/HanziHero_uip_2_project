@@ -60,11 +60,11 @@ export class AuthService {
     sessionStorage.removeItem('currentUser');
   }
 
-  register(username: string, password: string, email: string) {
+  register(username: string, password: string, email: string, reminder: boolean) {
     const users = this.getUsers();
     const newUser: User = { id: users.length + 1, userName: username,
                             password: password, email: email,
-                            studyLanguage: Language.Chinese, sessionLength: 10};
+                            studyLanguage: Language.Chinese, sessionLength: 10, reminder: reminder};
     users.push(newUser);
     this.setUsers(users);
     return of(newUser);
