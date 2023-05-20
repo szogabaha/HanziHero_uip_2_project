@@ -17,6 +17,7 @@ export class RegisterComponent {
       email: ['', Validators.required],
       password1: ['', Validators.required],
       password2: ['', Validators.required],
+      reminder: [false, Validators.required],
     });
 
   }
@@ -24,8 +25,8 @@ export class RegisterComponent {
   register(): void {
     const val = this.form.value;
 
-    if (val.username && val.email && val.password1 && val.password2 && val.password1 === val.password2) { //Todo more sophisticated pw1 pw2 match
-      this.authService.register(val.username, val.password1, val.email).subscribe(
+    if (val.username && val.email && val.password1 && val.password2 && val.password1 === val.password2) {
+      this.authService.register(val.username, val.password1, val.email, val.reminder).subscribe(
         user => {
           if (user) {
             console.log("User logged in");

@@ -5,7 +5,7 @@ export interface User {
   password: string;
   studyLanguage: Language;
   sessionLength: number;
-
+  reminder: boolean;
 }
 
 export enum Language {

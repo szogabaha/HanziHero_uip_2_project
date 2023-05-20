@@ -37,7 +37,6 @@ label{
     width: 60%;
     max-width: 650px;
     min-width: 260px;
-    margin: auto;
     padding-left: 30px;
     padding-right: 30px;
 }
@@ -60,6 +59,17 @@ label{
     gap: 10px;
     align-items: flex-end;
 }
+
+.vertical-flex{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  height: 100%;
+  width: 100%;
+}
+
 
 #login{
     width: auto;

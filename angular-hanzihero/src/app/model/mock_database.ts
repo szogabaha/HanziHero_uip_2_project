@@ -9,6 +9,7 @@ export const USERS: User[] = [
         password: "securepassword",
         studyLanguage: Language.Chinese,
         sessionLength: 20,
+        reminder: true,
     },
 
     {
@@ -18,6 +19,7 @@ export const USERS: User[] = [
         password: "cats",
         studyLanguage: Language.Korean,
         sessionLength: 15,
+        reminder: true,
     },
 
 ]
@@ -27,7 +29,7 @@ export const DECKS: Deck[] = [
         deckId: 1,
         deckName: "Animals",
         deckDescription: "Some common animals",
-        color: "#FFFFFF", 
+        color: "#FFFFFF",
         user: USERS[1],
         language: Language.Chinese,
         createdAt: new Date(),
@@ -38,7 +40,7 @@ export const DECKS: Deck[] = [
         deckId: 2,
         deckName: "Kitchen",
         deckDescription: "Some common kitchen items",
-        color: "#FFFFFF", 
+        color: "#FFFFFF",
         user: USERS[0],
         language: Language.Chinese,
         createdAt: new Date(),
