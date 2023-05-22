@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { ModelServiceService } from '../model-service.service';
+import { ModelServiceService } from '../services/model-service.service';
 import {Deck, Card, LearningStatus} from '../model/content'
 import {User} from '../model/user';
 
@@ -32,7 +32,6 @@ export class DashboardComponent {
 
   ngOnInit(): void{
     this.getDecks();
-    this.getUsers();
     this.getCurrentUser();
   }
 
@@ -97,11 +96,6 @@ export class DashboardComponent {
       .subscribe(decks => this.decks = decks);
   }
 
-  getUsers(): void{
-    this.modelService.getUsers()
-      .subscribe(users => this.users = users);
-  }
-
   getCurrentUser(): User | null{
     const userString = sessionStorage.getItem(this.CURRENT_USER_STORAGE_KEY);
     if(userString) {
@@ -128,12 +122,12 @@ export class DashboardComponent {
     deckName = deckName.trim();
     deckDescription = deckDescription.trim();
 
-    if (!deckName || !deckDescription) { 
-      return; 
+    if (!deckName || !deckDescription) {
+      return;
     }
 
     let deckId = this.modelService.genDeckId(this.decks);
-    let color =  "#FFFFFF"; 
+    let color =  "#FFFFFF";
     let user = this.users[0];
     let language = this.users[0].studyLanguage;
     let createdAt= new Date();
@@ -150,7 +144,7 @@ export class DashboardComponent {
       } as Deck);
   }
 
-  addCard(deckOrigin: Deck, meaning: string, characters: string, 
+  addCard(deckOrigin: Deck, meaning: string, characters: string,
     pronunciation: string, sourceSentence: string, targetSentence: string): void{
 
     meaning = meaning.trim();
@@ -160,10 +154,10 @@ export class DashboardComponent {
     targetSentence = targetSentence.trim();
 
     if(!meaning || !characters || !pronunciation){
-      return; 
+      return;
     }
 
-    
+
     let cardId = this.modelService.genCardId(this.cards);
     let status = LearningStatus.Unknown;
 

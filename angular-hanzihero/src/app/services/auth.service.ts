@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User, Language } from '../model/user';
 import { of } from 'rxjs';
+import {MockDataBase} from './mock_database'
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +10,9 @@ import { of } from 'rxjs';
 
 export class AuthService {
 
-  private readonly USERS_STORAGE_KEY = 'users';
-  private readonly CURRENT_USER_STORAGE_KEY = 'currentUser';
 
   private getUsers(): User[] {
-    const usersString = sessionStorage.getItem(this.USERS_STORAGE_KEY);
+    const usersString = sessionStorage.getItem(MockDataBase.USERS_STORAGE_KEY);
     if (usersString) {
       return JSON.parse(usersString);
     } else {
@@ -23,7 +22,7 @@ export class AuthService {
 
 
   private setUsers(users: User[]): void {
-    sessionStorage.setItem(this.USERS_STORAGE_KEY, JSON.stringify(users));
+    sessionStorage.setItem(MockDataBase.USERS_STORAGE_KEY, JSON.stringify(users));
   }
 
   private getUser(userId: number): User | null {
@@ -37,7 +36,7 @@ export class AuthService {
   }
 
   private getCurrentUser(): User | null {
-    const userString = sessionStorage.getItem(this.CURRENT_USER_STORAGE_KEY);
+    const userString = sessionStorage.getItem(MockDataBase.CURRENT_USER_STORAGE_KEY);
     if(userString) {
       return JSON.parse(userString)
     } else {
