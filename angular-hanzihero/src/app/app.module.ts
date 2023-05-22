@@ -31,7 +31,7 @@ import { CharacterAnimationComponent } from './character-animation/character-ani
     SessionComponent,
     ProgressBarComponent,
     AudioplayerComponent,
-    CharacterAnimationComponent
+    CharacterAnimationComponent,
   ],
   imports: [
     BrowserModule,
