@@ -9,7 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
-import { SafeHtmlPipe } from './safe-html.pipe';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderbarComponent } from './headerbar/headerbar.component';
 import { SessionComponent } from './session/session.component';
@@ -25,7 +24,6 @@ import { CharacterAnimationComponent } from './character-animation/character-ani
     LoginComponent,
     RegisterComponent,
     ForgotpasswordComponent,
-    SafeHtmlPipe,
     DashboardComponent,
     HeaderbarComponent,
     SessionComponent,
