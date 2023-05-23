@@ -4,14 +4,14 @@
             <div id="header_logo"><img src="assets/han_icon.png" alt="Logo" width="50" height="50"></div>
         </a>
     </nav>
-    
+
     <div id="header_textcontent"></div>
     <div id="header_menu"><i class="bi bi-list" Alt="Menu" (click)="onClickMenu()"></i></div>
 </div>
 
 <div id="menu_selector" *ngIf="UnfoldMenu">
     <nav>
-        <div class="settings_nav"> Settings </div>
+        <a routerLink="/settings"><div class="settings_nav"> Settings </div></a>
         <div class="divider"></div>
         <a routerLink="/login">
             <div class="logout_nav">Log out</div>

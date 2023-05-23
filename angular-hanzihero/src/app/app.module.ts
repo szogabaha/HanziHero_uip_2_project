@@ -16,6 +16,7 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { AudioplayerComponent } from './audioplayer/audioplayer.component';
 import { CharacterAnimationComponent } from './character-animation/character-animation.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { CharacterAnimationComponent } from './character-animation/character-ani
     ProgressBarComponent,
     AudioplayerComponent,
     CharacterAnimationComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,
