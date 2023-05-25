@@ -49,7 +49,7 @@
 
 #menu_selector{
     position: fixed;
-    right: 10px;
+    right: 2%;
     width: 10%;
     justify-content: center;
     align-items: center;
@@ -93,14 +93,40 @@ a{
   justify-content: center;
 }
 
+@media only screen and  (max-width: 1200px) {
+    #menu_selector{
+        margin-top: 5%;
+    }
+}
+
 @media only screen and  (max-width: 800px) {
     #header_logo img{
         width: 15%;
     } 
+
+    #menu_selector{
+        margin-top: 10%;
+        width: 20%;
+    }
 }
 
 @media only screen and (max-width: 400px){
     #header_logo img{
         width: 30%;
     }
+
+    #menu_selector{
+        width: 80%;
+    }
+
+    .settings_nav{
+        margin-top: 5%;
+        margin-bottom: 10%;
+    }
+
+    .logout_nav{
+        margin-top: 10%;
+        margin-bottom: 5%;
+    }
+
 }
