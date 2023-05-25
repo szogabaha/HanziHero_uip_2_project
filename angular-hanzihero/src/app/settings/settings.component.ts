@@ -31,7 +31,7 @@ export class SettingsComponent {
     {
       "name": "Sessions",
       "class" : "",
-      "sectionName": "section-settings"
+      "sectionName": "section-sessions"
     }
   ];
 
@@ -46,9 +46,9 @@ export class SettingsComponent {
       const element = document.getElementById(item.sectionName);
       if (element) {
         const rect = element.getBoundingClientRect();
-        const absoluteBottom = Math.abs(rect.bottom);
+        const absoluteBottom = rect.bottom;
 
-        if (absoluteBottom < closestAbsoluteBottom) {
+        if (absoluteBottom < closestAbsoluteBottom && absoluteBottom >=0) {
           closestSectionName = item.name;
           closestAbsoluteBottom = absoluteBottom;
         }

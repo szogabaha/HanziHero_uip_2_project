@@ -17,6 +17,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import { AudioplayerComponent } from './audioplayer/audioplayer.component';
 import { CharacterAnimationComponent } from './character-animation/character-animation.component';
 import { SettingsComponent } from './settings/settings.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -40,6 +42,8 @@ import { SettingsComponent } from './settings/settings.component';
     HttpClientModule,
     ReactiveFormsModule,
     DragDropModule,
+    MatFormFieldModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

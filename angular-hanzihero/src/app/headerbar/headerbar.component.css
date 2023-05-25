@@ -1,3 +1,4 @@
+
 #headerbar {
     background-color: #e5e5e5;
     border-bottom: solid 2px #505050;
@@ -6,13 +7,20 @@
     left: 0;
     right: 0;
     width: 100%;
+    height: fit-content;
 }
 
 #header_logo{
     float: left;
-    padding-top: 1%;
+    padding-top: 5px;
     padding-left: 2%;
-    padding-bottom: 1%;
+    padding-bottom: 5px;
+    height: 20%;
+}
+
+#header_logo img{
+  width: 10%;
+  object-fit: cover;
 }
 
 #header_textcontent{
@@ -41,7 +49,7 @@
 #menu_selector{
     position: fixed;
     right: 10px;
-    width: 10%; 
+    width: 10%;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -62,13 +70,13 @@ a{
     color: black;
     text-decoration: none;
 }
-    
+
 
 
 .settings_nav{
     margin-bottom: 20%;
-    
-    
+
+
 }
 
 .divider{

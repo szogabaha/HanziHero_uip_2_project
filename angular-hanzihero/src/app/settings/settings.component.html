@@ -13,10 +13,10 @@
             <div class="section-content">
                 <form class="settings-form">
                     <label for="username">Change username</label><br>
-                    <input type="text" id="username" name="username"><br>
+                    <input type="text" id="username" name="username" autocomplete="off"><br>
 
                     <label for="email">Change email</label><br>
-                    <input type="text" id="email" name="username"><br>
+                    <input type="text" id="email" name="email" autocomplete="off"><br>
 
                 </form>
             </div>
@@ -27,13 +27,13 @@
             <div class="section-content">
                 <form class="settings-form">
                     <label for="oldpw">Old password</label><br>
-                    <input type="text" id="oldpw" name="username"><br>
+                    <input type="password" id="oldpw" name="password" autocomplete="off"><br>
 
                     <label for="newpw">New password</label><br>
-                    <input type="text" id="newpw" name="username"><br>
+                    <input type="password" id="newpw" name="password" autocomplete="off"><br>
 
                     <label for="confirmnewpw">Confirm new password</label><br>
-                    <input type="text" id="confirmnewpw" name="username"><br>
+                    <input type="password" id="confirmnewpw" name="password" autocomplete="off"><br>
 
                 </form>
             </div>
@@ -41,22 +41,52 @@
 
         <div class="section">
             <div class="section-title" id="section-language">Language</div>
-            <div class="section-content"></div>
+            <div class="section-content" id="language-wrapper">
+              <img src="assets/flags/chinese.jpg" alt="Chinese Flag">
+              <img src="assets/flags/japanese.png" alt="Japanese Flag">
+              <img src="assets/flags/korean.png" alt="Korean Flag">
+            </div>
         </div>
 
         <div class="section">
             <div class="section-title" id="section-notifications">Notifications</div>
-            <div class="section-content"></div>
+            <div class="section-content notification-container">
+              <span>Current mail address: [mail]</span><br>
+              <div class="notification-container">
+                <label>
+                  <input type="radio" name="notification-option" value="no" checked>
+                  Do not receive notifications
+                </label><br>
+                <label>
+                  <input type="radio" name="notification-option" value="yes">
+                  Receive notifications every <input type="text" autocomplete="off"> days.
+                </label>
+              </div>
+
+            </div>
         </div>
 
         <div class="section">
             <div class="section-title" id="section-sessions">Sessions</div>
-            <div class="section-content"></div>
+            <div class="section-content notification-container">
+              <span>Session length: <input type="text" autocomplete="off"> cards.</span>
+            </div>
+
         </div>
 
         <div class="section">
             <div class="section-title" id="section-delete">Delete profile</div>
-            <div class="section-content"></div>
+            <div class="section-content deleteprofile-container">
+              <span>Once you delete your account, you will lose all your progress, including your unsaved decks.</span>
+              <span>Your account cannot be recovered.</span>
+              <div>
+                <label for="confirmdelete">Enter password to confirm:</label><br>
+                <input type="password" id="confirmdelete" name="deleteprofile" autocomplete="off"><br>
+                <button class="delete-account-button">Confirm password and delete account</button>
+
+              </div>
+
+            </div>
         </div>
     </div>
 </div>

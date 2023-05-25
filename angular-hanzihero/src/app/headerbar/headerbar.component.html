@@ -1,8 +1,10 @@
 <div id="headerbar">
     <nav>
+      <div id="header_logo">
         <a routerLink="/dashboard">
-            <div id="header_logo"><img src="assets/han_icon.png" alt="Logo" width="50" height="50"></div>
+            <img src="assets/han_icon.png" alt="Logo">
         </a>
+      </div>
     </nav>
 
     <div id="header_textcontent"></div>
@@ -11,7 +13,7 @@
 
 <div id="menu_selector" *ngIf="UnfoldMenu">
     <nav>
-        <a routerLink="/settings"><div class="settings_nav"> Settings </div></a>
+        <div routerLink="/settings" class="settings_nav"> Settings </div>
         <div class="divider"></div>
         <a routerLink="/login">
             <div class="logout_nav">Log out</div>
