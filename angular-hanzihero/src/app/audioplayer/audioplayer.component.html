@@ -1,14 +1,15 @@
-<div class="music-control">
-    <button class="toggleMusic" id="icon_play" *ngIf="!is_playing">
-        <i  class="bi bi-music-note-beamed" Alt="Play music" (click)="toggleMusic()"></i>
-    </button>
-    <button class="toggleMusic" id="icon_pause" *ngIf="is_playing">
-        <i  class="bi bi-pause-fill" Alt="Pause music" (click)="toggleMusic()"></i>
-    </button>
+<div class="align_buttons">
+    <div class="music-control">
+        <button class="toggleMusic" id="icon_play" *ngIf="!is_playing">
+            <i  class="bi bi-music-note-beamed" Alt="Play music" (click)="toggleMusic()"></i>
+        </button>
+        <button class="toggleMusic" id="icon_pause" *ngIf="is_playing">
+            <i  class="bi bi-pause-fill" Alt="Pause music" (click)="toggleMusic()"></i>
+        </button>
+    </div>
+    <div class="options" *ngIf="is_playing">
+        <button class="music_control" id="next" (click)="nextSong()"><i class="bi bi-skip-end-fill"></i></button>
+        <button *ngIf="finished_volume" class="music_control" id="vol_down"><i class="bi bi-volume-down-fill"></i></button>
+        <button *ngIf="finished_volume" class="music_control" id="vol_up"><i class="bi bi-volume-up"></i></button>
+    </div>
 </div>
-<div class="options" *ngIf="is_playing">
-    <button class="music_control" id="next" (click)="nextSong()"><i class="bi bi-skip-end-fill"></i></button>
-    <button *ngIf="finished_volume" class="music_control" id="vol_down"><i class="bi bi-volume-down-fill"></i></button>
-    <button *ngIf="finished_volume" class="music_control" id="vol_up"><i class="bi bi-volume-up"></i></button>
-</div>
-

@@ -3,15 +3,15 @@
 
 
 
-<div class="homescreen_content" id="homescreen_element_wrapper">
+<div id="homescreen_element_wrapper">
     <h1 *ngIf="currentUser"> {{"welcome_back" | transloco}}, {{currentUser.userName}}!</h1>
     <h1 *ngIf="!currentUser"> {{"welcome_back" | transloco}}!</h1>
-    <div id="homescreen_overview">
+    <div class="s_card_wrapper">
         <div class="homescreen_chart" id="bar_chart"><i class="bi bi-bar-chart" Alt="Bar chart"></i></div>
         <div class="homescreen_chart" id="pie_chart"><i class="bi bi-pie-chart" Alt="Pie chart"></i></div>
     </div>
 
-    <div id="card_wrapper">
+    <div class="s_card_wrapper">
         <div class="menu_flashcard" id="add_menu_flashcard" (click)="toggleNewDeckCreator(); hideDecks(); hideCards(); hideNewCardCreator()"><i class='bi bi-plus' Alt="Add deck icon"></i> Add deck</div>
         <div class="menu_flashcard" *ngFor="let deck of decks" (click)="onSelectDeck(deck); hideNewDeckCreator()"  [class.selected]="deck === selectedDeck">{{deck.deckName}}</div>
     </div>
@@ -19,9 +19,12 @@
     <div *ngIf="showNewDeckCreator">
         <div class="create_deck_overview">
             <span class="ov_span" id="creator_header">{{"add_new_deck" | transloco}}</span>
-            <span class="deck_name ov_span"><input id="new_deck_name" placeholder="Name" #deckName/></span>
-            <span class="deck_description ov_span"><input id="new_deck_description" placeholder="Description" #deckDescription /></span>
-            <button class="add_deck ov_span" (click)="addDeck(deckName.value, deckDescription.value); deckName.value=''; deckDescription.value=''; toggleNewDeckCreator()">Add deck</button>
+            <span class="ov_span"><input id="new_deck_name" placeholder="Name" #deckName/></span>
+            <span class="ov_span"><input id="new_deck_description" placeholder="Description" #deckDescription /></span>
+            <span class="ov_span">
+                <button class="s_button blue_button button_in_span" id="add_deck" (click)="addDeck(deckName.value, deckDescription.value); deckName.value=''; deckDescription.value=''; toggleNewDeckCreator()">Add deck</button>
+            </span>
+            
         </div>
     </div>
 
@@ -34,11 +37,11 @@
             <span class="deck_edited ov_span"> {{"last_edited_on" | transloco}}: {{selectedDeck.lastRevised | date: 'dd/MM/yyyy'}}</span>
             <span class="ov_span">
                 <div class="deck_overview_button_wrapper">
-                    <div class="show_cards" *ngIf="!showCards"(click)="onShowCards(selectedDeck); hideNewCardCreator()">{{"show_cards" | transloco}}</div>
-                    <div class="hide_cards" *ngIf="showCards" (click)="onShowCards(selectedDeck); hideCardEditor(); ; hideNewCardCreator()">{{"hide_cards" | transloco}}</div>
+                    <div class="s_button gray_button" *ngIf="!showCards"(click)="onShowCards(selectedDeck); hideNewCardCreator()">{{"show_cards" | transloco}}</div>
+                    <div class="s_button gray_button" *ngIf="showCards" (click)="onShowCards(selectedDeck); hideCardEditor(); ; hideNewCardCreator()">{{"hide_cards" | transloco}}</div>
                     <nav>
                         <a routerLink="/session">
-                            <div class="start_deck">{{"start_session" | transloco}}</div>
+                            <div class="s_button blue_button" id="link_button">{{"start_session" | transloco}}</div>
                         </a>
                     </nav>
                 </div>
@@ -55,10 +58,10 @@
             <span class="button_divider ov_span"></span>
             <span class="ov_span">
                 <div class="deck_overview_button_wrapper">
-                    <div class="return" id="edit_return" (click)="toggleDeckEditor(); hideNewCardCreator()">Hide Editor</div>
-                    <div class="show_cards" id="edit_show" *ngIf="!showCards" (click)="onShowCards(selectedDeck); hideNewCardCreator()">Show cards</div>
-                    <div class="hide_cards" id="edit_hide" *ngIf="showCards" (click)="onShowCards(selectedDeck); hideCardEditor()">Hide cards</div>
-                    <div class="start_deck" id="edit_start">Start session</div>
+                    <div class="s_button gray_button" id="edit_return" (click)="toggleDeckEditor(); hideNewCardCreator()">Hide Editor</div>
+                    <div class="s_button gray_button" id="edit_show" *ngIf="!showCards" (click)="onShowCards(selectedDeck); hideNewCardCreator()">Show cards</div>
+                    <div class="s_button gray_button" id="edit_hide" *ngIf="showCards" (click)="onShowCards(selectedDeck); hideCardEditor()">Hide cards</div>
+                    <div class="s_button blue_button" id="edit_start">Start session</div>
                 </div>
             </span>
         </div>
@@ -75,11 +78,13 @@
                 </div>
                 <div class="target_sentence edit_span create_input"> <input id="new_card_target_sentence" placeholder="Target Sentence" #targetS> </div>
                 <div class="source_sentence edit_span create_input"> <input id="new_card_target_sentence" placeholder="Source Sentence" #sourceS> </div>
-                <button class="create_card ov_span"
-                        (click)="addCard(selectedDeck, meaning.value, characters.value, pronunciation.value, sourceS.value, targetS.value);
-                                 meaning.value=''; pronunciation.value=''; characters.value=''; pronunciation.value=''; sourceS.value=''; targetS.value='';
-                                 toggleNewCardCreator()"
-                        >Add card</button>
+                <span class="ov_span">
+                    <button class="s_button blue_button button_in_span"
+                            (click)="addCard(selectedDeck, meaning.value, characters.value, pronunciation.value, sourceS.value, targetS.value);
+                                    meaning.value=''; pronunciation.value=''; characters.value=''; pronunciation.value=''; sourceS.value=''; targetS.value='';
+                                    toggleNewCardCreator()"
+                            >Add card</button>
+                </span>
             </div>
         </div>
     </div>
