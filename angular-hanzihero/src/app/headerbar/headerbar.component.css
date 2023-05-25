@@ -13,9 +13,9 @@
 }
 
 #header_logo{
-    padding-top: 5px;
+    padding-top: 2%;
     padding-left: 2%;
-    padding-bottom: 5px;
+    padding-bottom: 2%;
     height: 20%;
 }
 
@@ -84,6 +84,11 @@ a{
 }
 
 @media only screen and  (max-width: 1200px) {
+    #languageset{
+        padding-right: 5%;
+    }
+
+
     #menu_selector{
         margin-top: 5%;
     }
@@ -98,15 +103,24 @@ a{
         margin-top: 10%;
         width: 20%;
     }
+
+    #languageset{
+        padding-right: 5%;
+    }
 }
 
 @media only screen and (max-width: 400px){
     #header_logo img{
-        width: 30%;
+        padding-top: 3%; 
+        width: 35%;
     }
 
     #header_menu{
         padding-right: 5%;
+    }
+
+    #languageset{
+        padding-right: 15%;
     }
 
     #menu_selector{
