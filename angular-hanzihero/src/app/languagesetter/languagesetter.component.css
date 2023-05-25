@@ -1,0 +1,18 @@
+.section{
+  background-color: #e5e5e5;
+  border: solid 2px #505050;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 5px;
+  font-size: 20px;
+}
+
+@media (max-width: 880px) {
+  .section{
+    margin-top: 10%;
+    position: relative;
+    bottom: 0%;
+    left: 0%;
+  }
+}

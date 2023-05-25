@@ -107,4 +107,9 @@ label{
 color: red;
 }
 
+.center-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 

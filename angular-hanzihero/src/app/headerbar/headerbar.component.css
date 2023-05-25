@@ -8,10 +8,11 @@
     right: 0;
     width: 100%;
     height: fit-content;
+    display: flex;
+    justify-content: space-between;
 }
 
 #header_logo{
-    float: left;
     padding-top: 5px;
     padding-left: 2%;
     padding-bottom: 5px;
@@ -86,4 +87,10 @@ a{
 
 .logout_nav{
     margin-top: 20%;
+}
+
+#languageset{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

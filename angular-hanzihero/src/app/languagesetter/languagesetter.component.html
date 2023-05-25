@@ -1,0 +1,4 @@
+<select class="section" (change)="changeLanguage($event.target)">
+  <option *ngFor="let language of languagesList; index as i" [value]="language.code">{{language.name}}</option>
+</select>
+

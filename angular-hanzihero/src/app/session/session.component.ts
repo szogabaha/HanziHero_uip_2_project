@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import {Deck, Card, LearningStatus} from '../model/content'
 import {User} from '../model/user';
+import { TranslocoService } from '@ngneat/transloco';
+
 
 
 
@@ -42,8 +44,8 @@ export class SessionComponent {
   curSHelperMessage: number = 0;
 
   foregroundHelperMessages: any[] = [
-    "Click on the loudspeaker to hear the pronunciation.",
-    "Your session progress is shown in the header.",
+    this.translocoService.translate("help4"), //TODO: Example how to translate these
+    "Your session progress is shown in the header.", //There are duplicates so I'm not sure if I'm breaking anything
     "To cancel your session, click on Han."
   ]
 
@@ -63,8 +65,8 @@ export class SessionComponent {
   f_message_max_length = Object.keys(this.foregroundHelperMessages).length;
   b_message_max_length = Object.keys(this.backgroundHelperMessages).length;
   s_message_max_length = Object.keys(this.sentenceHelperMessages).length;
-  
-  constructor(private router: Router){}
+
+  constructor(private router: Router, private translocoService: TranslocoService){}
 
   ngOnInit(): void{
   }
@@ -185,7 +187,7 @@ export class SessionComponent {
     if(this.curFHelperMessage == this.f_message_max_length){
       this.toggleForegroundHelper();
       this.FHelpReset();
-      
+
     } else{
       this.ForegroundHand();
       this.displayForegroundHelpMessage();
@@ -206,7 +208,7 @@ export class SessionComponent {
     if(this.curBHelperMessage == this.b_message_max_length){
       this.toggleBackgroundHelper();
       this.BHelpReset();
-      
+
     } else{
       // show the side panels as an explanation
       if(this.curBHelperMessage == 0){
@@ -232,7 +234,7 @@ export class SessionComponent {
     if(this.curSHelperMessage == this.s_message_max_length){
       this.toggleSentenceHelper();
       this.SHelpReset();
-      
+
     } else{
       this.SentenceHand();
       this.displaySentenceHelpMessage();
@@ -280,7 +282,7 @@ export class SessionComponent {
   // when dropping the card on either side, increase the session progress,
   // hide the current view,
   // show a note based on correct / incorrect marking,
-  // and call a method for further card information processing 
+  // and call a method for further card information processing
   dropHandler(event: string): void {
     this.hideBackgroundB();
     this.increaseProgress();
@@ -356,7 +358,7 @@ export class SessionComponent {
         SHand.setAttribute("style", "transform: translate(-800%, 270%) rotate(-110deg);");
       } else if(this.curSHelperMessage == 1){
         SHand.setAttribute("style", "display: none");
-      } 
+      }
     }
   }
 

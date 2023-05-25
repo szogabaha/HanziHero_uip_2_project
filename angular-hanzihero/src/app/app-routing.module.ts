@@ -6,6 +6,7 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SessionComponent } from './session/session.component';
 import { SettingsComponent } from './settings/settings.component';
+import { LanguagesetterComponent } from './languagesetter/languagesetter.component';
 
 const routes: Routes = [
   {path: '', redirectTo: "login", pathMatch: "full"},

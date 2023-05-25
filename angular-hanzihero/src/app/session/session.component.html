@@ -1,9 +1,9 @@
 <div class="reduced_headerbar">
-    <div id="header_logo"><img src="assets/han_icon.png" alt="Logo" width="50" height="50" (click)="toggleReminder(); 
-                                                                                                    hideForegroundB(); 
-                                                                                                    hideBackgroundB(); 
-                                                                                                    hideSentenceB(); 
-                                                                                                    hideForegroundHelper(); 
+    <div id="header_logo"><img src="assets/han_icon.png" alt="Logo" width="50" height="50" (click)="toggleReminder();
+                                                                                                    hideForegroundB();
+                                                                                                    hideBackgroundB();
+                                                                                                    hideSentenceB();
+                                                                                                    hideForegroundHelper();
                                                                                                     hideBackgroundHelper();
                                                                                                     hideSentenceHelper()"></div>
     <div class="header_progressbar">
@@ -14,26 +14,26 @@
 <!-- If someone tries to navigate to dashboard again-->
 <div *ngIf="showReminder">
     <div class="stop_session_question" *ngIf="showReminder">
-        Are you sure you want to return to the dashboard? All your progress will be lost.
+        {{"return_to_dashboard" | transloco}}
         <div class="session_control_buttons">
-            <div class="cancel_button" (click)="restoreSessionView()"> Cancel </div>
-            <div class="confirm_button" (click)=redirectToDashboard()> Confirm</div>
+            <div class="cancel_button" (click)="restoreSessionView()"> {{"cancel" | transloco}} </div>
+            <div class="confirm_button" (click)=redirectToDashboard()> {{"confirm" | transloco}}</div>
         </div>
     </div>
 </div>
 
 <div class="session_panel">
-    <!-- 
-        The actual content of the cards is contained here. 
+    <!--
+        The actual content of the cards is contained here.
         Symbols on foreground, meaning on the background,
-        and example sentences on a third "side" 
+        and example sentences on a third "side"
     -->
     <div class="card_foreground" id="foreground" *ngIf="showForeground" (click)="animateFlip(); hideForegroundHelper()">
         <div class="session_target_word"> 熊貓 </div>
     </div>
     <div id="background">
     <div class="draggable_wrapper" cdkDropList [cdkDropListConnectedTo]="[yes,no]">
-        <div class="card_background" *ngIf="showBackground" 
+        <div class="card_background" *ngIf="showBackground"
              cdkDrag (cdkDragStarted)="onDragStart()" (cdkDragReleased)="onDragStop()">
             <div class="session_source_word"> Panda </div>
         </div>
@@ -45,7 +45,7 @@
         <div class="ex_sentence_source"> There's a Panda sitting in that tree over there. </div>
     </div>
 
-    <!-- 
+    <!--
         All the buttons are different depending on the state.
         Foreground: listen to pronunciation & get help
         Background: flip to sentence side & get help
@@ -64,12 +64,12 @@
         <div class="get_help_icon b_icon" (click)="toggleSentenceHelper()"><i class="bi bi-question-lg"></i></div>
     </div>
 
-    <!-- This actually makes the drag and dop work. 
-         These are the drop zones. Apparently, drop zones cannot be wrapped in an if. 
+    <!-- This actually makes the drag and dop work.
+         These are the drop zones. Apparently, drop zones cannot be wrapped in an if.
          So these are permanent but transparent and layered on top of everything else. -->
     <div cdkDropList #no="cdkDropList" (cdkDropListDropped)="dropHandler('no')" id="left"></div>
     <div cdkDropList #yes="cdkDropList" (cdkDropListDropped)="dropHandler('yes')" id="right"></div>
-    
+
     <!-- The pretty, but non-functional drop panels for marking a card as correct or incorrect -->
     <div *ngIf="showSides">
         <div class="incorrect_side" id="fancy_wrong_side">
@@ -85,26 +85,26 @@
 
     <!-- Show some kind of message of encouragement, then load next card -->
     <div class="feedback" *ngIf="showIncorrectNote || showCorrectNote">
-        <div *ngIf="showIncorrectNote" class="was_incorrect feedback_opt">Keep going!</div>
-        <div *ngIf="showCorrectNote" class="was_correct feedback_opt"> Very good!</div>
+        <div *ngIf="showIncorrectNote" class="was_incorrect feedback_opt">{{"keep_going" | transloco}}</div>
+        <div *ngIf="showCorrectNote" class="was_correct feedback_opt">{{"very_good" | transloco}}</div>
         <div class="session_control_button">
-            <div class="continue_button" (click)="redirectToDashboard()"> Continue </div>
+            <div class="continue_button" (click)="redirectToDashboard()">{{"continue" | transloco}}</div>
         </div>
     </div>
 
-    
+
 
     <!-- Interactive help which shows you where you can click -->
     <div *ngIf="showForegroundHelper">
-        <div class="helper_parent">    
+        <div class="helper_parent">
             <div class="helper" id="foreground_helper">
                 <div class="helpmessage_panel" id="foreground_help_panel">
                     <div class="helpmessage_text" id="f_h_m">
-                        Click on the card to reveal the hanzi's meaning.
+                        {{"help1" | transloco}}
                     </div>
-                    <div class="next_help_button" (click)="nextFHelpMessages(); ForegroundHand()">Continue</div>
+                    <div class="next_help_button" (click)="nextFHelpMessages(); ForegroundHand()">{{"continue" | transloco}}</div>
                 </div>
-               
+
             </div>
         </div>
         <i class="bi bi-hand-index hand" id="f_hand" Alt="Hand"></i>
@@ -112,30 +112,30 @@
 
 
     <div *ngIf="showBackgroundHelper">
-        <div class="helper_parent"> 
+        <div class="helper_parent">
             <div class="helper" id="background_helper">
                 <div class="helpmessage_panel" id="background_help_panel">
                     <div class="helpmessage_text" id="b_h_m">
-                        Drag the card to the sides to mark it as correct or incorrect. 
+                        {{"help2" | transloco}}
                     </div>
-                    <div class="next_help_button" (click)="nextBHelpMessages()">Continue</div>
+                    <div class="next_help_button" (click)="nextBHelpMessages()">{{"continue" | transloco}}</div>
                 </div>
-                
+
             </div>
         </div>
         <i class="bi bi-hand-index hand" id="b_hand" Alt="Hand"></i>
     </div>
 
     <div *ngIf="showSentenceHelper">
-        <div class="helper_parent"> 
+        <div class="helper_parent">
             <div class="helper" id="sentence_helper">
                 <div class="helpmessage_panel" id="sentence_help_panel">
                     <div class="helpmessage_text" id="s_h_m">
-                        The card displays example sentences both as pinyin and in English.
+                        {{"help3" | transloco}}
                     </div>
-                    <div class="next_help_button" (click)="nextSHelpMessages()">Continue</div>
+                    <div class="next_help_button" (click)="nextSHelpMessages()">{{"continue" | transloco}}</div>
                 </div>
-                
+
             </div>
         </div>
         <i class="bi bi-hand-index hand" id="s_hand" Alt="Hand"></i>

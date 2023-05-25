@@ -1,15 +1,17 @@
+
 <div id="headerbar">
-    <nav>
+    <nav style="display: flex;">
       <div id="header_logo">
         <a routerLink="/dashboard">
             <img src="assets/han_icon.png" alt="Logo">
         </a>
       </div>
+      <div style="padding-top: 1%;" id="languageset"><app-languagesetter></app-languagesetter></div>
     </nav>
-
-    <div id="header_textcontent"></div>
     <div id="header_menu"><i class="bi bi-list" Alt="Menu" (click)="onClickMenu()"></i></div>
 </div>
+
+
 
 <div id="menu_selector" *ngIf="UnfoldMenu">
     <nav>

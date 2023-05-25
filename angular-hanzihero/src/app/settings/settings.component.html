@@ -9,13 +9,13 @@
     </div>
     <div id="settings-wrapper" (scroll)="onScroll($event)">
         <div class="section">
-            <div class="section-title" id="section-account">Account</div>
+            <div class="section-title" id="section-account">{{"account" | transloco}}</div>
             <div class="section-content">
                 <form class="settings-form">
-                    <label for="username">Change username</label><br>
+                    <label for="username">{{"change_username" | transloco}}</label><br>
                     <input type="text" id="username" name="username" autocomplete="off"><br>
 
-                    <label for="email">Change email</label><br>
+                    <label for="email">{{"change_email" | transloco}}</label><br>
                     <input type="text" id="email" name="email" autocomplete="off"><br>
 
                 </form>
@@ -23,16 +23,16 @@
         </div>
 
         <div class="section">
-            <div class="section-title" id="section-password">Change password</div>
+            <div class="section-title" id="section-password">{{"change_password"| transloco}}</div>
             <div class="section-content">
                 <form class="settings-form">
-                    <label for="oldpw">Old password</label><br>
+                    <label for="oldpw">{{"old_password"| transloco}}</label><br>
                     <input type="password" id="oldpw" name="password" autocomplete="off"><br>
 
-                    <label for="newpw">New password</label><br>
+                    <label for="newpw">{{"new_password" | transloco}}</label><br>
                     <input type="password" id="newpw" name="password" autocomplete="off"><br>
 
-                    <label for="confirmnewpw">Confirm new password</label><br>
+                    <label for="confirmnewpw">{{"confirm_new_password" | transloco}}</label><br>
                     <input type="password" id="confirmnewpw" name="password" autocomplete="off"><br>
 
                 </form>
@@ -40,7 +40,7 @@
         </div>
 
         <div class="section">
-            <div class="section-title" id="section-language">Language</div>
+            <div class="section-title" id="section-language">{{"language" | transloco}}</div>
             <div class="section-content" id="language-wrapper">
               <img src="assets/flags/chinese.jpg" alt="Chinese Flag">
               <img src="assets/flags/japanese.png" alt="Japanese Flag">
@@ -49,17 +49,17 @@
         </div>
 
         <div class="section">
-            <div class="section-title" id="section-notifications">Notifications</div>
+            <div class="section-title" id="section-notifications">{{"notifications" | transloco}}</div>
             <div class="section-content notification-container">
-              <span>Current mail address: [mail]</span><br>
+              <span>{{"current_mail_address" | transloco}}: [mail]</span><br>
               <div class="notification-container">
                 <label>
                   <input type="radio" name="notification-option" value="no" checked>
-                  Do not receive notifications
+                  {{"no_notifications" | transloco}}
                 </label><br>
                 <label>
                   <input type="radio" name="notification-option" value="yes">
-                  Receive notifications every <input type="text" autocomplete="off"> days.
+                  {{"notification_pre" | transloco}} <input type="text" autocomplete="off"> {{"notification_post" | transloco}}.
                 </label>
               </div>
 
@@ -67,22 +67,22 @@
         </div>
 
         <div class="section">
-            <div class="section-title" id="section-sessions">Sessions</div>
+            <div class="section-title" id="section-sessions">{{"sessions" | transloco}}</div>
             <div class="section-content notification-container">
-              <span>Session length: <input type="text" autocomplete="off"> cards.</span>
+              <span>{{"session_length_pre" | transloco}}: <input type="text" autocomplete="off"> {{"session_length_post" | transloco}}.</span>
             </div>
 
         </div>
 
         <div class="section">
-            <div class="section-title" id="section-delete">Delete profile</div>
+            <div class="section-title" id="section-delete">{{"delete_profile" | transloco}}</div>
             <div class="section-content deleteprofile-container">
-              <span>Once you delete your account, you will lose all your progress, including your unsaved decks.</span>
-              <span>Your account cannot be recovered.</span>
+              <span>{{"delete_profile_warning" | transloco}}</span>
+              <span>{{"delete_profile_warning2" | transloco}}</span>
               <div>
-                <label for="confirmdelete">Enter password to confirm:</label><br>
+                <label for="confirmdelete">{{"enter_password_to_confirm" | transloco}}</label><br>
                 <input type="password" id="confirmdelete" name="deleteprofile" autocomplete="off"><br>
-                <button class="delete-account-button">Confirm password and delete account</button>
+                <button class="delete-account-button">{{"confirm_and_delete" | transloco}}</button>
 
               </div>
 

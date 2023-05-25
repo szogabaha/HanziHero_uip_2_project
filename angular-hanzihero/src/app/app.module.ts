@@ -19,6 +19,8 @@ import { CharacterAnimationComponent } from './character-animation/character-ani
 import { SettingsComponent } from './settings/settings.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { TranslocoRootModule } from './transloco-root.module';
+import { LanguagesetterComponent } from './languagesetter/languagesetter.component';
 
 
 @NgModule({
@@ -34,6 +36,7 @@ import { MatSelectModule } from '@angular/material/select';
     AudioplayerComponent,
     CharacterAnimationComponent,
     SettingsComponent,
+    LanguagesetterComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import { MatSelectModule } from '@angular/material/select';
     DragDropModule,
     MatFormFieldModule,
     MatSelectModule,
+    TranslocoRootModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

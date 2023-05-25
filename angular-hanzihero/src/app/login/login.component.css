@@ -91,6 +91,12 @@ label{
     width: auto;
 }
 
+.center-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .error-message{
   color: red;
 }

@@ -4,8 +4,8 @@
 
 
 <div class="homescreen_content" id="homescreen_element_wrapper">
-    <h1 *ngIf="currentUser"> Welcome back, {{currentUser.userName}}!</h1>
-    <h1 *ngIf="!currentUser"> Welcome back!</h1>
+    <h1 *ngIf="currentUser"> {{"welcome_back" | transloco}}, {{currentUser.userName}}!</h1>
+    <h1 *ngIf="!currentUser"> {{"welcome_back" | transloco}}!</h1>
     <div id="homescreen_overview">
         <div class="homescreen_chart" id="bar_chart"><i class="bi bi-bar-chart" Alt="Bar chart"></i></div>
         <div class="homescreen_chart" id="pie_chart"><i class="bi bi-pie-chart" Alt="Pie chart"></i></div>
@@ -18,7 +18,7 @@
 
     <div *ngIf="showNewDeckCreator">
         <div class="create_deck_overview">
-            <span class="ov_span" id="creator_header">Add new deck</span>
+            <span class="ov_span" id="creator_header">{{"add_new_deck" | transloco}}</span>
             <span class="deck_name ov_span"><input id="new_deck_name" placeholder="Name" #deckName/></span>
             <span class="deck_description ov_span"><input id="new_deck_description" placeholder="Description" #deckDescription /></span>
             <button class="add_deck ov_span" (click)="addDeck(deckName.value, deckDescription.value); deckName.value=''; deckDescription.value=''; toggleNewDeckCreator()">Add deck</button>
@@ -30,20 +30,20 @@
         <div class="static_deck_overview" *ngIf="!showDeckEditor">
             <span class="deck_name ov_span" (click)="toggleDeckEditor()">{{selectedDeck.deckName}}</span>
             <span class="deck_description ov_span" (click)="toggleDeckEditor()">{{selectedDeck.deckDescription}}</span>
-            <span class="deck_created ov_span"> Created on: {{selectedDeck.createdAt | date: 'dd/MM/yyyy'}} </span>
-            <span class="deck_edited ov_span"> Last edited on: {{selectedDeck.lastRevised | date: 'dd/MM/yyyy'}}</span>
+            <span class="deck_created ov_span"> {{"created_on" | transloco}}: {{selectedDeck.createdAt | date: 'dd/MM/yyyy'}} </span>
+            <span class="deck_edited ov_span"> {{"last_edited_on" | transloco}}: {{selectedDeck.lastRevised | date: 'dd/MM/yyyy'}}</span>
             <span class="ov_span">
                 <div class="deck_overview_button_wrapper">
-                    <div class="show_cards" *ngIf="!showCards"(click)="onShowCards(selectedDeck); hideNewCardCreator()">Show cards</div>
-                    <div class="hide_cards" *ngIf="showCards" (click)="onShowCards(selectedDeck); hideCardEditor(); ; hideNewCardCreator()">Hide cards</div>
+                    <div class="show_cards" *ngIf="!showCards"(click)="onShowCards(selectedDeck); hideNewCardCreator()">{{"show_cards" | transloco}}</div>
+                    <div class="hide_cards" *ngIf="showCards" (click)="onShowCards(selectedDeck); hideCardEditor(); ; hideNewCardCreator()">{{"hide_cards" | transloco}}</div>
                     <nav>
                         <a routerLink="/session">
-                            <div class="start_deck">Start session</div>
+                            <div class="start_deck">{{"start_session" | transloco}}</div>
                         </a>
                     </nav>
                 </div>
             </span>
-            
+
         </div>
 
         <div class="editable_deck_overview" *ngIf="showDeckEditor">
@@ -75,7 +75,7 @@
                 </div>
                 <div class="target_sentence edit_span create_input"> <input id="new_card_target_sentence" placeholder="Target Sentence" #targetS> </div>
                 <div class="source_sentence edit_span create_input"> <input id="new_card_target_sentence" placeholder="Source Sentence" #sourceS> </div>
-                <button class="create_card ov_span" 
+                <button class="create_card ov_span"
                         (click)="addCard(selectedDeck, meaning.value, characters.value, pronunciation.value, sourceS.value, targetS.value);
                                  meaning.value=''; pronunciation.value=''; characters.value=''; pronunciation.value=''; sourceS.value=''; targetS.value='';
                                  toggleNewCardCreator()"
@@ -88,7 +88,7 @@
 
     <div *ngIf="showCards">
         <div class="add_card" (click)="toggleNewCardCreator(); hideCards()"><i class='bi bi-plus' Alt="Add card icon"></i>Add card</div>
-        
+
         <div *ngFor="let card of cards" (click)="onSelectCard(card)" [class.selected]="card === selectedCard">
             <div class="static_card_overview" *ngIf="!showCardEditor">
                 <div class="card_information" (click)="toggleCardEditor()">
