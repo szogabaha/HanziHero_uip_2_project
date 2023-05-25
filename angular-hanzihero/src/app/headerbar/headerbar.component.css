@@ -24,16 +24,6 @@
   object-fit: cover;
 }
 
-#header_textcontent{
-    float: left;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    padding-left: 2%;
-    padding-top: 1%;
-}
-
 #header_menu{
     float:right;
     display: flex;
@@ -113,6 +103,10 @@ a{
 @media only screen and (max-width: 400px){
     #header_logo img{
         width: 30%;
+    }
+
+    #header_menu{
+        padding-right: 5%;
     }
 
     #menu_selector{
