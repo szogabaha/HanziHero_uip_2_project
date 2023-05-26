@@ -8,13 +8,15 @@
 ## Project description:
 
 HanziHero is a flashcard-based learning app similar to Quizlet, with a cat-turned-superhero mascot for encouragement. Create your own decks and cards while listening to relaxing music, learn the meanings of hanzi and their usage in example sentences in short sessions, and effortlessly switch between different languages you want to learn in. Sign up today to level up your language learning game!
+
+This project was created for the course User Interface Programming II in VT2023 at Uppsala University. 
 ***
 
 ## Instructions for use:
 The project is written in Angular, which requires an active LTS or maintenance LTS version of Node.js. 
 Run the project by navigation into the folder angular-hanzihero, then running the command 
 ```ng serve --open``` .
-To see your versions and installed packages, run ````ng version```.
+To see your versions and installed packages, run ```ng version```.
 
 ### Versions:
 - Angular 16.0.0
