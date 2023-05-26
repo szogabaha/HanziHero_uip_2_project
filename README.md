@@ -43,7 +43,7 @@ To see your versions and installed packages, run ```ng version```.
 ## Main responsibilities
 Darian:
 - Component design
-- Dashoard
+- Dashboard
 - Session
 - Language support (German)
 
