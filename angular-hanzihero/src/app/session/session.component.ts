@@ -1,3 +1,9 @@
+/*
+File: session.component.ts
+author: Darian Krummrich
+*/
+
+
 import { Component, ViewChildren, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
@@ -15,30 +21,37 @@ import { TranslocoService } from '@ngneat/transloco';
 })
 
 export class SessionComponent {
+  // controls for when to show which view, panel, button set etc.
+  // when trying to navigate back to dashboard
   showReminder?: Boolean = false;
+
+  // different views & their buttons
   showForeground?: Boolean = true;
   showBackground?: Boolean = false;
   showBackgroundIcons?: Boolean = true;
   showSentence?: Boolean = false;
   showSides?: Boolean = false;
 
+  //after marking a card as (in-)correct, show encouragement
   showIncorrectNote?: Boolean = false;
   showCorrectNote?: Boolean = false;
 
+  // help messages
   showForegroundHelper?: Boolean = false;
   showBackgroundHelper?: Boolean = false;
   showSentenceHelper?: Boolean = false;
+  
+  // progress bar
   progress: number = 0;
 
+  // cards marked as correct or incorrect
   yes?: any;
   no?: any;
-
-
   currentCard?: Card[];
   correctItems: Card[] = [];
   incorrectItems: Card[] = [];
 
-
+  // iterate through helper messages
   curFHelperMessage: number = 0;
   curBHelperMessage: number = 0;
   curSHelperMessage: number = 0;
@@ -62,6 +75,7 @@ export class SessionComponent {
 
   ]
 
+  // length of helper message arrays
   f_message_max_length = Object.keys(this.foregroundHelperMessages).length;
   b_message_max_length = Object.keys(this.backgroundHelperMessages).length;
   s_message_max_length = Object.keys(this.sentenceHelperMessages).length;
@@ -71,6 +85,7 @@ export class SessionComponent {
   ngOnInit(): void{
   }
 
+  /* ============================== switching between views ============================ */
   toggleForegroundB(): void {
     this.showForeground = !this.showForeground;
   }
@@ -161,6 +176,8 @@ export class SessionComponent {
     this.SHelpReset();
   }
 
+  /* ====================== displaying & iterating through help messages =================== */
+
   displayForegroundHelpMessage(): void{
     const foreground_helper = document.getElementById('f_h_m');
     if(foreground_helper){
@@ -182,8 +199,8 @@ export class SessionComponent {
     }
   }
 
-
   nextFHelpMessages(): void{
+    // wrap around array if reaching end
     if(this.curFHelperMessage == this.f_message_max_length){
       this.toggleForegroundHelper();
       this.FHelpReset();
@@ -265,10 +282,12 @@ export class SessionComponent {
 
   }
 
+  // progress bar updating after marking a card
   increaseProgress(): void {
     this.progress = this.progress + 10;
   }
 
+  // back to dashboard
   redirectToDashboard(): void{
     this.router.navigateByUrl('/dashboard');
   }

@@ -1,3 +1,8 @@
+/*
+File: headerbar.component.ts
+author: Darian Krummrich
+Shows panel when clicking on menu to navigate to settings / logging out
+*/
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,6 +12,7 @@ import { Component } from '@angular/core';
 })
 export class HeaderbarComponent {
 
+  // Shows panel when clicking on menu to navigate to settings / logging out
   UnfoldMenu?: Boolean = false;
 
   onClickMenu(): void {

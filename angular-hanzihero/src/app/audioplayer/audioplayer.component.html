@@ -1,3 +1,16 @@
+<!--
+File: audioplayer.component.html
+Author: Darian Krummrich
+
+This file includes the functionality for toggling on and off background music, as well as switching between songs.
+
+Requires the following files:
+audioplayer.component.css
+audioplayer.component.specs.ts
+audioplayer.component.ts
+
+-->
+
 <div class="align_buttons">
     <!-- turn music on and off -->
     <div class="music-control">
@@ -11,6 +24,7 @@
     <!-- next song, volume up / down -->
     <div class="options" *ngIf="is_playing">
         <button class="music_control" id="next" (click)="nextSong()"><i class="bi bi-skip-end-fill"></i></button>
+        <!-- only display as soon as functionality works -->
         <button *ngIf="finished_volume" class="music_control" id="vol_down"><i class="bi bi-volume-down-fill"></i></button>
         <button *ngIf="finished_volume" class="music_control" id="vol_up"><i class="bi bi-volume-up"></i></button>
     </div>

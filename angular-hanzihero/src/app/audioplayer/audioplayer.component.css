@@ -1,3 +1,8 @@
+/*
+File: audioplayer.component.css
+author: Darian Krummrich
+*/
+
 audio {
     display: none;
 }
@@ -51,6 +56,8 @@ button{
   background-color: #282828;
   color: white;
 }
+
+/* Responsive styling */
 
 @media only screen and (max-width: 1500px){
   .align_buttons{

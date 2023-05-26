@@ -26,9 +26,13 @@
   "add_deck": "Add deck",
   "add_new_deck": "Add new deck",
   "created_on": "Created on",
+  "deck_editor": "Deck editor",
+  "hide_editor": "Hide editor",
   "last_edited_on": "Last edited on",
   "show_cards": "Show cards",
   "hide_cards": "Hide cards",
+  "add_new_card": "Add new card",
+  "add_card": "Add card",
   "start_session": "Start session",
 
   "no_notifications": "Do not receive notifications",

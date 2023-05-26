@@ -1,13 +1,33 @@
+<!--
+File: headerbar.component.html
+author: Darian Krummrich, editor: Gábor Szolnok
 
+Defines headerbar with mascot icon, language selector button 
+and hamburger menu for navigating to settings or logging out
+
+Requires the following files:
+
+headerbar.component.css
+headerbar.component.specs.ts
+headerbar.component.ts
+
+languagesetter.component.css
+languagesetter.component.html
+languagesetter.component.specs.ts
+languagesetter.component.ts
+-->
 <div id="headerbar">
+    <!-- Icon to navigate to dashboard -->
     <nav style="display: flex;">
       <div id="header_logo">
         <a routerLink="/dashboard">
             <img src="assets/han_icon.png" alt="Logo">
         </a>
       </div>
+      <!-- Language selector -->
       <div style="padding-top: 1%;" id="languageset"><app-languagesetter></app-languagesetter></div>
     </nav>
+    <!-- Menu to get to settings / log out -->
     <div id="header_menu"><i class="bi bi-list" Alt="Menu" (click)="onClickMenu()"></i></div>
 </div>
 

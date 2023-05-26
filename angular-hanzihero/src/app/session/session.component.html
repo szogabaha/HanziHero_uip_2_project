@@ -1,3 +1,27 @@
+<!--
+    File: session.component.html 
+    author: Darian Krummrich
+
+    The session view for training the cards. Includes the following functionalities:
+    - header that displays progress
+    - foreground view: symbol you are trying to learn, help message
+    - background view: meaning of symbols, navigation to session view, help message
+    - drag and drop for background view to mark card as correct or incorrect
+    - sentence view: example sentence in both messages, help message
+
+
+    Requires the following files:
+
+    session.component.css
+    session.component.specs.ts
+    session.component.ts
+
+    progress-bar.component.css
+    progress-bar.component.html
+    progress-bar.component.specs.ts
+    progress-bar.component.ts
+-->
+
 <!-- Custom headerbar without the menu and a reminder in case you want to get back to dashboard that you will lose session progress-->
 <div class="reduced_headerbar">
     <div id="header_logo"><img src="assets/han_icon.png" alt="Logo" width="50" height="50" (click)="toggleReminder();

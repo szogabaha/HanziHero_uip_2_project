@@ -1,3 +1,8 @@
+/*
+File: dashboard.component.ts
+author: Darian Krummrich
+*/
+
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { ModelServiceService } from '../services/model-service.service';
@@ -10,6 +15,7 @@ import {User} from '../model/user';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
+  // holds the relevant data for displaying
   decks: Deck[] = [];
   cards: Card[] = [];
   users: User[] = [];
@@ -21,20 +27,25 @@ export class DashboardComponent {
               private authService: AuthService){
 
   }
+  // for displaying the user's name / the selected deck / card
   currentUser?: User;
   selectedDeck?: Deck;
   selectedCard?: Card;
+
+  // for showing and hiding elements
   showCards?: Boolean = false;
   showDeckEditor?: Boolean = false;
   showCardEditor?: Boolean = false;
   showNewDeckCreator?: Boolean = false;
   showNewCardCreator?: Boolean = false;
 
+  // retrieve database data
   ngOnInit(): void{
     this.getDecks();
     this.getCurrentUser();
   }
 
+  /* ==================== select card or deck =============================== */
   onSelectDeck(deck: Deck): void {
     this.selectedDeck = deck;
     this.showCards = false;
@@ -44,7 +55,7 @@ export class DashboardComponent {
     this.selectedCard = card;
   }
 
-
+  /* ================= show and hide graphic elements =============================== */
 
   onShowCards(deck: Deck): void {
     this.getMatchingCards(deck);
@@ -91,6 +102,7 @@ export class DashboardComponent {
     this.showNewCardCreator = false;
   }
 
+  /* ================= retrieving data from database ================================== */
   getDecks(): void{
     this.modelService.getDecks()
       .subscribe(decks => this.decks = decks);
@@ -116,12 +128,13 @@ export class DashboardComponent {
       .subscribe(cards => this.cards = cards);
   }
 
-
+  /* =========================== put data into database ============================= */
   addDeck(deckName: string, deckDescription: string): void{
 
     deckName = deckName.trim();
     deckDescription = deckDescription.trim();
 
+    // only add it when it has information
     if (!deckName || !deckDescription) {
       return;
     }
@@ -153,6 +166,7 @@ export class DashboardComponent {
     sourceSentence = sourceSentence.trim();
     targetSentence = targetSentence.trim();
 
+    // only add it when it has meaning, pronunciation & character information 
     if(!meaning || !characters || !pronunciation){
       return;
     }
