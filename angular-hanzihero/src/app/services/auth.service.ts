@@ -35,12 +35,12 @@ export class AuthService {
     }
   }
 
-  private getCurrentUser(): User | null {
+  getCurrentUser(): User | undefined {
     const userString = sessionStorage.getItem(MockDataBase.CURRENT_USER_STORAGE_KEY);
     if(userString) {
       return JSON.parse(userString)
     } else {
-      return null;
+      return undefined;
     }
   }
 

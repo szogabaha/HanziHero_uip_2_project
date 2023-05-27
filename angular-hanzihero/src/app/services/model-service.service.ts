@@ -30,7 +30,7 @@ export class ModelServiceService {
   getCardsFromDeck(deck: Deck): Observable<Card[]>{
     const cards = sessionStorage.getItem(MockDataBase.CARDS_STORAGE_KEY)
     const parsedCards: Observable<Card[]> = cards ? of(JSON.parse(cards)) : of([] as Card[])
-    return parsedCards.pipe(map(cards => cards.filter(card => card.deckOrigin === deck)));
+    return parsedCards.pipe(map(cards => cards.filter(card => card.deckOrigin.deckId === deck.deckId)));
   }
 
   putCard(card: Card): void {

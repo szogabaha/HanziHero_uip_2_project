@@ -42,7 +42,7 @@ export class DashboardComponent {
   // retrieve database data
   ngOnInit(): void{
     this.getDecks();
-    this.getCurrentUser();
+    this.currentUser = this.authService.getCurrentUser();
   }
 
   /* ==================== select card or deck =============================== */
@@ -108,15 +108,6 @@ export class DashboardComponent {
       .subscribe(decks => this.decks = decks);
   }
 
-  getCurrentUser(): User | null{
-    const userString = sessionStorage.getItem(this.CURRENT_USER_STORAGE_KEY);
-    if(userString) {
-      return JSON.parse(userString)
-    } else {
-      return null;
-    }
-  }
-
   getAllCards(): void{
     this.modelService.getAllCards()
       .subscribe(cards => this.cards = cards);
@@ -166,7 +157,7 @@ export class DashboardComponent {
     sourceSentence = sourceSentence.trim();
     targetSentence = targetSentence.trim();
 
-    // only add it when it has meaning, pronunciation & character information 
+    // only add it when it has meaning, pronunciation & character information
     if(!meaning || !characters || !pronunciation){
       return;
     }
