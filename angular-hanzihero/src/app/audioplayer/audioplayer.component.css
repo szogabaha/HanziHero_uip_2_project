@@ -59,35 +59,186 @@ button{
 
 /* Responsive styling */
 
-@media only screen and (max-width: 1500px){
+/* height larger 400px, width settings remain same for all heights*/
+@media only screen and (max-height: 400px){
   .align_buttons{
-    top: 90%;
-    left: 2%;
+    top: 75%;
   }
+
   .options{
-    top: 90%;
-    left: 6%;
+    top: 75%;
   }
+
+  @media only screen and (max-width: 1800px){
+    .options{
+      left: 6%;
+    }
+  }
+  
+  @media only screen and (max-width: 1500px){
+    .options{
+      left: 8%;
+    }
+  }
+  
+  @media only screen and (max-width: 1000px){
+    .options{
+      left: 10%;
+    }
+  }
+  
+  @media only screen and (max-width: 1000px){
+    .options{
+      left: 12%;
+    }
+  }
+  
+  @media only screen and (max-width: 600px){
+    .align_buttons{
+      left: 2%;
+    }
+    .options{
+      left: 15%;
+    }
+  }
+
 }
 
-@media only screen and (max-width: 1000px){
+/* height larger 600px, width settings remain same*/
+
+@media only screen and (max-height: 600px){
   .align_buttons{
-    top: 85%;
-    left: 2%;
+    top: 80%;
   }
+
   .options{
-    top: 85%;
-    left: 8%;
+    top: 80%;
   }
+
+  @media only screen and (max-width: 1800px){
+    .options{
+      left: 6%;
+    }
+  }
+  
+  @media only screen and (max-width: 1500px){
+    .options{
+      left: 8%;
+    }
+  }
+  
+  @media only screen and (max-width: 1000px){
+    .options{
+      left: 10%;
+    }
+  }
+  
+  @media only screen and (max-width: 1000px){
+    .options{
+      left: 12%;
+    }
+  }
+  
+  @media only screen and (max-width: 600px){
+    .align_buttons{
+      left: 2%;
+    }
+    .options{
+      left: 15%;
+    }
+  }
+
 }
 
-@media only screen and (max-width: 800px){
+/* height larger 800px, width settings remain same*/
+
+@media only screen and (max-height: 800px){
   .align_buttons{
     top: 85%;
-    left: 2%;
   }
+
   .options{
     top: 85%;
-    left: 20%;
   }
+
+  @media only screen and (max-width: 1800px){
+    .options{
+      left: 6%;
+    }
+  }
+  
+  @media only screen and (max-width: 1500px){
+    .options{
+      left: 8%;
+    }
+  }
+  
+  @media only screen and (max-width: 1000px){
+    .options{
+      left: 10%;
+    }
+  }
+  
+  @media only screen and (max-width: 1000px){
+    .options{
+      left: 12%;
+    }
+  }
+  
+  @media only screen and (max-width: 600px){
+    .align_buttons{
+      left: 2%;
+    }
+    .options{
+      left: 15%;
+    }
+  }
+
+}
+
+
+/* height larger 800px, width settings remain same*/
+
+@media only screen and (min-height: 800px){
+  .align_buttons{
+    top: 92%;
+  }
+
+  .options{
+    top: 92%;
+  }
+
+  @media only screen and (max-width: 1800px){
+    .options{
+      left: 6%;
+    }
+  }
+  
+  @media only screen and (max-width: 1500px){
+    .options{
+      left: 8%;
+    }
+  }
+  
+  @media only screen and (max-width: 1000px){
+    .options{
+      left: 10%;
+    }
+  }
+  
+  @media only screen and (max-width: 1000px){
+    .options{
+      left: 12%;
+    }
+  }
+  
+  @media only screen and (max-width: 600px){
+    .align_buttons{
+      left: 2%;
+    }
+    .options{
+      left: 15%;
+    }
+  }
+
 }

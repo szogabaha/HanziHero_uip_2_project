@@ -4,6 +4,8 @@ author: Darian Krummrich
 
 */
 
+/* standard styling of buttons, in blue & gray, and when in spans / containing links */
+
 .s_button{
     border-radius: 20px;
     margin-top: 2%;
@@ -48,9 +50,17 @@ a:link{
     text-decoration: none;
 }
 
+#edit_start{
+    align-self: center;
+    text-align: center;
+    padding: 10%;
+}
+
+/* standard cards */
+
 .s_card_wrapper{
-    display: flex;
     min-width: 75%;
+    height: max-content;
     border-radius: 20px;
     padding: 5%;
     background-color: #e5e5e5;
@@ -58,28 +68,45 @@ a:link{
     margin-bottom: 1%;
 }
 
+.s_flex{
+    display: flex;
+}
+
+.s_block{
+    display: block;
+}
+
+/* styling for specific card views */
+
+#editable_card_overview{
+    margin-top: 2%;
+}
+
+#create_card_overview{
+    padding-bottom: 15%;
+}
+
+#create_deck_overview{
+    padding-bottom: 25%;
+}
+
+#editable_deck_overview{
+    padding-bottom: 40%;
+}
+
+#static_deck_overview{
+    padding-bottom: 30%;
+}
+
+/* container for body elements */
 
 #homescreen_element_wrapper{
-    min-width: 25%;
+    min-width: 50%;
     max-width: fit-content;
     margin: auto;
-    margin-top:5%;
     justify-content: center;
     align-items: center;
     padding-top: 5%;
-    padding-left: 5%;
-    padding-right: 5%;
-    /*border: solid 2px #505050;*/
-}
-
-#homescreen_overview{
-    display: flex;
-    width: auto;
-    border-radius: 20px;
-    padding: 5%;
-    background-color: #e5e5e5;
-    border: solid 2px #505050;
-    margin-bottom: 1%;
 }
 
 .homescreen_chart{
@@ -89,13 +116,7 @@ a:link{
     margin-right: 5%;
 }
 
-#card_wrapper{
-    display: flex;
-    border-radius: 20px;
-    padding: 2%;
-    background-color: #e5e5e5;
-    border: solid 2px #505050;
-}
+/* buttons with deck names */
 
 .menu_flashcard{
     border-radius: 20px;
@@ -131,73 +152,16 @@ a:link{
     color: #ffff;
 }
 
-.static_deck_overview{
-    display: block;
-    height: max-content;
-    border-radius: 20px;
-    margin-top: 5%;
-    padding: 5%;
-    padding-bottom: 45%;
-    background-color: #e5e5e5;
-    border: solid 2px #505050;
-}
 
-.editable_deck_overview{
-    display: block;
-    height: max-content;
-    border-radius: 20px;
-    margin-top: 5%;
-    padding-top: 3%;
-    padding-bottom: 60%;
-    padding-left: 5%;
-    padding-right: 5%;
-    background-color: #e5e5e5;
-    border: solid 2px #505050;
-}
+/* headers & other text styling */
 
-.create_deck_overview{
-    display: block;
-    height: max-content;
-    border-radius: 20px;
-    margin-top: 5%;
-    padding-top: 3%;
-    padding-bottom: 35%;
-    padding-left: 5%;
-    padding-right: 5%;
-    background-color: #e5e5e5;
-    border: solid 2px #505050;
-    
-}
-
-
-#creator_header{
+.header_text{
     font-weight: bold;
     font-size: larger;
 }
 
-
-.deck_description{
-    word-break: break-word;
-}
-
-.ov_span{
-    float: left;
-    clear: left;
-    padding-top: 2%;
-}
-
-.add_card{
-    height: max-content;
-    border-radius: 20px;
-    margin-top: 5%;
-    padding: 5%;
-    background-color: #e5e5e5;
-    border: solid 2px #505050;
-}
-
-#editor_header{
-    font-weight: bold;
-    font-size: larger;
+#card_creator_header{
+    margin-bottom: 2%;
 }
 
 .deck_overview_button_wrapper{
@@ -206,50 +170,27 @@ a:link{
 
 }
 
-.deck_name{
-    font-weight: bold;
-    font-size: large;
+.deck_description{
+    word-break: break-word;
 }
 
-.static_card_overview{
-    height: max-content;
-    border-radius: 20px;
-    margin-top: 5%;
-    padding: 5%;
-    background-color: #e5e5e5;
-    border: solid 2px #505050;
+/* positioning of texts on cards */
+.ov_span{
+    float: left;
+    clear: left;
+    padding-top: 2%;
 }
 
-.editable_card_overview{
-    height: max-content;
-    border-radius: 20px;
-    margin-top: 5%;
-    padding: 5%;
-    background-color: #e5e5e5;
-    border: solid 2px #505050;
-}
 
-.create_card_overview{
-    height: max-content;
-    border-radius: 20px;
-    margin-top: 5%;
-    padding: 5%;
-    padding-bottom: 12%;
-    background-color: #e5e5e5;
-    border: solid 2px #505050;
-}
+/* spaces input text fields for creators and editors */
 
-.create_input{
+.input_spacer{
     margin-bottom: 1%;
     margin-top: 1%;
 }
 
-#card_creator_header{
-    font-size: larger;
-    font-weight: bold;
-    margin-bottom: 2%;
-}
 
+/* separator between header and footer content*/
 
 .card_info_header{
 
@@ -281,18 +222,124 @@ a:link{
     width: fit-content;
 }
 
-#edit_start{
-    align-self: center;
-    text-align: center;
-    padding: 10%;
+.editable_card_info_header{
+    text-align: left;
+}
+
+@media only screen and (max-width: 1600px){
+    
+    #create_card_overview{
+        padding-bottom: 15%;
+    }
+    
+    #create_deck_overview{
+        padding-bottom: 40%;
+    }
+    
+    #editable_deck_overview{
+        padding-bottom: 45%;
+    }
+    
+    #static_deck_overview{
+        padding-bottom: 35%;
+    }
+}
+
+@media only screen and (max-width: 1300px){
+    
+    #create_deck_overview{
+        padding-bottom: 35%;
+    }
+    
+    #editable_deck_overview{
+        padding-bottom: 55%;
+    }
+    
+    #static_deck_overview{
+        padding-bottom: 40%;
+    }
+}
+
+@media only screen and (max-width: 1100px){
+
+
+    #homescreen_element_wrapper{
+        margin-top: 10%;
+        min-width: 85%;
+    }
+
+
+    .homescreen_chart{
+        font-size: 500%;
+    }
+    
+    #create_deck_overview{
+        padding-bottom: 25%;
+    }
+    
+    #editable_deck_overview{
+        padding-bottom: 45%;
+    }
+    
+    #static_deck_overview{
+        padding-bottom: 33%;
+    }
+    
+}
+
+@media only screen and (max-width: 900px){
+    .target_pinyin{
+        margin-right: 1%;
+    }
+    #static_deck_overview{
+        padding-bottom: 40%;
+    }
+
+    #create_deck_overview{
+        padding-bottom: 33%;
+    }
+
+    #editable_deck_overview{
+        padding-bottom: 60%;
+    }
 }
 
 @media only screen and (max-width: 600px){
+    .source_word{
+        float: left;
+        margin-right: 1%;
+    }
+    .target_pinyin{
+        float: left;
+    }
+    .target_word{
+        float: left;
+    }
+
+
     #homescreen_element_wrapper{
         margin-top: 15%;
+        min-width: 90%;
     }
 
     .homescreen_chart{
         font-size: 300%;
     }
+
+    #create_card_overview{
+        padding-bottom: 20%;
+    }
+    
+    #create_deck_overview{
+        padding-bottom: 45%;
+    }
+    
+    #editable_deck_overview{
+        padding-bottom: 70%;
+    }
+    
+    #static_deck_overview{
+        padding-bottom: 50%;
+    }
+    
 }

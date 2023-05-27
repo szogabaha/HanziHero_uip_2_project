@@ -42,21 +42,21 @@ dashboard.component.ts
     <h1 *ngIf="currentUser"> {{"welcome_back" | transloco}}, {{currentUser.userName}}!</h1>
     <h1 *ngIf="!currentUser"> {{"welcome_back" | transloco}}!</h1>
     <!-- Learning statistics -->
-    <div class="s_card_wrapper">
+    <div class="s_card_wrapper s_flex">
         <div class="homescreen_chart" id="bar_chart"><i class="bi bi-bar-chart" Alt="Bar chart"></i></div>
         <div class="homescreen_chart" id="pie_chart"><i class="bi bi-pie-chart" Alt="Pie chart"></i></div>
     </div>
 
     <!-- Overview of all deck names & option to create new deck -->
-    <div class="s_card_wrapper">
+    <div class="s_card_wrapper s_flex">
         <div class="menu_flashcard" id="add_menu_flashcard" (click)="toggleNewDeckCreator(); hideDecks(); hideCards(); hideNewCardCreator()"><i class='bi bi-plus' Alt="Add deck icon"></i> {{"add_deck" | transloco }}</div>
         <div class="menu_flashcard" *ngFor="let deck of decks" (click)="onSelectDeck(deck); hideNewDeckCreator()"  [class.selected]="deck === selectedDeck">{{deck.deckName}}</div>
     </div>
 
     <!-- Editor when creating a new deck -->
     <div *ngIf="showNewDeckCreator">
-        <div class="create_deck_overview">
-            <span class="ov_span" id="creator_header">{{"add_new_deck" | transloco}}</span>
+        <div class="s_card_wrapper s_block" id="create_deck_overview">
+            <span class="header_text ov_span">{{"add_new_deck" | transloco}}</span>
             <span class="ov_span"><input id="new_deck_name" placeholder="Name" #deckName/></span>
             <span class="ov_span"><input id="new_deck_description" placeholder="Description" #deckDescription /></span>
             <span class="ov_span">
@@ -67,9 +67,10 @@ dashboard.component.ts
     </div>
 
     <!-- When clicking on a deck name, their information appears -->
+    <!--  -->
     <div *ngIf="selectedDeck">
-        <div class="static_deck_overview" *ngIf="!showDeckEditor">
-            <span class="deck_name ov_span" (click)="toggleDeckEditor()">{{selectedDeck.deckName}}</span>
+        <div class="s_card_wrapper s_block" id="static_deck_overview" *ngIf="!showDeckEditor">
+            <span class="header_text ov_span" (click)="toggleDeckEditor()">{{selectedDeck.deckName}}</span>
             <span class="deck_description ov_span" (click)="toggleDeckEditor()">{{selectedDeck.deckDescription}}</span>
             <span class="deck_created ov_span"> {{"created_on" | transloco}}: {{selectedDeck.createdAt | date: 'dd/MM/yyyy'}} </span>
             <span class="deck_edited ov_span"> {{"last_edited_on" | transloco}}: {{selectedDeck.lastRevised | date: 'dd/MM/yyyy'}}</span>
@@ -88,9 +89,9 @@ dashboard.component.ts
         </div>
 
         <!-- When clicking on the name or description of the static deck overview, you can edit the deck information -->
-        <div class="editable_deck_overview" *ngIf="showDeckEditor">
-            <span class="ov_span" id="editor_header">{{"deck_editor" | transloco}}  </span>
-            <span class="deck_name ov_span"><input id="new_deck_name" [(ngModel)]="selectedDeck.deckName" placeholder="name"></span>
+        <div class="s_card_wrapper s_block" id="editable_deck_overview" *ngIf="showDeckEditor">
+            <span class="header_text ov_span">{{"deck_editor" | transloco}}  </span>
+            <span class="header_text ov_span"><input id="new_deck_name" [(ngModel)]="selectedDeck.deckName" placeholder="name"></span>
             <span class="deck_description ov_span"><input id="new_deck_description" [(ngModel)]="selectedDeck.deckDescription" placeholder="description"></span>
             <span class="deck_created ov_span"> {{"created_on" | transloco}}: {{selectedDeck.createdAt | date: 'dd/MM/yyyy'}} </span>
             <span class="deck_edited ov_span"> {{"last_edited_on" | transloco}}: {{selectedDeck.lastRevised | date: 'dd/MM/yyyy'}}</span>
@@ -109,17 +110,17 @@ dashboard.component.ts
     <!-- When showing cards and clicking on "add new card", you can enter all information for a new card.
          Requires meaning, pronunciation and characters, but not example sentence. 
     -->
-    <div *ngIf="showNewCardCreator && selectedDeck" >
-        <div class="create_card_overview">
+    <div *ngIf="showNewCardCreator && selectedDeck">
+        <div class="s_card_wrapper s_block" id="create_card_overview">
             <div class="card_information">
-                <span class="ov_span" id="card_creator_header">{{"add_new_card" | transloco }}</span>
+                <span class="header_text ov_span" id="card_creator_header">{{"add_new_card" | transloco }}</span>
                 <div class="card_info_header">
-                    <div class="source_word header_span create_input"> <input id="new_card_meaning" placeholder="Meaning" #meaning></div>
-                    <div class="target_pinyin header_span create_input"> <input id="new_card_pronunciation" placeholder="Pronunciation" #pronunciation> </div>
-                    <div class="target_word header_span create_input"> <input id="new_card_characters" placeholder="Characters" #characters></div>
+                    <div class="source_word input_spacer" id="create_a"> <input id="new_card_meaning" placeholder="Meaning" #meaning></div>
+                    <div class="target_pinyin input_spacer" id="create_b"> <input id="new_card_pronunciation" placeholder="Pronunciation" #pronunciation> </div>
+                    <div class="target_word input_spacer" id="create_c"> <input id="new_card_characters" placeholder="Characters" #characters></div>
                 </div>
-                <div class="target_sentence edit_span create_input"> <input id="new_card_target_sentence" placeholder="Target Sentence" #targetS> </div>
-                <div class="source_sentence edit_span create_input"> <input id="new_card_target_sentence" placeholder="Source Sentence" #sourceS> </div>
+                <div class="target_sentence edit_span input_spacer"> <input id="new_card_target_sentence" placeholder="Target Sentence" #targetS> </div>
+                <div class="source_sentence edit_span input_spacer"> <input id="new_card_target_sentence" placeholder="Source Sentence" #sourceS> </div>
                 <span class="ov_span">
                     <button class="s_button blue_button button_in_span"
                             (click)="addCard(selectedDeck, meaning.value, characters.value, pronunciation.value, sourceS.value, targetS.value);
@@ -135,11 +136,11 @@ dashboard.component.ts
     <!-- When showing cards. Loads all cards belonging to the selected deck with all their information-->
     <div *ngIf="showCards">
         <!-- Option for adding new cards -->
-        <div class="add_card" (click)="toggleNewCardCreator(); hideCards()"><i class='bi bi-plus' Alt="Add card icon"></i>{{"add_card" | transloco}}</div>
+        <div class="s_card_wrapper" (click)="toggleNewCardCreator(); hideCards()"><i class='bi bi-plus' Alt="Add card icon"></i>{{"add_card" | transloco}}</div>
 
         <!-- Static card overview -->
         <div *ngFor="let card of cards" (click)="onSelectCard(card)" [class.selected]="card === selectedCard">
-            <div class="static_card_overview" *ngIf="!showCardEditor">
+            <div class="s_card_wrapper" *ngIf="!showCardEditor">
                 <div class="card_information" (click)="toggleCardEditor()">
                     <div class="card_info_header">
                         <div class="source_word"> {{card.meaning}} </div>
@@ -152,16 +153,16 @@ dashboard.component.ts
             </div>
 
             <!-- Editable card overview, accessible when clicking on any of the static card information -->
-            <div class="editable_card_overview" *ngIf="showCardEditor && selectedCard">
+            <div class="s_card_wrapper s_block" id="editable_card_overview" *ngIf="showCardEditor && selectedCard">
                 <div *ngIf="card === selectedCard">
-                    <div class="card_information">
-                        <div class="card_info_header">
-                            <div class="source_word header_span"> <input id="new_card_meaning" [(ngModel)]="selectedCard.meaning" placeholder="meaning"></div>
-                            <div class="target_pinyin header_span"> <input id="new_card_pronunciation" [(ngModel)]="selectedCard.pronunciation" placeholder="pronunciation"> </div>
-                            <div class="target_word header_span"> <input id="new_card_characters" [(ngModel)]="selectedCard.characters" placeholder="characters"></div>
+                    <div class="small_block card_information">
+                        <div class="editable_card_info_header card_info_header">
+                            <div class="header_span input_spacer"> <input id="new_card_meaning" [(ngModel)]="selectedCard.meaning" placeholder="meaning"></div>
+                            <div class="header_span input_spacer"> <input id="new_card_pronunciation" [(ngModel)]="selectedCard.pronunciation" placeholder="pronunciation"> </div>
+                            <div class="header_span input_spacer"> <input id="new_card_characters" [(ngModel)]="selectedCard.characters" placeholder="characters"></div>
                         </div>
-                        <div class="target_sentence edit_span"> <input id="new_card_target_sentence" [(ngModel)]="selectedCard.targetSentence" placeholder="targetSentence"> </div>
-                        <div class="source_sentence edit_span"> <input id="new_card_target_sentence" [(ngModel)]="selectedCard.sourceSentence" placeholder="sourceSentence"> </div>
+                        <div class="target_sentence edit_span input_spacer"> <input id="new_card_target_sentence" [(ngModel)]="selectedCard.targetSentence" placeholder="targetSentence"> </div>
+                        <div class="source_sentence edit_span input_spacer"> <input id="new_card_target_sentence" [(ngModel)]="selectedCard.sourceSentence" placeholder="sourceSentence"> </div>
                     </div>
                 </div>
                 <!-- Only show editor of card that was actually clicked on -->
