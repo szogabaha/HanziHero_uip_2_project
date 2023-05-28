@@ -33,6 +33,11 @@ export class SettingsComponent {
       "name": "sessions",
       "class" : "",
       "sectionName": "section-sessions"
+    },
+    {
+      "name": "delete_profile",
+      "class" : "",
+      "sectionName": "section-delete"
     }
   ];
 
@@ -68,11 +73,24 @@ export class SettingsComponent {
     });
   }
 
-  jumpToSection(item: any) {
-    const element = document.getElementById(item.sectionName);
+  jumpToSection(onClicked: any) {
+    const element = document.getElementById(onClicked.sectionName);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' , block: 'start'});
     }
+
+    //Timeout is needed because otherwise the delete profile wouldn't be shown, because it's never the
+    //closest section if page is wide
+    setTimeout(() => {
+      this.settingsProperties.forEach((item) => {
+        if (item.name === onClicked.name) {
+          item["class"] = "selected";
+        } else {
+          item["class"] = "";
+        }
+      })
+    }, 800);
+
 
   }
 }

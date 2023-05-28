@@ -36,10 +36,31 @@ ul.navbar {
   width: 30%;
 }
 
-#delete-profile{
+#delete_profile{
   margin-top: auto;
   color: red;
   font-weight: bold;
+
+}
+
+#delete_profile.selected {
+  margin-top: auto;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  animation: deleteSelectedAnimation 0.4s ease-in-out forwards;
+}
+
+@keyframes deleteSelectedAnimation{
+  from {
+    background-color: white;
+    color: red;
+  }
+  to {
+    background-color: red;
+    color: white;
+
+  }
 }
 
 #settings-wrapper{
