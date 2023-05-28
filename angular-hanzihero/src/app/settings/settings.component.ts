@@ -67,4 +67,12 @@ export class SettingsComponent {
       }
     });
   }
+
+  jumpToSection(item: any) {
+    const element = document.getElementById(item.sectionName);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' , block: 'start'});
+    }
+
+  }
 }

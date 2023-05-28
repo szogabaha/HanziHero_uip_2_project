@@ -13,6 +13,8 @@ ul.navbar {
 #main-part{
   padding-top: 75px;
   display: flex;
+  overflow-y: hidden;
+  height: 100%;
 }
 #part-selector-wrapper{
   display: flex;
@@ -42,6 +44,7 @@ ul.navbar {
 
 #settings-wrapper{
   width: 80%;
+  height: 100%;
 }
 
 .section-title{

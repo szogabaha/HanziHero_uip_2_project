@@ -2,7 +2,7 @@
 <div id="main-part">
     <div id="part-selector-wrapper">
         <ul id="part-selector">
-            <li *ngFor="let item of settingsProperties" [class.selected]="item.class === 'selected'">{{ item.name | transloco }}</li>
+            <li *ngFor="let item of settingsProperties" [class.selected]="item.class === 'selected'" (click)="jumpToSection(item)" style=" cursor: pointer;">{{ item.name | transloco }}</li>
             <div id="delete-profile">{{"delete_profile" | transloco}}</div>
         </ul>
 
