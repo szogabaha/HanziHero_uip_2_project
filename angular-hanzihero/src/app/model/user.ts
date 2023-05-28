@@ -9,7 +9,7 @@ export interface User {
 }
 
 export enum Language {
-  Chinese,
-  Japanese,
-  Korean,
+  Chinese = "chinese",
+  Japanese = "japanese",
+  Korean = "korean",
 }

@@ -59,6 +59,7 @@ author: Darian Krummrich, editor: Gábor Szolnok
     border-radius: 20px;
     font-size: 130%;
     text-decoration-color: black;
+    z-index: 1;
 }
 
 a{
@@ -103,7 +104,7 @@ a{
 @media only screen and  (max-width: 800px) {
     #header_logo img{
         width: 15%;
-    } 
+    }
 
     #menu_selector{
         margin-top: 10%;
@@ -117,7 +118,7 @@ a{
 
 @media only screen and (max-width: 400px){
     #header_logo img{
-        padding-top: 3%; 
+        padding-top: 3%;
         width: 35%;
     }
 

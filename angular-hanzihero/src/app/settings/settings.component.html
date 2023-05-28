@@ -1,4 +1,5 @@
 <app-headerbar></app-headerbar>
+<div id="save-changes">Save Changes</div>
 <div id="main-part">
     <div id="part-selector-wrapper">
         <ul id="part-selector">
@@ -12,10 +13,10 @@
             <div class="section-content">
                 <form class="settings-form">
                     <label for="username">{{"change_username" | transloco}}</label><br>
-                    <input type="text" id="username" name="username" autocomplete="off"><br>
+                    <input type="text" id="username" name="username" [value]= "username" (input)="onUsernameChange($event.target)" autocomplete="off"><br>
 
                     <label for="email">{{"change_email" | transloco}}</label><br>
-                    <input type="text" id="email" name="email" autocomplete="off"><br>
+                    <input type="text" id="email" name="email" [value]= "email" autocomplete="off"><br>
 
                 </form>
             </div>
@@ -26,13 +27,13 @@
             <div class="section-content">
                 <form class="settings-form">
                     <label for="oldpw">{{"old_password"| transloco}}</label><br>
-                    <input type="password" id="oldpw" name="password" autocomplete="off"><br>
+                    <input type="password" id="oldpw" name="password" [value]="oldPassword" autocomplete="off"><br>
 
                     <label for="newpw">{{"new_password" | transloco}}</label><br>
-                    <input type="password" id="newpw" name="password" autocomplete="off"><br>
+                    <input type="password" id="newpw" name="password" [value]="newPassword" autocomplete="off"><br>
 
                     <label for="confirmnewpw">{{"confirm_new_password" | transloco}}</label><br>
-                    <input type="password" id="confirmnewpw" name="password" autocomplete="off"><br>
+                    <input type="password" id="confirmnewpw" name="password" [value]="confirmNewPassword" autocomplete="off"><br>
 
                 </form>
             </div>
@@ -41,24 +42,24 @@
         <div class="section">
             <div class="section-title" id="section-language">{{"language" | transloco}}</div>
             <div class="section-content" id="language-wrapper">
-              <img src="assets/flags/chinese.jpg" alt="Chinese Flag">
-              <img src="assets/flags/japanese.png" alt="Japanese Flag">
-              <img src="assets/flags/korean.png" alt="Korean Flag">
+              <img id="chinese" [className] = "getLanguageImageClass('chinese')" src="assets/flags/chinese.jpg" (click)="onLanguageChange($event)" alt="Chinese Flag">
+              <img id="japanese" [className] = "getLanguageImageClass('japanese')" src="assets/flags/japanese.png" (click)="onLanguageChange($event)" alt="Japanese Flag">
+              <img id="korean" [className] = "getLanguageImageClass('korean')" src="assets/flags/korean.png" (click)="onLanguageChange($event)" alt="Korean Flag">
             </div>
         </div>
 
         <div class="section">
             <div class="section-title" id="section-notifications">{{"notifications" | transloco}}</div>
             <div class="section-content notification-container">
-              <span>{{"current_mail_address" | transloco}}: [mail]</span><br>
+              <span>{{"current_mail_address" | transloco}}: {{email}}</span><br>
               <div class="notification-container">
                 <label>
-                  <input type="radio" name="notification-option" value="no" checked>
+                  <input type="radio" name="notification-option" [value]="!receiveNotifications" checked>
                   {{"no_notifications" | transloco}}
                 </label><br>
                 <label>
-                  <input type="radio" name="notification-option" value="yes">
-                  {{"notification_pre" | transloco}} <input type="text" autocomplete="off"> {{"notification_post" | transloco}}.
+                  <input type="radio" name="notification-option" [value]="receiveNotifications">
+                  {{"notification_pre" | transloco}} <input type="text" autocomplete="off" [value]="notificationPeriod"> {{"notification_post" | transloco}}.
                 </label>
               </div>
 
@@ -68,7 +69,7 @@
         <div class="section">
             <div class="section-title" id="section-sessions">{{"sessions" | transloco}}</div>
             <div class="section-content notification-container">
-              <span>{{"session_length_pre" | transloco}}: <input type="text" autocomplete="off"> {{"session_length_post" | transloco}}.</span>
+              <span>{{"session_length_pre" | transloco}}: <input type="text" autocomplete="off" [value]="sessionLength"> {{"session_length_post" | transloco}}.</span>
             </div>
 
         </div>
