@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-settings',
@@ -8,33 +9,36 @@ import { Component, HostListener } from '@angular/core';
 export class SettingsComponent {
   settingsProperties = [
     {
-      "name": "Account",
+      "name": "account",
       "class" : "selected",
       "sectionName": "section-account",
     },
     {
-      "name": "Change password",
+      "name": "change_password",
       "class" : "",
       "sectionName": "section-password",
 
     },
     {
-      "name": "Language",
+      "name": "language",
       "class" : "",
       "sectionName": "section-language"
     },
     {
-      "name": "Notifications",
+      "name": "notifications",
       "class" : "",
       "sectionName": "section-notifications"
     },
     {
-      "name": "Sessions",
+      "name": "sessions",
       "class" : "",
       "sectionName": "section-sessions"
     }
   ];
 
+  constructor(private translocoService: TranslocoService) {
+
+  }
   @HostListener('window:scroll', ['$event.target'])
   onScroll(scrollableDiv: any): void {
 

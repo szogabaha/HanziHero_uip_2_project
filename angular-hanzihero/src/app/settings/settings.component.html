@@ -2,8 +2,8 @@
 <div id="main-part">
     <div id="part-selector-wrapper">
         <ul id="part-selector">
-            <li *ngFor="let item of settingsProperties" [class.selected]="item.class === 'selected'">{{ item.name }}</li>
-            <div id="delete-profile"> Delete profile</div>
+            <li *ngFor="let item of settingsProperties" [class.selected]="item.class === 'selected'">{{ item.name | transloco }}</li>
+            <div id="delete-profile">{{"delete_profile" | transloco}}</div>
         </ul>
 
     </div>
