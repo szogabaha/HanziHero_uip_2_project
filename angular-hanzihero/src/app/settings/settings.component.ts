@@ -157,7 +157,7 @@ export class SettingsComponent implements OnInit{
   saveChanges() {
 
     this.emptyField = !this.username || !this.email
-    this.wrongOldPassword = this.newPassword != "" && this.oldPassword !== this.authService.getCurrentUser()?.password
+    this.wrongOldPassword = (this.oldPassword != "" || this.confirmNewPassword != "" || this.newPassword != "") && this.oldPassword !== this.authService.getCurrentUser()?.password
     this.nonMatchingPassword = this.confirmNewPassword !== this.newPassword
 
     this.badNotificationInput = this.receiveNotifications && !this.canBeParsedToNumber(this.notificationPeriod)
@@ -169,7 +169,7 @@ export class SettingsComponent implements OnInit{
 
     this.authService.updateCurrentUser(undefined, undefined, undefined, undefined, this.language)
 
-    if(!this.wrongOldPassword && !this.nonMatchingPassword) {
+    if(this.newPassword && !this.wrongOldPassword && !this.nonMatchingPassword) {
       this.authService.updateCurrentUser(undefined, undefined, this.newPassword)
     }
     if(!this.badNotificationInput) {
@@ -183,5 +183,14 @@ export class SettingsComponent implements OnInit{
       this.router.navigate(['/dashboard'])
     }
 
+ }
+
+ deleteAccount() {
+    if(this.deleteConfirm !== this.authService.getCurrentUser()?.password) {
+      this.wrongDeleteProfilePassword = true;
+      return
+    }
+    this.authService.deleteCurrentAccount();
+    this.router.navigate(['/login'])
  }
 }

@@ -91,7 +91,7 @@
               <div>
                 <label for="confirmdelete">{{"enter_password_to_confirm" | transloco}}</label><br>
                 <input type="password" id="confirmdelete" name="deleteprofile" [(ngModel)]="deleteConfirm" autocomplete="off"><br>
-                <button class="delete-account-button">{{"confirm_and_delete" | transloco}}</button>
+                <button class="delete-account-button" (click)="deleteAccount()">{{"confirm_and_delete" | transloco}}</button>
               </div>
               <div *ngIf="wrongDeleteProfilePassword" class="error-message"><b>Hibás jelszó</b></div>
             </div>

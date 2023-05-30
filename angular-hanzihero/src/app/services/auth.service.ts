@@ -99,6 +99,19 @@ export class AuthService {
     sessionStorage.setItem(MockDataBase.USERS_STORAGE_KEY, JSON.stringify(users));
 
   }
+
+  deleteCurrentAccount(){
+    const currentUser = this.getCurrentUser()
+    if(!currentUser) {
+      return
+    }
+    sessionStorage.removeItem(MockDataBase.CURRENT_USER_STORAGE_KEY)
+    let users = this.getUsers()
+    const userIndex = users.findIndex(user => user.id === currentUser.id);
+
+    users.splice(userIndex, 1);
+    sessionStorage.setItem(MockDataBase.USERS_STORAGE_KEY, JSON.stringify(users))
+  }
 }
 
 
