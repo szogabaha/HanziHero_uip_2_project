@@ -68,6 +68,37 @@ export class AuthService {
     this.setUsers(users);
     return of(newUser);
   }
+
+
+  updateCurrentUser(
+    userName?: string,
+    email?: string,
+    password?: string,
+    sessionLength?: number,
+    studyLanguage?: Language,
+    reminder?: boolean)
+  {
+    const modifiedUser = this.getCurrentUser();
+
+    if (!modifiedUser) {
+      return;
+    }
+
+    modifiedUser.userName = userName ?? modifiedUser.userName;
+    modifiedUser.email = email ?? modifiedUser.email;
+    modifiedUser.password = password ?? modifiedUser.password;
+    modifiedUser.sessionLength = sessionLength ?? modifiedUser.sessionLength;
+    modifiedUser.studyLanguage = studyLanguage ?? modifiedUser.studyLanguage;
+    modifiedUser.reminder = reminder ?? modifiedUser.reminder;
+
+
+    sessionStorage.setItem('currentUser', JSON.stringify(modifiedUser));
+    const users = this.getUsers();
+    const userIndex = users.findIndex(user => user.id === modifiedUser.id);
+    users[userIndex] = modifiedUser
+    sessionStorage.setItem(MockDataBase.USERS_STORAGE_KEY, JSON.stringify(users));
+
+  }
 }
 
 

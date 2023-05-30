@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { TranslocoService } from '@ngneat/transloco';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-settings',
@@ -53,9 +54,16 @@ export class SettingsComponent implements OnInit{
   deleteConfirm = "";
   notificationPeriod = 0;
 
-  saveChangesClass = "save-changes"
+  reservedUsername = false;
+  reservedEmail = false;
+  emptyField = false;
+  wrongOldPassword = false;
+  nonMatchingPassword = false;
+  badNotificationInput = false;
+  badSessionInput = false;
+  wrongDeleteProfilePassword = false;
 
-  constructor(private translocoService: TranslocoService, private authService: AuthService) {
+  constructor(private router: Router, private authService: AuthService) {
   }
 
   ngOnInit() {
@@ -71,20 +79,16 @@ export class SettingsComponent implements OnInit{
 
   }
 
-  onUsernameChange(target: any) {
-    if (!target) {
-      return
-    }
-    const newUsername = target.value
-    console.log(newUsername)
-    //TODO, what to do with it
-  }
 
   onLanguageChange(target: any) {
     if(!target) {
       return
     }
-    this.language = target.originalTarget.id;
+    if(target.target) {
+      this.language = target.target.id;
+    } else if(target.originalTarget) {
+      this.language = target.originalTarget.id;
+    }
   }
 
   getLanguageImageClass(id: string) {
@@ -143,4 +147,41 @@ export class SettingsComponent implements OnInit{
 
 
   }
+
+  private canBeParsedToNumber(value: any): boolean {
+    return !(!value || isNaN(Number(value)) || Number(value) < 0 || !Number.isInteger(Number(value)))
+  }
+
+
+
+  saveChanges() {
+
+    this.emptyField = !this.username || !this.email
+    this.wrongOldPassword = this.newPassword != "" && this.oldPassword !== this.authService.getCurrentUser()?.password
+    this.nonMatchingPassword = this.confirmNewPassword !== this.newPassword
+
+    this.badNotificationInput = this.receiveNotifications && !this.canBeParsedToNumber(this.notificationPeriod)
+    this.badSessionInput = !this.canBeParsedToNumber(this.sessionLength)
+
+    if (!this.emptyField) {
+      this.authService.updateCurrentUser(this.username,this.email)
+    }
+
+    this.authService.updateCurrentUser(undefined, undefined, undefined, undefined, this.language)
+
+    if(!this.wrongOldPassword && !this.nonMatchingPassword) {
+      this.authService.updateCurrentUser(undefined, undefined, this.newPassword)
+    }
+    if(!this.badNotificationInput) {
+      this.authService.updateCurrentUser(undefined, undefined, undefined, undefined, undefined, this.receiveNotifications)
+    }
+    if(!this.badSessionInput) {
+      this.authService.updateCurrentUser(undefined, undefined, undefined, this.sessionLength)
+    }
+
+    if(!this.emptyField && !this.wrongOldPassword && !this.nonMatchingPassword && !this.badNotificationInput && !this.badSessionInput) {
+      this.router.navigate(['/dashboard'])
+    }
+
+ }
 }

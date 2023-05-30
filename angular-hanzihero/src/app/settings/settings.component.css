@@ -57,6 +57,11 @@ ul.navbar {
 
 }
 
+.error-message{
+  color: red;
+  font-weight: bold;
+}
+
 #delete_profile.selected {
   margin-top: auto;
   background-color: red;
@@ -206,4 +211,5 @@ input[type=text], input[type=password]{
   .delete-account-button{
     width: 90%;
   }
+
 }

@@ -1,5 +1,7 @@
 <app-headerbar></app-headerbar>
-<div id="save-changes">Save Changes</div>
+<div id="save-changes" (click)="saveChanges()">Save Changes</div>
+
+
 <div id="main-part">
     <div id="part-selector-wrapper">
         <ul id="part-selector">
@@ -13,12 +15,16 @@
             <div class="section-content">
                 <form class="settings-form">
                     <label for="username">{{"change_username" | transloco}}</label><br>
-                    <input type="text" id="username" name="username" [value]= "username" (input)="onUsernameChange($event.target)" autocomplete="off"><br>
+                    <input type="text" id="username" name="username" [(ngModel)]= "username" autocomplete="off"><br>
 
                     <label for="email">{{"change_email" | transloco}}</label><br>
-                    <input type="text" id="email" name="email" [value]= "email" autocomplete="off"><br>
+                    <input type="text" id="email" name="email" [(ngModel)]= "email" autocomplete="off"><br>
+                    <div *ngIf="reservedUsername" class="error-message"><b>Felhasználónév foglalt</b></div>
+                    <div *ngIf="reservedEmail" class="error-message"><b>Email foglalt</b></div>
+                    <div *ngIf="emptyField" class="error-message"><b>Üres mező</b></div>
 
                 </form>
+
             </div>
         </div>
 
@@ -27,14 +33,16 @@
             <div class="section-content">
                 <form class="settings-form">
                     <label for="oldpw">{{"old_password"| transloco}}</label><br>
-                    <input type="password" id="oldpw" name="password" [value]="oldPassword" autocomplete="off"><br>
+                    <input type="password" id="oldpw" name="password" [(ngModel)]="oldPassword" autocomplete="off"><br>
 
                     <label for="newpw">{{"new_password" | transloco}}</label><br>
-                    <input type="password" id="newpw" name="password" [value]="newPassword" autocomplete="off"><br>
+                    <input type="password" id="newpw" name="password" [(ngModel)]="newPassword" autocomplete="off"><br>
 
                     <label for="confirmnewpw">{{"confirm_new_password" | transloco}}</label><br>
-                    <input type="password" id="confirmnewpw" name="password" [value]="confirmNewPassword" autocomplete="off"><br>
+                    <input type="password" id="confirmnewpw" name="password" [(ngModel)]="confirmNewPassword" autocomplete="off"><br>
 
+                    <div *ngIf="wrongOldPassword" class="error-message"><b>Hibás jelszó</b></div>
+                    <div *ngIf="nonMatchingPassword" class="error-message"><b>Az új jelszó nem egyezik</b></div>
                 </form>
             </div>
         </div>
@@ -54,22 +62,23 @@
               <span>{{"current_mail_address" | transloco}}: {{email}}</span><br>
               <div class="notification-container">
                 <label>
-                  <input type="radio" name="notification-option" [value]="!receiveNotifications" checked>
+                  <input type="radio" name="notification-option" [(ngModel)]="receiveNotifications" [value]="false">
                   {{"no_notifications" | transloco}}
                 </label><br>
                 <label>
-                  <input type="radio" name="notification-option" [value]="receiveNotifications">
-                  {{"notification_pre" | transloco}} <input type="text" autocomplete="off" [value]="notificationPeriod"> {{"notification_post" | transloco}}.
+                  <input type="radio" name="notification-option" [(ngModel)]="receiveNotifications" [value]="true">
+                  {{"notification_pre" | transloco}} <input type="text" autocomplete="off" [(ngModel)]="notificationPeriod"> {{"notification_post" | transloco}}.
                 </label>
               </div>
-
+              <div *ngIf="badNotificationInput" class="error-message"><b>Hibás input</b></div>
             </div>
         </div>
 
         <div class="section">
             <div class="section-title" id="section-sessions">{{"sessions" | transloco}}</div>
             <div class="section-content notification-container">
-              <span>{{"session_length_pre" | transloco}}: <input type="text" autocomplete="off" [value]="sessionLength"> {{"session_length_post" | transloco}}.</span>
+              <span>{{"session_length_pre" | transloco}}: <input type="text" autocomplete="off" [(ngModel)]="sessionLength"> {{"session_length_post" | transloco}}.</span>
+              <div *ngIf="badSessionInput" class="error-message"><b>Hibás input</b></div>
             </div>
 
         </div>
@@ -81,11 +90,10 @@
               <span>{{"delete_profile_warning2" | transloco}}</span>
               <div>
                 <label for="confirmdelete">{{"enter_password_to_confirm" | transloco}}</label><br>
-                <input type="password" id="confirmdelete" name="deleteprofile" autocomplete="off"><br>
+                <input type="password" id="confirmdelete" name="deleteprofile" [(ngModel)]="deleteConfirm" autocomplete="off"><br>
                 <button class="delete-account-button">{{"confirm_and_delete" | transloco}}</button>
-
               </div>
-
+              <div *ngIf="wrongDeleteProfilePassword" class="error-message"><b>Hibás jelszó</b></div>
             </div>
         </div>
     </div>
