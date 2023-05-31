@@ -2,7 +2,7 @@
 File: headerbar.component.html
 author: Darian Krummrich, editor: Gábor Szolnok
 
-Defines headerbar with mascot icon, language selector button 
+Defines headerbar with mascot icon, language selector button
 and hamburger menu for navigating to settings or logging out
 
 Requires the following files:
@@ -35,10 +35,10 @@ languagesetter.component.ts
 
 <div id="menu_selector" *ngIf="UnfoldMenu">
     <nav>
-        <div routerLink="/settings" class="settings_nav"> Settings </div>
+        <div routerLink="/settings" class="settings_nav"> {{"settings" | transloco}}</div>
         <div class="divider"></div>
         <a routerLink="/login">
-            <div class="logout_nav">Log out</div>
+            <div class="logout_nav">{{"logout" | transloco}}</div>
         </a>
     </nav>
 

@@ -34,6 +34,8 @@
   "add_new_card": "Add new card",
   "add_card": "Add card",
   "start_session": "Start session",
+  "settings": "Settings",
+  "logout": "Log out",
 
   "no_notifications": "Do not receive notifications",
   "notification_pre": "Receive notifications every",

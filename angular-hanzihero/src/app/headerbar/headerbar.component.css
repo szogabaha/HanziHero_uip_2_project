@@ -71,6 +71,7 @@ a{
 
 .settings_nav{
     margin-bottom: 20%;
+    cursor: pointer;
 }
 
 .divider{
@@ -80,6 +81,7 @@ a{
 
 .logout_nav{
     margin-top: 20%;
+    cursor: pointer;
 }
 
 /* selector for language */

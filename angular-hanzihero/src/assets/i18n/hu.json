@@ -30,6 +30,8 @@
   "show_cards": "Kártyák megjelenítése",
   "hide_cards": "Kártyák elrejtése",
   "start_session": "Új kör",
+  "settings": "Beállítások",
+  "logout": "Kijelentkezés",
 
   "no_notifications": "Nem kérek emlékeztetőket.",
   "notification_pre": "Emlékeztetők küldése",
