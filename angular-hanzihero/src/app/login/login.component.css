@@ -91,6 +91,10 @@ label{
     width: auto;
 }
 
+#sign-up-here{
+  cursor: pointer;
+}
+
 .center-div{
   display: flex;
   flex-direction: row;
