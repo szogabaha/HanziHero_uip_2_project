@@ -34,7 +34,7 @@
   "add_new_card": "Neue Karte hinzufügen",
   "add_card": "Karte hinzufügen",
   "start_session": "Session beginnen",
- 
+
 
   "no_notifications": "Keine Benachrichtigungen erhalten",
   "notification_pre": "Erhalte Benachrichtigungen alle",
@@ -57,6 +57,12 @@
   "session_length_pre": "Session-Länge",
   "delete_profile": "Account löschen",
   "enter_password_to_confirm": "Gib zur Bestätigung dein Passwort ein.",
+  "reserved_username": "This username is already in use.",
+  "reserved_email": "This email address is already in use.",
+  "empty_field": "Empty field.",
+  "wrong_password": "Wrong password.",
+  "non_matching_password": "The new password does not match.",
+  "wrong_input": "Wrong input.",
 
   "return_to_dashboard": "Bist du dir sicher, dass du zum Dashboard zurückkehren willst? Dabei geht dein Fortschritt verloren.",
   "cancel": "Abbrechen",

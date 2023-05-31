@@ -56,6 +56,13 @@
   "session_length_pre": "Session length",
   "delete_profile": "Delete profile",
   "enter_password_to_confirm": "Enter password to confirm",
+  "reserved_username": "This username is already in use.",
+  "reserved_email": "This email address is already in use.",
+  "empty_field": "Empty field.",
+  "wrong_password": "Wrong password.",
+  "non_matching_password": "The new password does not match.",
+  "wrong_input": "Wrong input.",
+
 
   "return_to_dashboard": "Are you sure you want to return to the dashboard? All your progress will be lost.",
   "cancel": "Cancel",

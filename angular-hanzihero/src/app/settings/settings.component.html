@@ -19,9 +19,9 @@
 
                     <label for="email">{{"change_email" | transloco}}</label><br>
                     <input type="text" id="email" name="email" [(ngModel)]= "email" autocomplete="off"><br>
-                    <div *ngIf="reservedUsername" class="error-message"><b>Felhasználónév foglalt</b></div>
-                    <div *ngIf="reservedEmail" class="error-message"><b>Email foglalt</b></div>
-                    <div *ngIf="emptyField" class="error-message"><b>Üres mező</b></div>
+                    <div *ngIf="reservedUsername" class="error-message"><b>{{"reserved_username" | transloco}}</b></div>
+                    <div *ngIf="reservedEmail" class="error-message"><b>{{"reserved_email" | transloco}}</b></div>
+                    <div *ngIf="emptyField" class="error-message"><b>{{"empty_field" | transloco}}</b></div>
 
                 </form>
 
@@ -41,8 +41,8 @@
                     <label for="confirmnewpw">{{"confirm_new_password" | transloco}}</label><br>
                     <input type="password" id="confirmnewpw" name="password" [(ngModel)]="confirmNewPassword" autocomplete="off"><br>
 
-                    <div *ngIf="wrongOldPassword" class="error-message"><b>Hibás jelszó</b></div>
-                    <div *ngIf="nonMatchingPassword" class="error-message"><b>Az új jelszó nem egyezik</b></div>
+                    <div *ngIf="wrongOldPassword" class="error-message"><b>{{"wrong_password" | transloco}}</b></div>
+                    <div *ngIf="nonMatchingPassword" class="error-message"><b>{{"non_matching_password" | transloco }}</b></div>
                 </form>
             </div>
         </div>
@@ -70,7 +70,7 @@
                   {{"notification_pre" | transloco}} <input type="text" autocomplete="off" [(ngModel)]="notificationPeriod"> {{"notification_post" | transloco}}.
                 </label>
               </div>
-              <div *ngIf="badNotificationInput" class="error-message"><b>Hibás input</b></div>
+              <div *ngIf="badNotificationInput" class="error-message"><b>{{"wrong_input" | transloco}}</b></div>
             </div>
         </div>
 
@@ -78,7 +78,7 @@
             <div class="section-title" id="section-sessions">{{"sessions" | transloco}}</div>
             <div class="section-content notification-container">
               <span>{{"session_length_pre" | transloco}}: <input type="text" autocomplete="off" [(ngModel)]="sessionLength"> {{"session_length_post" | transloco}}.</span>
-              <div *ngIf="badSessionInput" class="error-message"><b>Hibás input</b></div>
+              <div *ngIf="badSessionInput" class="error-message"><b>{{"wrong_input" | transloco}}</b></div>
             </div>
 
         </div>
@@ -93,7 +93,7 @@
                 <input type="password" id="confirmdelete" name="deleteprofile" [(ngModel)]="deleteConfirm" autocomplete="off"><br>
                 <button class="delete-account-button" (click)="deleteAccount()">{{"confirm_and_delete" | transloco}}</button>
               </div>
-              <div *ngIf="wrongDeleteProfilePassword" class="error-message"><b>Hibás jelszó</b></div>
+              <div *ngIf="wrongDeleteProfilePassword" class="error-message"><b>{{"wrong_password" | transloco}}</b></div>
             </div>
         </div>
     </div>

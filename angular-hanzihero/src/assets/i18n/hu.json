@@ -52,6 +52,12 @@
   "session_length_pre": "Kör hossza",
   "delete_profile": "Fiók törlése",
   "enter_password_to_confirm": "Írja be a jelszavát a folytatáshoz",
+  "reserved_username": "Ez a felhasználónév már foglalt.",
+  "reserved_email": "Ez az email cím már foglalt.",
+  "empty_field": "Üres mező.",
+  "wrong_password": "Hibás jelszó.",
+  "non_matching_password": "Az új jelszó nem egyezik.",
+  "wrong_input": "Hibás input.",
 
   "return_to_dashboard": "Biztos hogy vissza akar térni a főoldalra? Az összes haladása el fog veszni.he dashboard?",
   "cancel": "Bezárás",
