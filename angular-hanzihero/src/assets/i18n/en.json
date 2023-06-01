@@ -64,6 +64,7 @@
   "wrong_password": "Wrong password.",
   "non_matching_password": "The new password does not match.",
   "wrong_input": "Wrong input.",
+  "save_changes": "Save changes",
 
 
   "return_to_dashboard": "Are you sure you want to return to the dashboard? All your progress will be lost.",
@@ -72,10 +73,18 @@
   "keep_going":"Keep going!",
   "very_good":"Very good!",
   "continue": "Continue",
+
   "help1": "Click on the card to reveal the hanzi's meaning.",
+  "help1b": "Click on the loudspeaker to hear the pronunciation.",
+  "help1c": "Your session progress is shown in the header.",
+  "help1d": "To cancel your session, click on Han.",
+
   "help2": "Drag the card to the sides to mark it as correct or incorrect.",
+  "help2b": "Drag the card to the left if you want to mark it as incorrect.",
+  "help2c": "Drag the card to the right if you want to mark it as correct.",
+  "help2d": "Click on the sentence icon in the bottom left corner to show example sentences.",
+
   "help3": "The card displays example sentences both as pinyin and in English.",
-  "help4": "Click on the loudspeaker to hear the pronunciation."
-
-
+  "help3b": "Click on the return button in the bottom left corner to get back to the hanzi.",
+  "help3c": "When displaying the card's hanzi, you can mark it as correct or incorrect."
 }

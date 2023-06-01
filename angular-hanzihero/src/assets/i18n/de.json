@@ -34,8 +34,8 @@
   "add_new_card": "Neue Karte hinzufügen",
   "add_card": "Karte hinzufügen",
   "start_session": "Session beginnen",
-  "settings": "Settings",
-  "logout": "Log out",
+  "settings": "Einstellungen",
+  "logout": "Abmelden",
 
 
   "no_notifications": "Keine Benachrichtigungen erhalten",
@@ -59,12 +59,13 @@
   "session_length_pre": "Session-Länge",
   "delete_profile": "Account löschen",
   "enter_password_to_confirm": "Gib zur Bestätigung dein Passwort ein.",
-  "reserved_username": "This username is already in use.",
-  "reserved_email": "This email address is already in use.",
-  "empty_field": "Empty field.",
-  "wrong_password": "Wrong password.",
-  "non_matching_password": "The new password does not match.",
-  "wrong_input": "Wrong input.",
+  "reserved_username": "Dieser Benutzername wird bereits verwendet.",
+  "reserved_email": "Diese Email-Adresse wird bereits verwendet.",
+  "empty_field": "Leeres Feld.",
+  "wrong_password": "Falsches Passwort.",
+  "non_matching_password": "Passwörter stimmen nicht überein.",
+  "wrong_input": "Falsche Angaben.",
+  "save_changes": "Änderungen speichern",
 
   "return_to_dashboard": "Bist du dir sicher, dass du zum Dashboard zurückkehren willst? Dabei geht dein Fortschritt verloren.",
   "cancel": "Abbrechen",
@@ -72,10 +73,19 @@
   "keep_going":"Versuch es weiter!",
   "very_good":"Sehr gut!",
   "continue": "Fortsetzen",
-  "help1": "Click on the card to reveal the hanzi's meaning.",
-  "help2": "Drag the card to the sides to mark it as correct or incorrect.",
-  "help3": "The card displays example sentences both as pinyin and in English.",
-  "help4": "Click on the loudspeaker to hear the pronunciation."
 
+  "help1": "Klicke auf die Karte, um die Bedeutung der Hanzi zu sehen.",
+  "help1b": "Klicke auf den Lautsprecher, um dir die Aussprache anzuhören.",
+  "help1c": "Dein Fortschritt wird dir im Header angezeigt.",
+  "help1d": "Klicke auf Han, wenn du deine Session abbrechen willst.",
+
+  "help2": "Ziehe die Karte zur Seite, um sie als richtig oder falsch zu markieren.",
+  "help2b": "Ziehe die Karte nach links, um sie als falsch zu markieren.",
+  "help2c": "Ziehe die Karte nach rechts, um sie als richtig zu markieren.",
+  "help2d": "Klicke auf das Satz-Symbol unten links, um dir Beispielsätze anzusehen.",
+
+  "help3": "Die Karte zeigt Beispielsätze in pinyin und auf Deutsch.",
+  "help3b": "Klicke auf das Zurück-Symbol unten links, um zurück zu den Hanzi zu kommen.",
+  "help3c": "Werden dir die Hanzi angezeigt, kannst du eine Karte als falsch oder richtig markieren."
 
 }

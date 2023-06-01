@@ -60,6 +60,7 @@
   "wrong_password": "Hibás jelszó.",
   "non_matching_password": "Az új jelszó nem egyezik.",
   "wrong_input": "Hibás input.",
+  "save_changes": "Mentés",
 
   "return_to_dashboard": "Biztos hogy vissza akar térni a főoldalra? Az összes haladása el fog veszni.he dashboard?",
   "cancel": "Bezárás",
@@ -67,10 +68,20 @@
   "keep_going":"Szép munka!",
   "very_good":"Helyes!",
   "continue": "Folytatás",
+
   "help1": "Kattintson a kártyára hogy felfedje a karakter jelentését",
+  "help1b": "Kattintson erre az ikonra a kiejtés meghallgatásához.",
+  "help1c": "Your session progress is shown in the header.",
+  "help1d": "To cancel your session, click on Han.",
+
   "help2": "Húzza a kártyát jobbra vagy balra, a helyességnek megfelelően.",
+  "help2b": "Drag the card to the left if you want to mark it as incorrect.",
+  "help2c": "Drag the card to the right if you want to mark it as correct.",
+  "help2d": "Click on the sentence icon in the bottom left corner to show example sentences.",
+
   "help3": "A kártya példa mondatokat jelenít meg",
-  "help4": "Kattintson erre az ikonra a kiejtés meghallgatásához."
+  "help3b": "Click on the return button in the bottom left corner to get back to the hanzi.",
+  "help3c": "When displaying the card's hanzi, you can mark it as correct or incorrect."
 
 
 }

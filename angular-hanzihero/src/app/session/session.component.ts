@@ -57,21 +57,21 @@ export class SessionComponent {
   curSHelperMessage: number = 0;
 
   foregroundHelperMessages: any[] = [
-    this.translocoService.translate("help4"), //TODO: Example how to translate these
-    "Your session progress is shown in the header.", //There are duplicates so I'm not sure if I'm breaking anything
-    "To cancel your session, click on Han."
+    this.translocoService.translate("help1b"),
+    this.translocoService.translate("help1c"),
+    this.translocoService.translate("help1d")
   ]
 
 
   backgroundHelperMessages: any[] = [
-    "Drag the card to the left if you want to mark it as incorrect.",
-    "Drag the card to the right if you want to mark it as correct.",
-    "Click on the sentence icon in the bottom left corner to show example sentences."
+    this.translocoService.translate("help2b"),
+    this.translocoService.translate("help2c"),
+    this.translocoService.translate("help2d")
   ]
 
   sentenceHelperMessages: any[] = [
-    "Click on the return button in the bottom left corner to get back to the hanzi.",
-    "When displaying the card's hanzi, you can mark it as correct or incorrect."
+    this.translocoService.translate("help3b"),
+    this.translocoService.translate("help3c")
 
   ]
 
