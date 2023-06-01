@@ -80,6 +80,21 @@ export class SessionComponent {
   b_message_max_length = Object.keys(this.backgroundHelperMessages).length;
   s_message_max_length = Object.keys(this.sentenceHelperMessages).length;
 
+
+  // set up media queries for the help message animation
+  max_width_2200:any = window.matchMedia("(max-width:2200px)");
+  max_width_1800:any = window.matchMedia("(max-width:1800px)");
+  max_width_1500:any = window.matchMedia("(max-width:1500px)");
+  max_width_1300:any = window.matchMedia("(max-width:1300px)");
+  max_width_1000:any = window.matchMedia("(max-width:1000px)");
+  max_width_600:any = window.matchMedia("(max-width:600px)");
+  max_width_450:any = window.matchMedia("(max-width:450px)");
+
+  min_height_850:any = window.matchMedia("(min-height: 850px)");
+  max_height_850:any = window.matchMedia("(max-height: 850px)");
+  max_height_600:any = window.matchMedia("(max-height: 600px)");
+  max_height_400:any = window.matchMedia("(max-height: 400px)");
+
   constructor(private router: Router, private translocoService: TranslocoService){}
 
   ngOnInit(): void{
@@ -343,13 +358,42 @@ export class SessionComponent {
     const FHand = document.getElementById('f_hand');
     if(FHand){
       if(this.curFHelperMessage == 0){
-        //
+
+      // move to loudspeaker icon in lower left corner
       } else if(this.curFHelperMessage == 1){
-        FHand.setAttribute("style", "transform: translate(-800%, 270%) rotate(-110deg);");
+        let height = 270;
+        let rotate = -110;
+        // adapt to different screen widths when moving the hand across the screen
+        if(this.max_height_850.matches){
+          height =  130;
+        } else if (this.max_height_600.matches){
+          height =  100;
+        }
+        let construct_string = "transform: translate(" + this.left_corner() +"%, " + height + "%) rotate(" + rotate + "deg);"
+        FHand.setAttribute("style", construct_string);
+      
+        // move to progress bar in upper center
       } else if(this.curFHelperMessage == 2){
-        FHand.setAttribute("style", "transform: translate(0%, -360%) rotate(0deg);");
+        let height = -360;
+        if(this.max_height_850.matches){
+          height = -280;
+        } else if(this.max_height_600.matches){
+          height = -200;
+        } 
+        let construct_string = "transform: translate(0%, " + height + "%) rotate(0deg);"
+        FHand.setAttribute("style", construct_string);
+      
+      // move to app icon in upper left corner
       } else if(this.curFHelperMessage == 3){
-        FHand.setAttribute("style", "transform: translate(-840%, -370%) rotate(-30deg);");
+        let height = -370;
+
+        if(this.max_height_850.matches){
+          height = -280;
+        } else if(this.max_height_600.matches){
+          height = -200;
+        } 
+        let construct_string = "transform: translate(" + (this.left_corner()-40) +"%, " + height + "%) rotate(-45deg);"
+        FHand.setAttribute("style", construct_string);
       }
     }
   }
@@ -359,12 +403,33 @@ export class SessionComponent {
   BackgroundHand(): void{
     const BHand = document.getElementById('b_hand');
     if(BHand){
-      if(this.curBHelperMessage == 0){
-        BHand.setAttribute("style", "transform: translate(-800%, 0%);");
-      } else if(this.curBHelperMessage == 1){
-        BHand.setAttribute("style", "transform: translate(800%, 0%);");
+      // to sides
+      if(this.curBHelperMessage == 0 || this.curBHelperMessage == 1){
+        
+        // left side
+        if(this.curBHelperMessage == 0){
+          let construct_string = "transform: translate(" + this.left_corner() +"%, 0%);"
+        BHand.setAttribute("style", construct_string);
+        // right side: just invert left styling
+        } else if (this.curBHelperMessage == 1){
+          let construct_string = "transform: translate(" + this.left_corner()*-1 +"%, 0%);"
+          BHand.setAttribute("style", construct_string);
+        }
+        
+      // lower left corner
       } else if(this.curBHelperMessage == 2){
-        BHand.setAttribute("style", "transform: translate(-790%, 270%) rotate(-110deg);");
+        let height = 270;
+        let rotate = -110;
+        // adapt to different screen widths when moving the hand across the screen
+
+
+        if(this.max_height_850.matches){
+          height =  130;
+        } else if (this.max_height_600.matches){
+          height =  100;
+        }
+        let construct_string = "transform: translate(" + (this.left_corner()-10)  +"%, " + height + "%) rotate(" + rotate + "deg);"
+        BHand.setAttribute("style", construct_string);
       }
     }
   }
@@ -374,11 +439,38 @@ export class SessionComponent {
     const SHand = document.getElementById('s_hand');
     if(SHand){
       if(this.curSHelperMessage == 0){
-        SHand.setAttribute("style", "transform: translate(-800%, 270%) rotate(-110deg);");
+        let height = 270;
+        // adapt to different screen widths when moving the hand across the screen
+        if(this.max_height_850.matches){
+          height =  130;
+        } else if (this.max_height_600.matches){
+          height =  100;
+        }
+        let construct_string = "transform: translate(" + (this.left_corner())  +"%, " + height + "%) rotate(-110deg);"
+        SHand.setAttribute("style", construct_string);
       } else if(this.curSHelperMessage == 1){
         SHand.setAttribute("style", "display: none");
       }
     }
+  }
+
+// media queries for moving to bottom left corner
+  left_corner():number{
+    let width= -800;
+    if (this.max_width_450.matches){
+      width = -100;
+    }else if(this.max_width_600.matches){
+      width = -170;
+    } else if(this.max_width_1000.matches){
+      width = -250;
+    } else if (this.max_width_1300.matches){
+      width = -450;
+    } else if (this.max_width_1500.matches){
+      width = -500;
+    } else if(this.max_width_1800.matches){
+      width = -630;
+    }
+    return width;
   }
 
 }
