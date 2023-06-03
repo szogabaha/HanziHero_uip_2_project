@@ -10,6 +10,10 @@
 HanziHero is a flashcard-based learning app similar to Quizlet, with a cat-turned-superhero mascot for encouragement. Create your own decks and cards while listening to relaxing music, learn the meanings of hanzi and their usage in example sentences in short sessions, and effortlessly switch between different languages you want to learn in. Sign up today to level up your language learning game!
 
 This project was created for the course User Interface Programming II in VT2023 at Uppsala University. 
+
+Out of the wanted functionalities we didn't connect the model and the view with the card services and the pronounciation helper. Since we both exceeded 100 hours on the project and the requirements say we need to be in a state where an extra month would be needed to wrap up the project, we stopped the development.
+
+Some parts of the project are auto generated, we didn't document these, only the ones created by us.
 ***
 
 ## Instructions for use:
@@ -52,4 +56,5 @@ Gábor:
 - Registering
 - Login
 - Settings
+- Internationalization
 - Language support (English, Hungarian)
