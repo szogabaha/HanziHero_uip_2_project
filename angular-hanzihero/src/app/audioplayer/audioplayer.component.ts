@@ -3,7 +3,7 @@ File: audioplayer.component.ts
 author: Darian Krummrich
 
 Provides functionality for audioplayer.
-*/ 
+*/
 
 import { Component } from '@angular/core';
 
@@ -86,3 +86,7 @@ export class AudioplayerComponent {
 
 
 }
+
+/************
+// END of audioplayer.component.ts
+//************/

@@ -178,3 +178,7 @@ export class DashboardComponent {
       } as Card);
   }
 }
+
+/************
+// END of dashboard.component.ts
+//************/

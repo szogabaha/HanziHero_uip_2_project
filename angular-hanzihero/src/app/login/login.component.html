@@ -1,38 +1,63 @@
+
+<!--
+ File: login.component.html
+ This file contains the HTML for the login view
+ Author: Gabor Szolnok
+
+
+ Requires the following files:
+ login.component.css
+ login.component.ts
+ login.component.spec.ts
+ -->
 <div class="vertical-flex">
+<!--Resisable div to adjust to the dynamically changing character animation div-->
 <div style="flex-grow: 1;">
   <app-character-animation></app-character-animation>
 </div>
+<!--Main content-->
 <div id="main-wrap">
+  <!--Logo and welcome message-->
   <div class="logo">
       <div>
           <img id="login_han" src="assets/han_icon.png" alt="Logo">
       </div>
       <div id="welcome-message">{{'signin' | transloco}}</div>
   </div>
+  <!--Div that contains the elements for the login form-->
   <div class="section">
       <div id="form-wrap">
           <form [formGroup]="form">
+              <!--Username-->
               <label for="username">{{'username' | transloco}}</label><br>
               <input class="input" type="text" id="username" name="username" formControlName="username"><br>
+              <!--Reroute to the forgot password page if clicked on-->
               <div id="password-labels-flex">
                   <div><label for="password">{{'password' | transloco}}</label></div>
                   <div id="forgot-password"><a routerLink="/passwordreset">{{'forgotpassword'| transloco}}</a></div>
               </div>
-              <br>
+              <br><!--Password-->
               <input type="password" id="password" name="password" formControlName="password">
               <br>
           </form>
+          <!--Login button + error message-->
           <div id="login" (click)="login()">{{'login' | transloco}}</div>
           <div *ngIf="loginFailed" class="error-message">{{'incorrect_password' | transloco}}</div>
       </div>
   </div>
 
+  <!--Route to "sign up here", if clicked on-->
   <div class="section" id="sign-up-here" routerLink="/register">{{'noaccount' | transloco}} <a>{{'signuphere' | transloco}}</a></div>
   <div class="center-div"><app-languagesetter></app-languagesetter></div>
 </div>
 
-
+<!--Resisable div to adjust to the dynamically changing character animation div-->
 <div style="flex-grow: 1;">
   <app-character-animation></app-character-animation>
 </div>
 </div>
+
+
+<!--
+ END of login.component.html
+-->

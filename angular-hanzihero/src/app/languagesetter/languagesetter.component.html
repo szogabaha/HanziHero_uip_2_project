@@ -1,4 +1,22 @@
+<!--
+ File: languagesetter.component.html
+ This file contains the HTML div for the language setting view.
+ It will be reaused throughout the application
+
+ Author: Gabor Szolnok
+
+
+ Requires the following files:
+ languagesetter.component.css
+ languagesetter.component.ts
+ languagesetter.component.spec.ts
+ -->
 <select class="section" (change)="changeLanguage($event.target)">
   <option *ngFor="let language of languagesList; index as i" [value]="language.code">{{language.name}}</option>
 </select>
+
+
+<!--
+ END of languagesetter.component.html
+-->
 

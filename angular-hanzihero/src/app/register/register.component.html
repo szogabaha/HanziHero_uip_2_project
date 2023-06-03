@@ -1,48 +1,71 @@
+
+<!--
+ File: register.component.html
+ This file contains the HTML for the register view
+ Author: Gabor Szolnok
+
+
+ Requires the following files:
+ register.component.css
+ register.component.ts
+ register.component.spec.ts
+ -->
 <div class="vertical-flex">
 
+  <!--Resisable div to adjust to the dynamically changing character animation div-->
   <div style="flex-grow: 1;">
     <app-character-animation></app-character-animation>
   </div>
 
+  <!--Main content-->
   <div id="main-wrap">
+    <!--Logo and welcome message-->
     <div class="logo">
         <div>
             <img id="register_han" src="assets/han_icon.png" alt="Logo">
         </div>
         <div id="welcome-message">{{'register_message' | transloco}}</div>
     </div>
+    <!--Section for the register form-->
     <div class="section">
         <div id="form-wrap">
             <form [formGroup]="form">
+                <!--Username-->
                 <label for="username">{{'username' | transloco}}</label><br>
                 <input class="input" type="text" id="username" name="username" formControlName="username"><br>
-
+                <!--Email-->
                 <label for="username">{{'email' | transloco}}</label><br>
                 <input class="input" type="text" id="email" name="email" formControlName="email"><br>
-
+                <!--Password1-->
                 <label for="password1">{{'password' | transloco}}</label><br>
                 <input type="password" id="password1" name="password1" formControlName="password1"><br>
-
+                <!--Confirm password-->
                 <label for="password2">{{'repeat_password' | transloco}}</label><br>
                 <input type="password" id="password2" name="password2" formControlName="password2"><br>
-
+                <!--Reminder option-->
                 <div id="reminder-wrap">
                   <input type="checkbox" id="reminder" name="reminder" formControlName="reminder">
                   <label for="chekcbox">{{'email_reminder' | transloco}}</label>
                 </div>
 
               </form>
+              <!--Id is login for styling but this is the register button-->
             <div id="login" (click)="register()">{{'create_account' | transloco}}</div>
-            <div *ngIf="loginFailed" class="error-message">Incorrect username or password</div>
         </div>
     </div>
 
-    <div class="section" routerLink="/register">{{'already_have_acc' | transloco}}<a routerLink="/login">{{'login_here' | transloco}}</a></div>
+
+    <div class="section" >{{'already_have_acc' | transloco}}<a routerLink="/login">{{'login_here' | transloco}}</a></div>
     <div class="center-div"><app-languagesetter></app-languagesetter></div>
   </div>
 
+  <!--Resisable div to adjust to the dynamically changing character animation div-->
   <div style="flex-grow: 1;">
     <app-character-animation></app-character-animation>
   </div>
 
 </div>
+
+<!--
+  END of register.component.html
+-->

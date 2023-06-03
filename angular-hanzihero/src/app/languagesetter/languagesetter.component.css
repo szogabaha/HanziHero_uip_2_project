@@ -1,3 +1,10 @@
+/*
+  File: languagesetter.component.css
+
+  This is a small portable component so the styling is small
+  Author: Gabor Szolnok
+ */
+
 .section{
   background-color: #e5e5e5;
   border: solid 2px #505050;
@@ -8,6 +15,7 @@
   font-size: 20px;
 }
 
+/*If the view gets less wide, we want to have it in the middle*/
 @media (max-width: 880px) {
   .section{
     margin-top: 10%;
@@ -16,3 +24,8 @@
     left: 0%;
   }
 }
+
+
+/************
+// END of languagesetter.component.css
+//************/

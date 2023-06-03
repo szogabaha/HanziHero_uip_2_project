@@ -1,4 +1,11 @@
+/*
+  File: settings.component.css
 
+  CSS styling for the settings component
+  Author: Gabor Szolnok
+ */
+
+ /*Styling for the left side menu*/
 ul.navbar {
   list-style-type: none;
   margin: 0;
@@ -10,6 +17,7 @@ ul.navbar {
   border-bottom: solid 2px;
 }
 
+/*Save changes button*/
 #save-changes{
   z-index: 0;
   position: fixed;
@@ -24,12 +32,16 @@ ul.navbar {
   cursor: pointer;
 }
 
+/*Main wrapper for both sides*/
 #main-part{
   padding-top: 75px;
   display: flex;
   overflow-y: hidden;
   height: 100%;
 }
+
+/*Wrapper for the left side*/
+/*Display:none is set when the screen is not wide enough*/
 #part-selector-wrapper{
   display: flex;
   flex-direction: column;
@@ -50,6 +62,7 @@ ul.navbar {
   width: 30%;
 }
 
+/*Delete profile setting*/
 #delete_profile{
   margin-top: auto;
   color: red;
@@ -57,11 +70,15 @@ ul.navbar {
 
 }
 
+/*Error message styling, they show up if the input is wrong*/
 .error-message{
   color: red;
   font-weight: bold;
 }
 
+
+/*Delete profile setting on the left side.*/
+/*Needed special styling because its different from the rest*/
 #delete_profile.selected {
   margin-top: auto;
   background-color: red;
@@ -70,6 +87,7 @@ ul.navbar {
   animation: deleteSelectedAnimation 0.4s ease-in-out forwards;
 }
 
+/*Change background to red and text to white if selected*/
 @keyframes deleteSelectedAnimation{
   from {
     background-color: white;
@@ -82,27 +100,32 @@ ul.navbar {
   }
 }
 
+/*Wrapper for the right side*/
 #settings-wrapper{
   width: 80%;
   height: 100%;
 }
 
+/*A section's title*/
 .section-title{
   border-bottom: solid 2px;
   font-size: 35px;
   padding: 0.5em;
 }
 
+/*The wrapper for the section content*/
 .section-content{
   border-bottom: solid 2px;
   padding-left: 1em;
 }
 
+/*Input styling*/
 .settings-form{
   font-size: 25px;
   margin: 10px 10px 60px;
 }
 
+/*Input styling*/
 input[type=text], input[type=password]{
   width: 50%;
   height: 50px;
@@ -113,14 +136,11 @@ input[type=text], input[type=password]{
   font-size: x-large;
 }
 
+/*The selected section gets animated, the background turns from white to blue*/
 .selected{
   background-color: white;
   animation: selectedAnimation 0.4s ease-in-out forwards;
 
-}
-
-.semitransparent{
-  opacity: 0.2;
 }
 
 @keyframes selectedAnimation{
@@ -135,6 +155,13 @@ input[type=text], input[type=password]{
   }
 }
 
+/*Styling for the non-selected language flags*/
+.semitransparent{
+  opacity: 0.2;
+  z-index: -1;
+}
+
+/*Language flags wrapper*/
 #language-wrapper{
   padding: 5% 25% 5% 5%;
   height: fit-content;
@@ -143,12 +170,14 @@ input[type=text], input[type=password]{
   justify-content: space-between;
 }
 
+/*Resize flags*/
 #language-wrapper img{
   width: 20%;
   border: 2px solid;
   border-radius: 15px;
 }
 
+/*Container for the notification radio button*/
 .notification-container{
   display: flex;
   flex-direction: column;
@@ -157,6 +186,7 @@ input[type=text], input[type=password]{
   font-size: 30px;
 }
 
+/*Here the text is numbers, needed different styling*/
 .notification-container input[type=text]{
   width: 5%;
   min-width: 60px;
@@ -185,6 +215,7 @@ input[type=text], input[type=password]{
   margin-bottom: 3%;
 }
 
+/*Resize wrappers and remove left side if the screen is not wide*/
 @media (max-width: 880px) {
   #language-wrapper {
     flex-direction: column;
@@ -213,3 +244,8 @@ input[type=text], input[type=password]{
   }
 
 }
+
+
+/************
+// END of settings.component.css
+//************/

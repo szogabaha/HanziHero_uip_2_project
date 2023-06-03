@@ -1,5 +1,10 @@
+/**
+ * File: settings.component.ts
+ * The controller logic for the settings view
+ *
+ * Author: Gabor Szolnok
+ */
 import { Component, HostListener, OnInit } from '@angular/core';
-import { TranslocoService } from '@ngneat/transloco';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 
@@ -9,10 +14,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./settings.component.css']
 })
 export class SettingsComponent implements OnInit{
+  //Settings options to show on the left with the corresponding class.
+  //The class indicates which one gets a different styling
   settingsProperties = [
     {
       "name": "account",
-      "class" : "selected",
+      "class" : "selected", //Top of the page -> selected by default
       "sectionName": "section-account",
     },
     {
@@ -43,6 +50,7 @@ export class SettingsComponent implements OnInit{
     }
   ];
 
+  //Form input variables
   username = "";
   email = "";
   oldPassword = "";
@@ -54,6 +62,7 @@ export class SettingsComponent implements OnInit{
   deleteConfirm = "";
   notificationPeriod = 0;
 
+  //Error message indicators
   reservedUsername = false;
   reservedEmail = false;
   emptyField = false;
@@ -63,9 +72,13 @@ export class SettingsComponent implements OnInit{
   badSessionInput = false;
   wrongDeleteProfilePassword = false;
 
+  //Inject dependencies
+  //
   constructor(private router: Router, private authService: AuthService) {
   }
 
+  //Set up default values for form inputs
+  //
   ngOnInit() {
     const user = this.authService.getCurrentUser()
     if (user) {
@@ -79,7 +92,8 @@ export class SettingsComponent implements OnInit{
 
   }
 
-
+  //Change flag transparency based on which language is selected
+  //
   onLanguageChange(target: any) {
     if(!target) {
       return
@@ -91,6 +105,7 @@ export class SettingsComponent implements OnInit{
     }
   }
 
+  //Get which language is selected
   getLanguageImageClass(id: string) {
 
     if (id === this.language) {
@@ -98,10 +113,12 @@ export class SettingsComponent implements OnInit{
     } else return "semitransparent"
   }
 
+  //Update the left side if the right side is scrolled
+  //
   @HostListener('window:scroll', ['$event.target'])
   onScroll(scrollableDiv: any): void {
 
-    //Find closest item
+    //Find closest section name
     let closestSectionName = '';
     let closestAbsoluteBottom = Infinity;
 
@@ -118,6 +135,7 @@ export class SettingsComponent implements OnInit{
       }
     });
 
+    //Set the found section to selected, remove the selected class from the other sections
     this.settingsProperties.forEach((item) =>{
       if (item["name"] === closestSectionName) {
         item["class"] = "selected";
@@ -127,6 +145,7 @@ export class SettingsComponent implements OnInit{
     });
   }
 
+  //Scroll right side if an item is clicked on the left side
   jumpToSection(onClicked: any) {
     const element = document.getElementById(onClicked.sectionName);
     if (element) {
@@ -148,25 +167,29 @@ export class SettingsComponent implements OnInit{
 
   }
 
+  //Number input validation
   private canBeParsedToNumber(value: any): boolean {
     return !(!value || isNaN(Number(value)) || Number(value) < 0 || !Number.isInteger(Number(value)))
   }
 
 
 
+  //update model if save changes is clicked
   saveChanges() {
 
+    //Validation checks
     this.emptyField = !this.username || !this.email
     this.wrongOldPassword = (this.oldPassword != "" || this.confirmNewPassword != "" || this.newPassword != "") && this.oldPassword !== this.authService.getCurrentUser()?.password
     this.nonMatchingPassword = this.confirmNewPassword !== this.newPassword
-
     this.badNotificationInput = this.receiveNotifications && !this.canBeParsedToNumber(this.notificationPeriod)
     this.badSessionInput = !this.canBeParsedToNumber(this.sessionLength)
 
+    //Update those fields that have been changed in the form
     if (!this.emptyField) {
       this.authService.updateCurrentUser(this.username,this.email)
     }
 
+    //Language is always updated
     this.authService.updateCurrentUser(undefined, undefined, undefined, undefined, this.language)
 
     if(this.newPassword && !this.wrongOldPassword && !this.nonMatchingPassword) {
@@ -179,13 +202,17 @@ export class SettingsComponent implements OnInit{
       this.authService.updateCurrentUser(undefined, undefined, undefined, this.sessionLength)
     }
 
+    //Return user to dashboard if all validations passed and changes are saved
     if(!this.emptyField && !this.wrongOldPassword && !this.nonMatchingPassword && !this.badNotificationInput && !this.badSessionInput) {
       this.router.navigate(['/dashboard'])
     }
 
  }
 
+ //Delete account if the button is clicked and the correct password is given
+ //
  deleteAccount() {
+    //Validation check
     if(this.deleteConfirm !== this.authService.getCurrentUser()?.password) {
       this.wrongDeleteProfilePassword = true;
       return
@@ -194,3 +221,8 @@ export class SettingsComponent implements OnInit{
     this.router.navigate(['/login'])
  }
 }
+
+
+/************
+// END of settings.component.ts
+//************/

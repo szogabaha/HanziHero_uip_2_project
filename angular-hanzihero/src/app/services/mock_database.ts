@@ -1,3 +1,9 @@
+/**
+ * File: mock_database.ts
+ * This file contains the mocked database structule as well as the example records
+ *
+ * Author: Gabor Szolnok
+ */
 import {Deck, Card, LearningStatus} from '../model/content';
 import {User, Language} from '../model/user';
 
@@ -6,13 +12,14 @@ import {User, Language} from '../model/user';
 
 export class MockDataBase {
 
+  //These are the sessionStorage keys used throughout the other services
   static readonly USERS_STORAGE_KEY = 'users';
   static readonly CURRENT_USER_STORAGE_KEY = 'currentUser';
-
   static readonly DECKS_STORAGE_KEY = 'decks';
-
   static readonly CARDS_STORAGE_KEY = 'cards';
 
+  //Create items in the sessionStorage
+  //
   constructor() {
     if (!sessionStorage.getItem(MockDataBase.USERS_STORAGE_KEY)) {
       sessionStorage.setItem(MockDataBase.USERS_STORAGE_KEY, JSON.stringify(USERS));
@@ -28,6 +35,7 @@ export class MockDataBase {
 }
 
 
+//Only static example data from here
 export const USERS: User[] = [
     {
         id: 1,
@@ -111,3 +119,7 @@ export const CARDS: Card[] = [
 
 ]
 
+
+/************
+// END of mock_database.ts
+//************/

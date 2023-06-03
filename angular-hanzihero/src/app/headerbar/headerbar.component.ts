@@ -20,3 +20,7 @@ export class HeaderbarComponent {
   }
 
 }
+
+/************
+// END of headerbar.component.ts
+//************/

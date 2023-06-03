@@ -62,7 +62,7 @@ dashboard.component.ts
             <span class="ov_span">
                 <button class="s_button blue_button button_in_span" id="add_deck" (click)="addDeck(deckName.value, deckDescription.value); deckName.value=''; deckDescription.value=''; toggleNewDeckCreator()">{{"add_deck" | transloco }}</button>
             </span>
-            
+
         </div>
     </div>
 
@@ -108,7 +108,7 @@ dashboard.component.ts
     </div>
 
     <!-- When showing cards and clicking on "add new card", you can enter all information for a new card.
-         Requires meaning, pronunciation and characters, but not example sentence. 
+         Requires meaning, pronunciation and characters, but not example sentence.
     -->
     <div *ngIf="showNewCardCreator && selectedDeck">
         <div class="s_card_wrapper s_block" id="create_card_overview">
@@ -184,3 +184,8 @@ dashboard.component.ts
 
 
 </div>
+
+
+<!--
+  END of dashboard.component.html
+-->

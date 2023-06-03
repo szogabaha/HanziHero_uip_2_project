@@ -227,34 +227,34 @@ a:link{
 }
 
 @media only screen and (max-width: 1600px){
-    
+
     #create_card_overview{
         padding-bottom: 15%;
     }
-    
+
     #create_deck_overview{
         padding-bottom: 40%;
     }
-    
+
     #editable_deck_overview{
         padding-bottom: 45%;
     }
-    
+
     #static_deck_overview{
         padding-bottom: 35%;
     }
 }
 
 @media only screen and (max-width: 1300px){
-    
+
     #create_deck_overview{
         padding-bottom: 35%;
     }
-    
+
     #editable_deck_overview{
         padding-bottom: 55%;
     }
-    
+
     #static_deck_overview{
         padding-bottom: 40%;
     }
@@ -272,19 +272,19 @@ a:link{
     .homescreen_chart{
         font-size: 500%;
     }
-    
+
     #create_deck_overview{
         padding-bottom: 25%;
     }
-    
+
     #editable_deck_overview{
         padding-bottom: 45%;
     }
-    
+
     #static_deck_overview{
         padding-bottom: 33%;
     }
-    
+
 }
 
 @media only screen and (max-width: 900px){
@@ -329,17 +329,21 @@ a:link{
     #create_card_overview{
         padding-bottom: 20%;
     }
-    
+
     #create_deck_overview{
         padding-bottom: 45%;
     }
-    
+
     #editable_deck_overview{
         padding-bottom: 70%;
     }
-    
+
     #static_deck_overview{
         padding-bottom: 50%;
     }
-    
+
 }
+
+/************
+// END of dashboard.component.css
+//************/

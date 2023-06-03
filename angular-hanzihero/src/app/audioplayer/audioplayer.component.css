@@ -74,25 +74,25 @@ button{
       left: 6%;
     }
   }
-  
+
   @media only screen and (max-width: 1500px){
     .options{
       left: 8%;
     }
   }
-  
+
   @media only screen and (max-width: 1000px){
     .options{
       left: 10%;
     }
   }
-  
+
   @media only screen and (max-width: 1000px){
     .options{
       left: 12%;
     }
   }
-  
+
   @media only screen and (max-width: 600px){
     .align_buttons{
       left: 2%;
@@ -120,25 +120,25 @@ button{
       left: 6%;
     }
   }
-  
+
   @media only screen and (max-width: 1500px){
     .options{
       left: 8%;
     }
   }
-  
+
   @media only screen and (max-width: 1000px){
     .options{
       left: 10%;
     }
   }
-  
+
   @media only screen and (max-width: 1000px){
     .options{
       left: 12%;
     }
   }
-  
+
   @media only screen and (max-width: 600px){
     .align_buttons{
       left: 2%;
@@ -166,25 +166,25 @@ button{
       left: 6%;
     }
   }
-  
+
   @media only screen and (max-width: 1500px){
     .options{
       left: 8%;
     }
   }
-  
+
   @media only screen and (max-width: 1000px){
     .options{
       left: 10%;
     }
   }
-  
+
   @media only screen and (max-width: 1000px){
     .options{
       left: 12%;
     }
   }
-  
+
   @media only screen and (max-width: 600px){
     .align_buttons{
       left: 2%;
@@ -213,25 +213,25 @@ button{
       left: 6%;
     }
   }
-  
+
   @media only screen and (max-width: 1500px){
     .options{
       left: 8%;
     }
   }
-  
+
   @media only screen and (max-width: 1000px){
     .options{
       left: 10%;
     }
   }
-  
+
   @media only screen and (max-width: 1000px){
     .options{
       left: 12%;
     }
   }
-  
+
   @media only screen and (max-width: 600px){
     .align_buttons{
       left: 2%;
@@ -242,3 +242,7 @@ button{
   }
 
 }
+
+/************
+// END of audioplayer.component.css
+//************/

@@ -1,15 +1,32 @@
+
+<!--
+ File: settings.component.html
+ This file contains the HTML for the settings view
+ Author: Gabor Szolnok
+
+
+ Requires the following files:
+ settings.component.css
+ settings.component.ts
+ settings.component.spec.ts
+ -->
 <app-headerbar></app-headerbar>
+<!--button positioned to top right-->
 <div id="save-changes" (click)="saveChanges()">{{"save_changes" | transloco}}</div>
 
-
+<!--Main part wrapper-->
 <div id="main-part">
+    <!--Left side of the view, disappears if the screen is not wide-->
     <div id="part-selector-wrapper">
+        <!--Get needed section indicators from the controller-->
         <ul id="part-selector">
             <li *ngFor="let item of settingsProperties" [class.selected]="item.class === 'selected'" id="{{item.name}}" (click)="jumpToSection(item)" style=" cursor: pointer;">{{ item.name | transloco }}</li>
         </ul>
 
     </div>
+    <!--Right sie of the view, update left side on scrolling-->
     <div id="settings-wrapper" (scroll)="onScroll($event)">
+        <!--Section to change username or email-->
         <div class="section">
             <div class="section-title" id="section-account">{{"account" | transloco}}</div>
             <div class="section-content">
@@ -19,6 +36,7 @@
 
                     <label for="email">{{"change_email" | transloco}}</label><br>
                     <input type="text" id="email" name="email" [(ngModel)]= "email" autocomplete="off"><br>
+                    <!--Error messages-->
                     <div *ngIf="reservedUsername" class="error-message"><b>{{"reserved_username" | transloco}}</b></div>
                     <div *ngIf="reservedEmail" class="error-message"><b>{{"reserved_email" | transloco}}</b></div>
                     <div *ngIf="emptyField" class="error-message"><b>{{"empty_field" | transloco}}</b></div>
@@ -27,7 +45,7 @@
 
             </div>
         </div>
-
+        <!--Section to change password-->
         <div class="section">
             <div class="section-title" id="section-password">{{"change_password"| transloco}}</div>
             <div class="section-content">
@@ -41,12 +59,14 @@
                     <label for="confirmnewpw">{{"confirm_new_password" | transloco}}</label><br>
                     <input type="password" id="confirmnewpw" name="password" [(ngModel)]="confirmNewPassword" autocomplete="off"><br>
 
+                    <!--Error messages-->
                     <div *ngIf="wrongOldPassword" class="error-message"><b>{{"wrong_password" | transloco}}</b></div>
                     <div *ngIf="nonMatchingPassword" class="error-message"><b>{{"non_matching_password" | transloco }}</b></div>
                 </form>
             </div>
         </div>
 
+        <!--Section to change language, classes indicate which language is selected-->
         <div class="section">
             <div class="section-title" id="section-language">{{"language" | transloco}}</div>
             <div class="section-content" id="language-wrapper">
@@ -56,11 +76,14 @@
             </div>
         </div>
 
+        <!--Section to change notifications-->
         <div class="section">
             <div class="section-title" id="section-notifications">{{"notifications" | transloco}}</div>
+            <!--Show which email is used for the notifications-->
             <div class="section-content notification-container">
               <span>{{"current_mail_address" | transloco}}: {{email}}</span><br>
-              <div class="notification-container">
+            <div class="notification-container">
+
                 <label>
                   <input type="radio" name="notification-option" [(ngModel)]="receiveNotifications" [value]="false">
                   {{"no_notifications" | transloco}}
@@ -70,31 +93,41 @@
                   {{"notification_pre" | transloco}} <input type="text" autocomplete="off" [(ngModel)]="notificationPeriod"> {{"notification_post" | transloco}}.
                 </label>
               </div>
+              <!--Error message-->
               <div *ngIf="badNotificationInput" class="error-message"><b>{{"wrong_input" | transloco}}</b></div>
             </div>
         </div>
 
+        <!--Section to set the session length-->
         <div class="section">
             <div class="section-title" id="section-sessions">{{"sessions" | transloco}}</div>
             <div class="section-content notification-container">
               <span>{{"session_length_pre" | transloco}}: <input type="text" autocomplete="off" [(ngModel)]="sessionLength"> {{"session_length_post" | transloco}}.</span>
+              <!--Error message-->
               <div *ngIf="badSessionInput" class="error-message"><b>{{"wrong_input" | transloco}}</b></div>
             </div>
 
         </div>
-
+        <!--Delete profile section-->
         <div class="section">
             <div class="section-title" id="section-delete">{{"delete_profile" | transloco}}</div>
             <div class="section-content deleteprofile-container">
+              <!--Warning messages-->
               <span>{{"delete_profile_warning" | transloco}}</span>
               <span>{{"delete_profile_warning2" | transloco}}</span>
+              <!--Form to proceed with the delete (password and button)-->
               <div>
                 <label for="confirmdelete">{{"enter_password_to_confirm" | transloco}}</label><br>
                 <input type="password" id="confirmdelete" name="deleteprofile" [(ngModel)]="deleteConfirm" autocomplete="off"><br>
                 <button class="delete-account-button" (click)="deleteAccount()">{{"confirm_and_delete" | transloco}}</button>
               </div>
+              <!--Error message-->
               <div *ngIf="wrongDeleteProfilePassword" class="error-message"><b>{{"wrong_password" | transloco}}</b></div>
             </div>
         </div>
     </div>
 </div>
+
+<!--
+  END of settings.component.html
+-->

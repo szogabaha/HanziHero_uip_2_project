@@ -40,7 +40,7 @@ export class SessionComponent {
   showForegroundHelper?: Boolean = false;
   showBackgroundHelper?: Boolean = false;
   showSentenceHelper?: Boolean = false;
-  
+
   // progress bar
   progress: number = 0;
 
@@ -371,7 +371,7 @@ export class SessionComponent {
         }
         let construct_string = "transform: translate(" + this.left_corner() +"%, " + height + "%) rotate(" + rotate + "deg);"
         FHand.setAttribute("style", construct_string);
-      
+
         // move to progress bar in upper center
       } else if(this.curFHelperMessage == 2){
         let height = -360;
@@ -379,10 +379,10 @@ export class SessionComponent {
           height = -280;
         } else if(this.max_height_600.matches){
           height = -200;
-        } 
+        }
         let construct_string = "transform: translate(0%, " + height + "%) rotate(0deg);"
         FHand.setAttribute("style", construct_string);
-      
+
       // move to app icon in upper left corner
       } else if(this.curFHelperMessage == 3){
         let height = -370;
@@ -391,7 +391,7 @@ export class SessionComponent {
           height = -280;
         } else if(this.max_height_600.matches){
           height = -200;
-        } 
+        }
         let construct_string = "transform: translate(" + (this.left_corner()-40) +"%, " + height + "%) rotate(-45deg);"
         FHand.setAttribute("style", construct_string);
       }
@@ -405,7 +405,7 @@ export class SessionComponent {
     if(BHand){
       // to sides
       if(this.curBHelperMessage == 0 || this.curBHelperMessage == 1){
-        
+
         // left side
         if(this.curBHelperMessage == 0){
           let construct_string = "transform: translate(" + this.left_corner() +"%, 0%);"
@@ -415,7 +415,7 @@ export class SessionComponent {
           let construct_string = "transform: translate(" + this.left_corner()*-1 +"%, 0%);"
           BHand.setAttribute("style", construct_string);
         }
-        
+
       // lower left corner
       } else if(this.curBHelperMessage == 2){
         let height = 270;
@@ -474,3 +474,8 @@ export class SessionComponent {
   }
 
 }
+
+
+/************
+// END of session.component.ts
+//************/

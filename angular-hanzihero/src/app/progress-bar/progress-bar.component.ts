@@ -9,3 +9,8 @@ export class ProgressBarComponent {
   @Input() value: number = 0
 
 }
+
+
+/************
+// END of progress-bar.component.ts
+//************/

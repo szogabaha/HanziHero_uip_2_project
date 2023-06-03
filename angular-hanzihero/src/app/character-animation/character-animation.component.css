@@ -1,3 +1,12 @@
+/**
+ * File: character-animation.component.css
+ *
+ * This file contains the CSS styling for the character drawing animation on the
+ * login, register and forgot password screen.
+ * Author: Gabor Szolnok
+ */
+
+ /**This is the styling that gets resized dynamically.*/
 .image-container {
   display: flex;
   justify-content: center;
@@ -6,6 +15,7 @@
   z-index: -1;
 }
 
+/**Slowly fading in and out in 4 second*/
 .fade-in-out {
   animation: fade-in-out-animation 4s infinite;
   position: absolute;
@@ -13,6 +23,7 @@
   height: 150px;
 }
 
+/**Keyframe used for the fade-in-out animation**/
 @keyframes fade-in-out-animation {
   0%, 100% {
     opacity: 0;
@@ -22,7 +33,12 @@
   }
 }
 
+/**There is a chance that a character doesn't appear in a period, this style is used for that**/
 .switched_off {
   opacity: 0;
   position: absolute;
 }
+
+/************
+// END of character-animation.component.css
+//************/
