@@ -52,7 +52,7 @@ Darian:
 - Language support (German)
 
 Gábor:
-- Backend (abandoned)
+- Backend 
 - Registering
 - Login
 - Settings
